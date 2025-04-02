@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* === Global Resets & Base Styles === */
 * {
     margin: 0;
@@ -64,7 +67,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     position: fixed;
     width: 100%;
     z-index: 1000;
@@ -72,13 +75,14 @@ nav {
     padding: 22px 0;
 }
 .logo {
-    margin-left: 1%;
     width: 188px;
     border-radius: 5%;
+    margin-left: 15%;
     display: block; /* Prevents potential spacing issues */
 }
 
 nav ul {
+    flex-direction: column; /* Example: Stack logo and links */
     margin-right: 50px;
     list-style: none; /* Explicitly remove list style for nav */
     padding-left: 0; /* Reset padding */
@@ -86,7 +90,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin: 10px 22px; /* Keep original margin */
+    margin: 0px 22px; /* Keep original margin */
     padding-left: 0; /* Override general ul li padding */
     position: relative; /* Needed for pseudo-element */
 }
@@ -105,6 +109,8 @@ nav ul li a {
     font-size: 22px;
     font-weight: bold;
     position: relative;
+    padding: 5px 0;   /* <<< ADD THIS LINE */
+    display: block;   /* <<< ADD THIS LINE */
 }
 
 nav ul li a::after {
@@ -124,41 +130,90 @@ nav ul li a:hover::after {
 
 /* === Dropdown === */
 /* The dropdown container */
+/* === Dropdown === */
 .dropdown {
-    float: left;
-    overflow: hidden;
+    position: relative;
 }
 
-  
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
-    display: none; /* Hidden by default */
+.dropdown-content {
+    /* display: none; <<< CHANGE TO display: block; */
+    display: block;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000; /* Ensure it appears above other elements */
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
+    background-color: #293241; /* Match nav background */
+    min-width: 200px; /* Adjust as needed */
+    z-index: 1001; /* Ensure it's above nav */
+    top: 100%; /* Position below the parent li */
+    left: 0;
+    padding: 10px 0; /* Add some vertical padding */
+    border-radius: 0 0 5px 5px; /* Optional: rounded bottom corners */
+
+    /* --- Add/Modify these lines for animation --- */
+    opacity: 0;                     /* Start fully transparent */
+    visibility: hidden;             /* Start hidden and non-interactive */
+    transform: translateY(-10px);   /* Start slightly moved up */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s; /* Animate properties */
+}
+
+.dropdown-content a {
+    color: #FEFEFE; /* Match nav link color */
+    padding: 10px 20px; /* Adjust padding */
     text-decoration: none;
     display: block;
     text-align: left;
-  }
-  
-  /* Add a grey background color to dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block; /* Show on hover */
-  }
+    font-size: 18px; /* Slightly smaller than main nav */
+    font-weight: normal; /* Lighter weight for dropdown items */
+    position: relative; /* For the hover effect */
+    margin: 0; /* Reset margin if needed */
+}
+
+/* Optional: Add hover underline effect matching main nav */
+.dropdown-content a::after {
+    content: '';
+    width: 0;
+    height: 2px; /* Thinner underline for dropdown */
+    background: #B8DEEF;
+    position: absolute;
+    left: 20px; /* Align with padding */
+    bottom: 5px; /* Adjust position */
+    transition: 0.22s;
+}
+
+.dropdown-content a:hover::after {
+    width: calc(100% - 40px); /* Adjust width based on padding */
+}
+
+/* Optional: Subtle background highlight on hover */
+.dropdown-content a:hover {
+     background-color: rgba(184, 222, 239, 0.1);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    opacity: 1;                   /* Fade to fully opaque */
+    visibility: visible;          /* Make it visible and interactive */
+    transform: translateY(0);     /* Move it down to its final position */
+}
+
+/* === Hamburger Menu Icon === */
+.menu-icon {
+    display: none; /* Hidden by default on larger screens */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 1%; /* Adjust as needed */
+    z-index: 1002; /* Ensure it's clickable above nav content */
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #FEFEFE; /* Color of the lines */
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+    flex-shrink: 0;
+}
 
 /* === Hero Section === */
 .hero {
@@ -169,13 +224,13 @@ nav ul li a:hover::after {
     margin-bottom: 60px;
     position: relative;
     margin-top: 80px; /* Add margin to avoid overlap with fixed/absolute nav */
-    width: 65vw;
     margin:auto;
     margin-top: 6%;
+    max-width: 1400px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 2rem + 3vw, 3.5rem);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: -2px;
@@ -459,55 +514,117 @@ nav ul li a:hover::after {
 
 
 /* === Media Queries === */
-@media (max-width: 768px) {
-    .hero {
-        margin-top: 60px; /* Adjust hero margin for smaller screens if nav changes */
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .grid {
-        grid-template-columns: 1fr; /* Stack grid items */
-    }
-    .section, .testimonials {
-        padding: 40px 20px;
-    }
-    /* video-embed padding-bottom already handles aspect ratio */
-    .hero::after {
-        border-left-width: 40px;
-        border-right-width: 40px;
-        border-top-width: 40px;
-    }
-    .full-width-card {
-        padding: 30px;
-    }
-    .full-width-card::after {
-        width: 40px;
-        height: 40px;
-        top: -20px;
-        left: -20px;
-    }
-    .elements-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
+/* === Media Queries === */
+@media (max-width: 900px) { /* Adjust breakpoint (768px) as needed */
+
     nav {
-        padding: 15px 0; /* Adjust nav padding */
+        min-height: 60px; /* Example: Adjust nav height */
+        padding: 10px 5%; /* Adjust padding */
+        flex-wrap: nowrap; /* <<< ADD THIS LINE */
     }
     .logo {
-        width: 120px; /* Smaller logo */
+        width: 120px; /* Example: Smaller logo */
     }
-    nav ul {
-        margin-right: 20px; /* Adjust nav spacing */
-    }
-    nav ul li {
-        margin: 8px 15px;
-    }
+
+    /* Show Hamburger, Hide Desktop Links */
     .menu-icon {
-        font-size: 36px; /* Slightly smaller icon */
-        top: 18px;
-        right: 5%;
+        display: block; /* Show the hamburger button */
+        flex-shrink: 0;
     }
-}
+    #nav-links { /* Target the UL by ID */
+        display: none; /* Hide the horizontal list */
+        position: absolute;
+        top: 100%; /* Position below the nav bar (adjust if nav height changes) */
+        left: 0;
+        width: 100%;
+        background-color: #293241; /* Background for the dropdown */
+        padding: 10px 0;
+        margin: 0;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+        border-top: 1px solid #425d81; /* Optional separator */
+    }
+
+    /* Style WHEN the menu is active (toggled open) */
+    #nav-links.active {
+        display: flex; /* Show the list when active */
+        max-height: calc(100vh - 60px); /* Max height = viewport height minus nav height (adjust 60px if your mobile nav height is different) */
+        overflow-y: auto; /* Allow vertical scrolling ONLY within this menu if needed */
+    }
+
+    /* Style list items and links in the mobile menu */
+    #nav-links li {
+        display: block;
+        width: 100%;
+        margin: 0;
+        text-align: center; /* Or left */
+    }
+    #nav-links li a { /* Includes .dropbtn */
+        padding: 15px 0;
+        display: block;
+        border-bottom: 1px solid #425d81; /* Separator */
+        font-size: 18px;
+    }
+    
+    /* Hide desktop hover underline on mobile */
+    #nav-links li a::after {
+        display: none;
+    }
+    #nav-links > li > a:hover {
+        background-color: rgba(184, 222, 239, 0.1); /* Same grey background */
+    }
+
+    /* --- Mobile Dropdown Integration --- */
+    #nav-links .dropdown {
+        position: static; /* Remove relative positioning */
+        overflow: visible; /* Allow content to show */
+    }
+
+    #nav-links .dropdown-content {
+        position: static; /* Display inline */
+        display: block; /* Always show when parent #nav-links is active */
+        box-shadow: none;
+        background-color: transparent; /* No separate background */
+        min-width: auto;
+        padding: 0;
+        border-radius: 0;
+        /* Reset animation properties */
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: none; /* Disable transitions for mobile */
+    }
+
+    #nav-links .dropdown-content a {
+        padding: 12px 20px 12px 40px; /* Indent sub-items */
+        text-align: center; /* Or left */
+        font-size: 16px;
+        font-weight: normal;
+        color: #B8DEEF; /* Lighter color for sub-items */
+        border-bottom: 1px solid #425d81; /* Separator */
+    }
+    /* Hide desktop hover effect for sub-items */
+     #nav-links .dropdown-content a::after {
+        display: none;
+     }
+     #nav-links .dropdown-content a:hover {
+         background-color: rgba(184, 222, 239, 0.1); /* Keep subtle hover */
+     }
+
+    /* Optional: Style the hamburger icon when active (to form an 'X') */
+    .menu-icon.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-icon.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* --- Add other mobile styles below --- */
+    /* e.g., .hero adjustments, .grid stacking, etc. */
+
+} /* End of @media query */
 
 @media (max-width: 480px) {
     html, body {
@@ -537,14 +654,15 @@ nav ul li a:hover::after {
     }
     /* Adjust nav for very small screens if needed (e.g., stack items) */
     nav {
-        flex-direction: column; /* Example: Stack logo and links */
         align-items: flex-start;
         padding: 10px;
     }
     .logo {
+        margin-top: 10px;
         margin-bottom: 10px;
     }
     nav ul {
+        flex-direction: column; /* Example: Stack logo and links */
         margin-right: 0;
         text-align: left;
     }
