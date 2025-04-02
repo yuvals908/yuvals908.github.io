@@ -36,13 +36,34 @@
     <!-- Removed empty #header div -->
     <div class="container">
         <nav>
-            <img src="images/logo.png" class="logo" alt="Schoolmait Logo" href=""/> <!-- Added alt text -->
-            <ul>
-                <li><a href="/pages/products.html">Products</a></li>
-                <li><a href="/pages/pricing.html">Pricing</a></li>
-                <li><a href="/pages/resources.html">Resources</a></li>
-                <li><a href="/pages/about.html">About</a></li>
-                <li><a href="/pages/contact.html">Contact</a></li>
+            <a href="/"> <!-- Make logo clickable -->
+                 <img src="images/logo.png" class="logo" alt="Schoolmait Logo"/>
+            </a>
+            <!-- Hamburger Menu Icon (Hidden on Desktop) -->
+            <button class="menu-icon" id="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Navigation Links -->
+            <ul id="nav-links">
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/pricing.html">Pricing</a></li>
+                <!-- Dropdown Start -->
+                <li class="dropdown">
+                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
+                    <a href="#" class="dropbtn">Resources</a>
+                    <div class="dropdown-content">
+                        <a href="/resources/faqs.html">FAQs</a>
+                        <a href="/resources/team.html">Our Team</a>
+                        <a href="/resources/principles.html">Guiding Principles</a>
+                        <a href="/resources/blog.html">Blog</a>
+                        <a href="/resources/news.html">News & Events</a>
+                    </div>
+                </li>
+                <!-- Dropdown End -->
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
             </ul>
         </nav>
     </div>
@@ -167,5 +188,15 @@
         <iframe src="https://www.cognitoforms.com/f/7Y6bnLXRv0GXF3ednExIqg/9" height="390" loading="lazy"></iframe> <!-- Removed inline style -->
         <script src="https://www.cognitoforms.com/f/iframe.js"></script>
     </section>
+        <!-- JavaScript for Hamburger Menu -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Toggle the 'active' class on the nav links list
+            menuToggle.classList.toggle('active'); // Optional: Toggle class on button for 'X' state
+        });
+    </script>
 </body>
 </html>
