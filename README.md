@@ -72,6 +72,8 @@ Our workflow ensures that all changes are tracked properly and that we don’t a
    - Open your repository on GitHub in your web browser.
    - Click "Compare & pull request" for your branch.
    - Provide a detailed description of your changes and submit the pull request.
+     - Make sure to include a keyword such as Resolve and the # of the issue you are working on
+     - i.e. `Resolves #5`
    - Wait for review and approval before merging into the `main` branch.
 
 
@@ -133,14 +135,10 @@ Understanding and following these concepts will help maintain an organized workf
 ## Working with VSCode
 
 VSCode is our Integrated Development Environment (IDE) that helps manage and edit code efficiently. Here’s how to work with VSCode:
-
-- **Opening the Project:**
-  - Open VSCode.
-  - Use the "Open Folder" option to open your local project directory (which is synced via Google Drive).
   
 - **Using Git in VSCode:**
   - VSCode has built-in Git support. You can view changes, commit, and push directly from the Source Control panel.
-  - Always check the current branch name in the bottom left corner of VSCode.
+  - Always check the current branch name in the source control GUI.
   
 - **Editing Files:**
   - Make your changes in PHP, HTML, CSS, JS, or any asset file.
@@ -160,7 +158,7 @@ VSCode is our Integrated Development Environment (IDE) that helps manage and edi
 <details>
   <summary><strong>Updating the Live Website from <code>main</code></strong> (Click to expand)</summary>
 
-### The website is deployed from the `website` branch, while the `main` branch contains the most up-to-date version of the project. To update the live website, follow these steps to merge the latest changes from `main` into `website`.
+##### The website is deployed from the `website` branch, while the `main` branch contains the most up-to-date version of the project. To update the live website, follow these steps to merge the latest changes from `main` into `website`.
 
 ## Step 1: Ensure `main` is Up to Date
 Before updating the website, make sure you are working with the latest version of `main`.
@@ -198,12 +196,11 @@ Following this workflow ensures that the website remains in sync with the latest
 ## Project Board
 
 We use a project board to track all issues and tasks. Access the board here:
-- [Project Board](https://github.com/users/schoolmait/projects/1)
+- [Project Board](https://github.com/users/schoolmait/projects/3)
 
 The board helps you:
 - See all open and closed issues.
-- Track progress on each task.
-- Link your branch and pull requests to specific issues.
+- Link your branch and pull requests to specific issues!
 - Discuss ideas in comments (Issues are presented like a forum thread)
 
 
