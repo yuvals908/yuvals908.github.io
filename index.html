@@ -55,14 +55,19 @@
                     <a href="#" class="dropbtn">Resources</a>
                     <div class="dropdown-content">
                         <a href="/resources/faqs.html">FAQs</a>
-                        <a href="/resources/team.html">Our Team</a>
-                        <a href="/resources/principles.html">Guiding Principles</a>
                         <a href="/resources/blog.html">Blog</a>
-                        <a href="/resources/news.html">News & Events</a>
                     </div>
                 </li>
                 <!-- Dropdown End -->
-                <li><a href="/about.html">About</a></li>
+                <li class="dropdown">
+                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
+                    <a href="#" class="dropbtn">About</a>
+                    <div class="dropdown-content">
+                        <a href="/about/team.html">Our Team</a>
+                        <a href="/about/principles.html">Guiding Principles</a>
+                        <a href="/about/news.html">News & Events</a>
+                    </div>
+                </li>
                 <li><a href="/contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -71,6 +76,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <h1>We are Promoting<br>Wellbeing in Schools</h1>
+        <a href="#cognito-form" class="hero-triangle"></a>
     </section>
 
     <!-- Main Content -->
@@ -181,8 +187,8 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="cta">
-        <h2>Let's Meet!</h2>
+    <section class="cta" id="cognito-form">
+        <h2>Get Started!</h2>
         <p>Write to us at <a href="mailto:info@Schoolmait.com">info@Schoolmait.com</a></p> <!-- Removed inline style -->
         <!-- Removed <br>, added margin via CSS -->
         <iframe src="https://www.cognitoforms.com/f/7Y6bnLXRv0GXF3ednExIqg/9" height="390" loading="lazy"></iframe> <!-- Removed inline style -->
@@ -196,6 +202,14 @@
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active'); // Toggle the 'active' class on the nav links list
             menuToggle.classList.toggle('active'); // Optional: Toggle class on button for 'X' state
+        });
+
+        document.querySelector('.hero-triangle').addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent default anchor behavior
+            document.querySelector('#cognito-form').scrollIntoView({
+                behavior: 'smooth', // Enables smooth scrolling
+                block: 'start' // Scrolls to the top of the target element
+            });
         });
     </script>
 </body>
