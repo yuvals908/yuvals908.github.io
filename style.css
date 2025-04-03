@@ -237,18 +237,24 @@ nav ul li a:hover::after {
     line-height: 1.1;
 }
 
-.hero::after {
-    content: '';
+.hero-triangle {
     position: absolute;
-    bottom: -30px; /* Overlaps border */
+    bottom: -30px; /* Matches the ::after pseudo-element */
     right: 20px;
     width: 0;
     height: 0;
     border-left: 60px solid transparent;
     border-right: 60px solid transparent;
-    border-top: 60px solid #293241; /* Matches border color */
-    z-index: 1; /* Ensure it's above the border */
+    border-top: 60px solid #293241; /* Matches the triangle color */
+    z-index: 2; /* Ensure it's above other elements */
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+.hero-triangle:hover {
+    transform: scale(1.1); /* Add a hover effect */
+}
+
 
 /* === Section & Grid Layout === */
 .section {
@@ -348,7 +354,7 @@ nav ul li a:hover::after {
 
 .elements-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
@@ -513,6 +519,166 @@ nav ul li a:hover::after {
 }
 
 
+/* === Error === */
+/* === 404 Error Page Specific Styles === */
+
+.error-page-container {
+    /* Inherits font, base color from body */
+    display: flex;
+    flex-direction: column; /* Stack nav and content */
+    justify-content: flex-start; /* Align content below nav */
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 120px; /* Generous space below fixed nav (adjust if nav height changes) */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 60px;
+    background-color: #ffffff; /* Ensure white background */
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.error-page-content-wrapper {
+    max-width: 700px; /* Max width for the content block */
+    width: 100%; /* Take available width up to max-width */
+    background: transparent; /* Use container background */
+    padding: 40px;
+    border: 5px solid #293241; /* Dark blue border like odd cards */
+    border-bottom: 10px solid #e63946; /* Red accent border like odd cards */
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 auto; /* Center block horizontally */
+}
+
+.error-page-code {
+    font-size: clamp(4rem, 15vw, 8rem); /* Responsive font size */
+    font-weight: 700;
+    color: #e63946; /* Red accent */
+    margin-bottom: 10px;
+    line-height: 1; /* Tighten line height */
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+}
+
+.error-page-title {
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive font size */
+    font-weight: 700;
+    color: #293241; /* Dark Blue/Grey */
+    text-transform: uppercase; /* Match hero style */
+    margin-bottom: 25px;
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+    line-height: 1.2;
+}
+
+.error-page-message {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #293241; /* Dark Blue/Grey */
+    margin-bottom: 40px;
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+}
+
+.error-page-message br {
+    /* Optional: Control space created by <br> if needed */
+    content: "";
+    display: block;
+    margin-bottom: 0.5em; /* Adjust space */
+}
+
+
+.error-page-links {
+    margin-top: 30px;
+}
+
+.error-page-links-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #293241; /* Dark Blue/Grey */
+    margin-bottom: 20px;
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+    /* text-transform: uppercase; */ /* Optional: Keep normal for contrast */
+}
+
+.error-page-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.error-page-links-list li {
+    margin-bottom: 15px;
+    padding-left: 0; /* Override global style */
+    position: static; /* Override global style */
+    transition: none; /* Override global style */
+}
+
+.error-page-links-list li:hover {
+    transform: none; /* Override global style */
+}
+
+.error-page-links-list li::before {
+    content: none; /* Override global style */
+}
+
+.error-page-links-list a {
+    color: #3d5a80; /* Medium Blue */
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    display: inline-block; /* Allows padding and border-bottom */
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+}
+
+.error-page-links-list a:hover,
+.error-page-links-list a:focus {
+    color: #e63946; /* Red accent */
+    border-bottom-color: #e63946; /* Underline on hover */
+    outline: none; /* Remove focus outline if desired */
+}
+
+
+/* --- Responsive Adjustments for 404 Page --- */
+
+@media (max-width: 900px) {
+    .error-page-container {
+         /* Adjust padding top if mobile nav height differs significantly */
+         /* padding-top: 80px; */
+    }
+    .error-page-content-wrapper {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-page-container {
+        padding-top: 100px; /* Adjust if needed for smaller nav */
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 40px;
+    }
+    .error-page-content-wrapper {
+        padding: 20px;
+        border-width: 3px; /* Thinner border */
+        border-bottom-width: 6px; /* Thinner bottom border */
+    }
+    .error-page-title {
+       /* font-size already clamped */
+    }
+    .error-page-message {
+        font-size: 1rem;
+    }
+    .error-page-links-title {
+        font-size: 1.2rem;
+    }
+    .error-page-links-list a {
+        font-size: 1rem;
+    }
+}
+
+/* === End of 404 Error Page Specific Styles === */
+
 /* === Media Queries === */
 /* === Media Queries === */
 @media (max-width: 900px) { /* Adjust breakpoint (768px) as needed */
@@ -530,6 +696,9 @@ nav ul li a:hover::after {
     .menu-icon {
         display: block; /* Show the hamburger button */
         flex-shrink: 0;
+    }
+    .elements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
     #nav-links { /* Target the UL by ID */
         display: none; /* Hide the horizontal list */
