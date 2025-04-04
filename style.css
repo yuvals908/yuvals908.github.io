@@ -679,6 +679,121 @@ nav ul li a:hover::after {
 
 /* === End of 404 Error Page Specific Styles === */
 
+
+/* === Cookie Consent Banner === */
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #293241; /* Match nav background */
+    color: #FEFEFE;            /* Match nav text */
+    padding: 15px 30px;        /* Adjust padding as needed */
+    z-index: 1001;             /* Ensure it's above most content, same as dropdown */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    font-family: 'Space Grotesk', sans-serif; /* Use site font */
+    font-size: 16px;           /* Slightly smaller than body text */
+    line-height: 1.5;
+
+    /* Flexbox for layout */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Space between text and buttons */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+#cookie-banner p {
+    margin: 0; /* Remove default paragraph margin */
+    flex-grow: 1; /* Allow text to take available space */
+}
+
+#cookie-banner a {
+    color: #B8DEEF; /* Use the light blue from nav hover */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#cookie-banner a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Container for the action buttons */
+#cookie-banner .cookie-banner-actions {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* Base button style */
+#cookie-banner .cookie-btn {
+    background-color: transparent;
+    border: 2px solid #FEFEFE;
+    color: #FEFEFE;
+    padding: 8px 18px;
+    font-family: inherit; /* Use banner font */
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px; /* Subtle rounding */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    text-transform: uppercase; /* Match site headings */
+    letter-spacing: 0.5px;
+}
+
+/* Accept button specific style (Primary Action - Red?) */
+#cookie-banner .cookie-btn-accept {
+    background-color: #e63946; /* Use site's primary red */
+    border-color: #e63946;
+    color: #ffffff;
+}
+
+#cookie-banner .cookie-btn-accept:hover {
+    background-color: rgba(240, 141, 148, 0.1);
+    border-color: #c42a37;
+    color: #ffffff;
+}
+
+/* Reject button specific style (Secondary Action - Outline?) */
+#cookie-banner .cookie-btn-reject {
+    /* Keep base outline style */
+    background-color: transparent;
+    border-color: #f08d94; /* Use the lighter pink/red */
+    color: #f08d94;
+}
+
+#cookie-banner .cookie-btn-reject:hover {
+    background-color: rgba(240, 141, 148, 0.1); /* Subtle background on hover */
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Responsive adjustments for the banner */
+@media (max-width: 768px) {
+    #cookie-banner {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center;
+        padding: 15px;
+        gap: 15px; /* Adjust gap for vertical layout */
+    }
+
+    #cookie-banner .cookie-banner-actions {
+        width: 100%; /* Make button container full width */
+        justify-content: center; /* Center buttons */
+    }
+}
+
+@media (max-width: 480px) {
+     #cookie-banner .cookie-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+     }
+     #cookie-banner .cookie-banner-actions {
+        flex-direction: column; /* Stack buttons on very small screens */
+        align-items: stretch; /* Make buttons full width */
+     }
+}
 /* === Media Queries === */
 /* === Media Queries === */
 @media (max-width: 900px) { /* Adjust breakpoint (768px) as needed */
