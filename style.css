@@ -29,6 +29,10 @@ body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
 }
 
+a {
+    color: #555;
+}
+
 h2 {
     font-size: 2rem;
     font-weight: 700;
@@ -140,7 +144,8 @@ nav ul li a:hover::after {
     display: block;
     position: absolute;
     background-color: #293241; /* Match nav background */
-    min-width: 200px; /* Adjust as needed */
+    min-width: 140px; /* Adjust as needed */
+    margin-left: -20px;
     z-index: 1001; /* Ensure it's above nav */
     top: 100%; /* Position below the parent li */
     left: 0;
@@ -148,7 +153,6 @@ nav ul li a:hover::after {
     border-radius: 0 0 5px 5px; /* Optional: rounded bottom corners */
 
     /* --- Add/Modify these lines for animation --- */
-    opacity: 0;                     /* Start fully transparent */
     visibility: hidden;             /* Start hidden and non-interactive */
     transform: translateY(-10px);   /* Start slightly moved up */
     transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s; /* Animate properties */
@@ -225,7 +229,7 @@ nav ul li a:hover::after {
     position: relative;
     margin-top: 80px; /* Add margin to avoid overlap with fixed/absolute nav */
     margin:auto;
-    margin-top: 6%;
+    margin-top: 7%;
     max-width: 1400px;
 }
 
@@ -375,6 +379,372 @@ nav ul li a:hover::after {
     display: block;
     margin-bottom: 10px;
     color: #e63946;
+}
+/* === Products Page Styles === */
+.product-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.product-text {
+    flex: 2;
+    max-width: 700px;
+}
+
+.product-image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.product-image img {
+    width: 144%;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 22%;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.product-text h2,
+.product-text h3 {
+    color: #3d5a80; /* Bluer headers */
+    margin-bottom: 15px;
+}
+
+.product-text p,
+.product-text ul {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.intro-paragraph {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-left: 4px solid #e63946;
+    margin-bottom: 30px;
+}
+
+.info-card h3 {
+    margin-top: 0;
+}
+
+.section-divider {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 40px 0;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e63946;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #c42a37;
+}
+
+.highlight-quote {
+    font-style: italic;
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 3px solid #e63946;
+    color: #666;
+}
+
+.advisor-section .product-text {
+    max-width: 100%; /* Full width for advisor section */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-image {
+        margin-top: 20px;
+        max-width: 100%;
+    }
+}
+/* === Quote Section (Above Footer) === */
+.quote-section {
+    background-color: #2E3A4C; /* Dark blueish grey from image */
+    color: #ffffff;
+    padding: 50px 0;
+    text-align: center;
+    /* Ensures it uses the existing container padding if needed */
+}
+/* Ensure container within quote section doesn't add extra padding if not needed */
+.quote-section .container {
+     max-width: 1140px; /* Or your standard container width */
+     padding: 0 15px; /* Standard container padding */
+     margin: 0 auto; /* Center the container */}
+
+.quote-section blockquote {
+    font-size: clamp(1.2rem, 2vw + 0.5rem, 1.6rem); /* Responsive font size */
+    font-weight: bold; /* Match image */
+    margin: 0 auto 20px auto;
+    max-width: 800px;
+    line-height: 1.4;
+    border: none;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+}
+
+.quote-section cite {
+    font-size: 0.9em;
+    font-style: normal;
+    color: #bdc3c7; /* Lighter grey from image */
+    display: block;
+    line-height: 1.5;
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+    text-align: right;
+}
+
+
+/* === Footer === */
+.site-footer {
+    background-color: #ffffff; /* White background */
+    padding: 50px 0 30px 0;
+    font-size: 15px; /* Adjusted base font size for footer */
+    color: #555; /* Default text color */
+    font-family: 'Space Grotesk', sans-serif; /* Ensure font */
+    /* Clear floats if anything above uses them */
+    clear: both;
+}
+
+/* Ensure container within footer uses standard padding */
+.site-footer .container {
+     max-width: 1140px; /* Or your standard container width */
+     padding: 0 15px; /* Standard container padding */
+     margin: 0 auto; /* Center the container */
+}
+
+/* Partner Logos Row */
+.footer-partners {
+    display: flex;
+    justify-content: space-around; /* Adjust to space-between or center if needed */
+    align-items: center; /* Vertically align items */
+    flex-wrap: wrap;
+    gap: 22px; /* Increased gap */
+    margin-bottom: 60px; /* Increased space below partners */
+    text-align: center;
+}
+
+.partner-item {
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.partner-item img {
+    max-height: 111px; /* Adjust logo height */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.partner-item p {
+    font-size: 0.8em; /* Smaller text */
+    color: #666;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Footer Links Row */
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px; /* Space between columns */
+    margin-bottom: 40px; /* Space below links */
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 160px; /* Ensure columns have minimum width */
+}
+
+.footer-column h4 {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 18px; /* More space below heading */
+    text-transform: uppercase;
+    color: #333; /* Darker heading */
+}
+
+/* Override global ul/li styles within footer columns */
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    padding-left: 0; /* Remove arrow padding */
+    margin-bottom: 12px; /* Adjust spacing */
+    position: static; /* Reset position */
+    transition: none; /* Remove transform */
+}
+.footer-column ul li:hover {
+    transform: none; /* Remove transform on hover */
+}
+
+.footer-column ul li::before {
+    content: none; /* Remove arrow */
+}
+
+.footer-column ul li a {
+    color: #555; /* Link color */
+    text-decoration: none;
+    font-size: 0.95em; /* Adjust link font size */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #000; /* Darken on hover */
+    text-decoration: underline;
+}
+
+/* Footer Divider */
+hr.footer-divider { /* Be more specific */
+    border: 0;
+    border-top: 1px solid #e0e0e0; /* Slightly lighter grey divider */
+    margin: 40px 0; /* Adjust spacing around divider */
+}
+
+/* Bottom Bar */
+.footer-bottom {
+    padding-left: 5%;
+    padding-right: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px 25px; /* Row gap, Column gap */
+    font-size: 0.85em;
+    color: #666;
+}
+
+.footer-copyright {
+    flex-grow: 1; /* Allow copyright to take space */
+    white-space: nowrap; /* Prevent wrapping */
+    text-align: left; /* Align left */
+    text-wrap: wrap;
+}
+
+.footer-legal {
+    text-align: center; /* Center legal links */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+.footer-legal a {
+    color: #666;
+    text-decoration: none;
+    margin: 0 8px; /* Spacing around links and separator */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.footer-legal a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer-social {
+    text-align: right; /* Align social icons right */
+     flex-shrink: 0; /* Prevent shrinking */
+}
+.footer-social a {
+    color: #666;
+    font-size: 2.2em; /* Icon size */
+    margin-left: 18px; /* Space between icons */
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block; /* Ensure proper spacing */
+}
+/* Specific hover colors (optional, based on image) */
+.footer-social a[aria-label="LinkedIn"]:hover { color: #0077b5; }
+.footer-social a[aria-label="Facebook"]:hover { color: #1877F2; }
+.footer-social a[aria-label="Twitter"]:hover { color: #1DA1F2; } /* Or black #000000 for X */
+
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 768px) {
+    .footer-partners {
+        justify-content: center; /* Center partners on smaller screens */
+        gap: 30px;
+    }
+     .footer-links {
+        justify-content: flex-start; /* Align columns to the start */
+        gap: 20px;
+    }
+    .footer-column {
+        min-width: calc(50% - 15px); /* Roughly two columns */
+        flex-basis: calc(50% - 15px);
+    }
+    .footer-bottom {
+        flex-direction: column; /* Stack bottom items */
+        align-items: center; /* Center items */
+        gap: 15px;
+    }
+    .footer-copyright,
+    .footer-legal,
+    .footer-social {
+        text-align: center; /* Center all text */
+        width: 100%; /* Make each take full width */
+    }
+     .footer-social a {
+         margin: 0 10px; /* Adjust spacing for centered icons */
+     }
+}
+
+@media (max-width: 480px) {
+    .footer-column {
+        min-width: 100%; /* Stack columns */
+        flex-basis: 100%;
+    }
+    .partner-item {
+        min-width: 120px; /* Allow smaller partner items */
+    }
+}
+
+/* Style the social media images in the footer */
+.footer-social img.social-icon {
+    height: 44px; /* Adjust height as desired */
+    width: auto;  /* Maintain aspect ratio */
+    vertical-align: middle; /* Helps align image within the link */
+    transition: opacity 0.2s ease; /* Optional: Add hover effect */
+}
+
+/* Adjust spacing between image links if needed (the default margin-left on 'a' might be fine) */
+.footer-social a {
+   /* font-size: 1.4em; Remove this - it was for icons */
+   margin-left: 15px; /* Keep or adjust this spacing */
+   display: inline-block; /* Ensure links behave predictably */
+}
+
+/* Optional: Add a hover effect like dimming */
+.footer-social a:hover img.social-icon {
+    opacity: 0.75;
 }
 
 /* === Embeds (Video, Diagram) === */
@@ -834,7 +1204,12 @@ nav ul li a:hover::after {
         max-height: calc(100vh - 60px); /* Max height = viewport height minus nav height (adjust 60px if your mobile nav height is different) */
         overflow-y: auto; /* Allow vertical scrolling ONLY within this menu if needed */
     }
-
+    .product-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin: auto;
+    }
     /* Style list items and links in the mobile menu */
     #nav-links li {
         display: block;
@@ -850,7 +1225,7 @@ nav ul li a:hover::after {
     }
     
     /* Hide desktop hover underline on mobile */
-    #nav-links li a::after {
+    #nav-links li a::after {    
         display: none;
     }
     #nav-links > li > a:hover {
@@ -905,8 +1280,6 @@ nav ul li a:hover::after {
         transform: rotate(-45deg) translate(7px, -6px);
     }
 
-    /* --- Add other mobile styles below --- */
-    /* e.g., .hero adjustments, .grid stacking, etc. */
 
 } /* End of @media query */
 
