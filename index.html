@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) --> 
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE0YBR0HPZ"></script> 
+     <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        
+        // Set default consent to deny cookies until the user agrees.
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+        
+        gtag('config', 'G-VE0YBR0HPZ'); 
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
@@ -212,5 +228,6 @@
             });
         });
     </script>
+    <script src="/js/cookies.js"></script>
 </body>
 </html>
