@@ -74,6 +74,7 @@ Our workflow ensures that all changes are tracked properly and that we don’t a
    - Provide a detailed description of your changes and submit the pull request.
      - Make sure to include a keyword such as Resolve and the # of the issue you are working on
      - i.e. `Resolves #5`
+     - More information [here](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
    - Wait for review and approval before merging into the `main` branch.
 
 
