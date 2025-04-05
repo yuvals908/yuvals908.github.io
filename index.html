@@ -1,93 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) --> 
-     <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE0YBR0HPZ"></script> 
-     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        // Set default consent to deny cookies until the user agrees.
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied'
-        });
-        
-        gtag('config', 'G-VE0YBR0HPZ'); 
-    </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Schoolmait promotes wellbeing in schools by providing comprehensive student wellbeing assessment solutions.">
-    <meta name="keywords" content="student wellbeing, student mental health, wellbeing assessment, student assessment tool, school interventions, student emotional support">
-    <meta name="author" content="Schoolmait">
-    <!-- Removed redundant viewport and X-UA-Compatible meta tags -->
+<head data-include="/components/head.html">
     <title>Schoolmait - Student Wellbeing Assessment Tools for Schools</title>
-    <link rel="icon" href="images/favicon.png" type="image/png"> <!-- Simplified favicon link -->
-    <meta property="og:title" content="Schoolmait - Promoting Student Wellbeing in Schools">
-    <meta property="og:description" content="Comprehensive wellbeing assessment tools for schools to track and promote student wellbeing.">
-    <meta property="og:url" content="https://www.schoolmait.com">
-    <meta name="twitter:card" content="summary">
-
-    <!-- Link to the external CSS file -->
+    <script src="/js/include.js"></script> 
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Font Link -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Schoolmait",
-        "url": "https://www.schoolmait.com",
-        "description": "Schoolmait provides student wellbeing assessment solutions for schools."
-    }
-    </script>
 </head>
 <body>
-    <!-- Removed empty #header div -->
-    <div class="container">
-        <nav>
-            <a href="/"> <!-- Make logo clickable -->
-                 <img src="images/logo.png" class="logo" alt="Schoolmait Logo"/>
-            </a>
-            <!-- Hamburger Menu Icon (Hidden on Desktop) -->
-            <button class="menu-icon" id="menu-toggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <!-- Navigation Links -->
-            <ul id="nav-links">
-                <li><a href="/products.html">Products</a></li>
-                <li><a href="/pricing.html">Pricing</a></li>
-                <!-- Dropdown Start -->
-                <li class="dropdown">
-                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
-                    <a href="#" class="dropbtn">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="/resources/faqs.html">FAQs</a>
-                        <a href="/resources/blog.html">Blog</a>
-                    </div>
-                </li>
-                <!-- Dropdown End -->
-                <li class="dropdown">
-                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
-                    <a href="#" class="dropbtn">About</a>
-                    <div class="dropdown-content">
-                        <a href="/about/team.html">Our Team</a>
-                        <a href="/about/principles.html">Guiding Principles</a>
-                        <a href="/about/news.html">News & Events</a>
-                    </div>
-                </li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <div data-include="/components/nav-bar.html"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -211,23 +130,6 @@
         <script src="https://www.cognitoforms.com/f/iframe.js"></script>
     </section>
         <!-- JavaScript for Hamburger Menu -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Toggle the 'active' class on the nav links list
-            menuToggle.classList.toggle('active'); // Optional: Toggle class on button for 'X' state
-        });
-
-        document.querySelector('.hero-triangle').addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            document.querySelector('#cognito-form').scrollIntoView({
-                behavior: 'smooth', // Enables smooth scrolling
-                block: 'start' // Scrolls to the top of the target element
-            });
-        });
-    </script>
-    <script src="/js/cookies.js"></script>
 </body>
 </html>
