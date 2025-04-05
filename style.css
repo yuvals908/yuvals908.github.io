@@ -574,7 +574,7 @@ nav ul li a:hover::after {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px; /* Space between columns */
+    gap: 10%; /* Space between columns */
     margin-bottom: 40px; /* Space below links */
 }
 
