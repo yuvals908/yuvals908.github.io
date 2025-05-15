@@ -17,46 +17,7 @@
 
 </head>
 <body>
-
-    <!-- Reuse the exact same navigation structure -->
-    <div class="container">
-        <nav>
-            <a href="/"> <!-- Make logo clickable -->
-                 <img src="images/logo.png" class="logo" alt="Schoolmait Logo"/>
-            </a>
-            <!-- Hamburger Menu Icon (Hidden on Desktop) -->
-            <button class="menu-icon" id="menu-toggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <!-- Navigation Links -->
-            <ul id="nav-links">
-                <li><a href="/products.html">Products</a></li>
-                <li><a href="/pricing.html">Pricing</a></li>
-                <!-- Dropdown Start -->
-                <li class="dropdown">
-                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
-                    <a href="#" class="dropbtn">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="/resources/faqs.html">FAQs</a>
-                        <a href="/resources/blog.html">Blog</a>
-                    </div>
-                </li>
-                <!-- Dropdown End -->
-                <li class="dropdown">
-                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
-                    <a href="#" class="dropbtn">About</a>
-                    <div class="dropdown-content">
-                        <a href="/resources/team.html">Our Team</a>
-                        <a href="/resources/principles.html">Guiding Principles</a>
-                        <a href="/resources/news.html">News & Events</a>
-                    </div>
-                </li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <div id="header-include"></div>
 
     <!-- 404 Error Page Content -->
     <div class="error-page-container">
@@ -82,31 +43,27 @@
         </div>
     </div>
 
-    <!-- Include the same JavaScript for the Hamburger Menu -->
+    <div id="footer-include"></div>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        // Check if elements exist before adding listener (robustness)
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-            });
-        }
-
-        // Optional: Close menu if clicking outside on mobile
-        document.addEventListener('click', function(event) {
-            if (navLinks && menuToggle && navLinks.classList.contains('active')) {
-                const isClickInsideNav = navLinks.contains(event.target);
-                const isClickOnToggle = menuToggle.contains(event.target);
-                if (!isClickInsideNav && !isClickOnToggle) {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('active');
+    function includeHTML(id, file) {
+        fetch(file)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+                if(id === 'header-include') {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const navLinks = document.getElementById('nav-links');
+                    if(menuToggle && navLinks) {
+                        menuToggle.addEventListener('click', () => {
+                            navLinks.classList.toggle('active');
+                            menuToggle.classList.toggle('active');
+                        });
+                    }
                 }
-            }
-        });
+            });
+    }
+    includeHTML('header-include', 'includes/header.html');
+    includeHTML('footer-include', 'includes/footer.html');
     </script>
-
 </body>
 </html>

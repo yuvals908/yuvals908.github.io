@@ -49,45 +49,7 @@
     </script>
 </head>
 <body>
-    <!-- Removed empty #header div -->
-    <div class="container">
-        <nav>
-            <a href="/"> <!-- Make logo clickable -->
-                 <img src="images/logo.png" class="logo" alt="Schoolmait Logo"/>
-            </a>
-            <!-- Hamburger Menu Icon (Hidden on Desktop) -->
-            <button class="menu-icon" id="menu-toggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <!-- Navigation Links -->
-            <ul id="nav-links">
-                <li><a href="/products.html">Products</a></li>
-                <li><a href="/pricing.html">Pricing</a></li>
-                <!-- Dropdown Start -->
-                <li class="dropdown">
-                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
-                    <a href="#" class="dropbtn">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="/resources/faqs.html">FAQs</a>
-                        <a href="/resources/blog.html">Blog</a>
-                    </div>
-                </li>
-                <!-- Dropdown End -->
-                <li class="dropdown">
-                    <!-- You can link the main "Resources" to a general resources page or use "#" if it's just a trigger -->
-                    <a href="#" class="dropbtn">About</a>
-                    <div class="dropdown-content">
-                        <a href="/about/team.html">Our Team</a>
-                        <a href="/about/principles.html">Guiding Principles</a>
-                        <a href="/about/news.html">News & Events</a>
-                    </div>
-                </li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <div id="header-include"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -210,123 +172,30 @@
         <iframe src="https://www.cognitoforms.com/f/7Y6bnLXRv0GXF3ednExIqg/9" height="390" loading="lazy"></iframe> <!-- Removed inline style -->
         <script src="https://www.cognitoforms.com/f/iframe.js"></script>
     </section>
-        <!-- JavaScript for Hamburger Menu -->
+
+    <div id="footer-include"></div>
+
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active'); // Toggle the 'active' class on the nav links list
-            menuToggle.classList.toggle('active'); // Optional: Toggle class on button for 'X' state
-        });
-
-        document.querySelector('.hero-triangle').addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent default anchor behavior
-            document.querySelector('#cognito-form').scrollIntoView({
-                behavior: 'smooth', // Enables smooth scrolling
-                block: 'start' // Scrolls to the top of the target element
-            });
-        });
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                    if(id === 'header-include') {
+                        const menuToggle = document.getElementById('menu-toggle');
+                        const navLinks = document.getElementById('nav-links');
+                        if(menuToggle && navLinks) {
+                            menuToggle.addEventListener('click', () => {
+                                navLinks.classList.toggle('active');
+                                menuToggle.classList.toggle('active');
+                            });
+                        }
+                    }
+                });
+        }
+        includeHTML('header-include', 'includes/header.html');
+        includeHTML('footer-include', 'includes/footer.html');
     </script>
     <script src="/js/cookies.js"></script>
-    
-
-<!-- Footer Section -->
-    <section class="quote-section">
-        <div class="container">
-            <blockquote>
-                "Early detection of mild behavioral and emotional symptoms... viewed as key to preventing or resolving mental health disorders"
-            </blockquote>
-            <cite>
-                Kim, Jihye; Kim, Dong-gook; and Kamphaus, Randy (2022) <br>
-                "Early Detection of Mental Health Through Universal Screening at Schools" <br>
-                Georgia Educational Researcher
-            </cite>
-        </div>
-    </section>
-
-
-    <footer class="site-footer">
-        <div class="container">
-            <!-- Partner Logos Row -->
-            <div class="footer-partners">
-                <div class="partner-item">
-                    <!-- Replace with your actual image path -->
-                    <img src="images/made-in-lux.png" alt="Made in Luxembourg">
-                    <!-- Optional: Add <p>Made in Luxembourg</p> if text isn't part of the image -->
-                </div>
-                <div class="partner-item">
-                     <!-- Replace with your actual image path -->
-                    <img src="images/pulse.png" alt="PULSE Logo">
-                    <p>Member of PULSE<br>Luxembourg Startup<br>Association</p>
-                </div>
-                <div class="partner-item">
-                     <!-- Replace with your actual image path -->
-                    <img src="images/SDGs.png" alt="Sustainable Development Goals">
-                    <p>Schoolmait promotes<br>4 UN SDGs</p>
-                </div>
-            </div>
-
-            <!-- Footer Links Row -->
-            <div class="footer-links">
-                 <!-- Column 1: About (links adjusted to your existing structure) -->
-                <div class="footer-column">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="/about/team.html">Our Team</a></li>
-                        <li><a href="/about/principles.html">Guiding Principles</a></li>
-                        <li><a href="/about/news.html">News & Events</a></li>
-                    </ul>
-                </div>
-                 <!-- Column 2: Products (links adjusted) -->
-                <div class="footer-column">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="/products.html">Surveys for schools</a></li>
-                        <li><a href="/program-managers.html">Surveys for consultants</a></li> <!-- Link to section if applicable -->
-                        <li><a href="/pricing.html">Pricing</a></li>
-                    </ul>
-                </div>
-                 <!-- Column 3: Resources (links adjusted) -->
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/resources/faqs.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <!-- Column 4: Wellbeing Blog (links adjusted) -->
-                <div class="footer-column">
-                    <h4>Wellbeing Blog</h4>
-                    <ul>
-                        <li><a href="/resources/blog.html">A call for action</a></li> <!-- Example link -->
-                        <li><a href="/resources/blog.html">About Sleep</a></li> <!-- Example link -->
-                    </ul>
-                </div>
-            </div>
-
-            <hr class="footer-divider">
-
-            <!-- Bottom Bar -->
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    Copyright © 2025 Schoolmait | <a href="/legal/terms.html">Terms of Use</a> | <a href="/legal/privacy-policy.html">Privacy Policy</a> | <a href="/credits.html">Credits</a> | <a href="/contact.html">Contact Us</a>
-                </div>
-
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/schoolmait/" target="_blank" rel="noopener noreferrer">
-                        <img src="images/linkedin-logo.png" alt="LinkedIn" class="social-icon">
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100092340713612" target="_blank" rel="noopener noreferrer">
-                        <img src="images/facebook-logo.png" alt="Facebook" class="social-icon">
-                    </a>
-                    <a href="https://x.com/schoolmait" target="_blank" rel="noopener noreferrer">
-                        <!-- Use twitter.png or x-logo.png depending on your file -->
-                        <img src="images/twitter-logo.png" alt="Twitter" class="social-icon">
-                        <!-- Or: <img src="images/x-logo.png" alt="X (formerly Twitter)" class="social-icon"> -->
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
