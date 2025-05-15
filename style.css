@@ -34,7 +34,7 @@ a {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -76,10 +76,10 @@ nav {
     width: 100%;
     z-index: 1000;
     background-color: #293241;
-    padding: 22px 0;
+    padding: 10px 0; /* Thinner header */
 }
 .logo {
-    width: 188px;
+    width: 170px;
     border-radius: 5%;
     margin-left: 15%;
     display: block; /* Prevents potential spacing issues */
@@ -234,7 +234,7 @@ nav ul li a:hover::after {
 }
 
 .hero h1 {
-    font-size: clamp(2rem, 2rem + 3vw, 3.5rem);
+    font-size: clamp(1.5rem, 1.5rem + 2vw, 2.5rem);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: -2px;
@@ -338,7 +338,7 @@ nav ul li a:hover::after {
 .full-width-card {
     border: 8px solid #293241;
     border-top: 12px solid #e63946;
-    padding: 40px;
+    padding: 10px;
     background: transparent;
     position: relative;
     /* Removed hover effect from original internal styles comment */
@@ -1331,4 +1331,39 @@ hr.footer-divider { /* Be more specific */
         font-size: 32px;
         top: 15px;
     }
+}
+/* === Large Screen Margins for Body Content === */
+@media (min-width: 1200px) {
+  body {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  /* Ensure header and footer remain full-width */
+  nav,
+  .site-footer,
+  #cookie-banner {
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* Adjust specific sections to respect body padding */
+  .hero,
+  .section,
+  .testimonials,
+  .cta,
+  .quote-section,
+  .error-page-container {
+    padding-left: 40px; /* Restore original section padding */
+    padding-right: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px; /* Maintain max-width consistency */
+    box-sizing: border-box;
+  }
 }
