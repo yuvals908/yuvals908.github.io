@@ -37,6 +37,22 @@
    <!-- Google Font Link -->
    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 
+   <!-- Responsive image style for product images -->
+   <style>
+      .responsive-product-img {
+         max-width: 100%;
+         height: auto;
+         display: block;
+         margin-left: 0;
+      }
+      .product-image {
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         gap: 1rem;
+      }
+   </style>
+
    <!-- Schema Markup -->
    <script type="application/ld+json">
    {
@@ -87,8 +103,8 @@
                 <p><a href="/pricing.html" class="button">Check here</a></p>
             </div>
             <div class="product-image">
-                <img src="images/school-wellbeing-score.png" alt="School Wellbeing Score">
-                <img src="images/split-by-elements.png" alt="Split by elements">
+                <img src="images/school-wellbeing-score.png" alt="School Wellbeing Score" class="responsive-product-img">
+                <img src="images/split-by-elements.png" alt="Split by elements" class="responsive-product-img">
             </div>
         </div>
         <hr class="section-divider">

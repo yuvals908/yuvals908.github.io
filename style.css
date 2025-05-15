@@ -1367,3 +1367,25 @@ hr.footer-divider { /* Be more specific */
     box-sizing: border-box;
   }
 }
+
+/* Credits Page Styles */
+.credit-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.credit-logo {
+    flex-shrink: 0;
+    width: 120px;
+    height: 64px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.credit-logo img {
+    max-height: 48px;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}

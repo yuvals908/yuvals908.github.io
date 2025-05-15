@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-include"></div>
+    <section class="credits-section">
+        <h1>Credits</h1>
+        <p>This page is dedicated to some of the amazing service providers & creators who supported us in making Schoolmait.com such an amazing experience.</p>
+        <br>
+        <p>If you are a startup looking for a set of strong and affordable tools to run your business - search no more.  These tools combine great quality and startup friendly offers. </p>
+        <br>
+        
+        <div class="credit-block">
+            <div class="credit-logo">
+                <img src="images/credit Gerry.png" alt="Gerry Stoverock">
+            </div>
+            <div class="credit-content">
+                <h2>Gerry Stoverock</h2>
+                <p class="note">Our awesome photographer, thank you Gerry!</p>
+            </div>
+        </div>
+        <div class="credit-block">
+            <div class="credit-logo">
+                <img src="images/credit ClickUp.png" alt="ClickUp">
+            </div>
+            <div class="credit-content">
+                <h2>ClickUp</h2>
+                <p class="note">ClickUp is doing a superb job keeping all our tasks and deadlines under control.  Thank you ClickUp team!</p>
+            </div>
+        </div>
+        <div class="credit-block">
+            <div class="credit-logo">
+                <img src="images/credit PDFgear.jpeg" alt="PDFgear">
+            </div>
+            <div class="credit-content">
+                <h2>PDFgear</h2>
+                <p class="note">We think it's the best PDF editor out there.</p>
+            </div>
+        </div>
+        <div class="credit-block">
+            <div class="credit-logo">
+                <img src="images/credit pandle-logo.png" alt="pandle">
+            </div>
+            <div class="credit-content">
+                <h2>pandle</h2>
+                <p class="note">Simplifying bookkeeping.</p>
+            </div>
+        </div>
+        <div class="credit-block">
+            <div class="credit-logo">
+                <img src="images/credit Adobe-stock.png" alt="Stock Adobe">
+            </div>
+            <div class="credit-content">
+                <h2>Stock Adobe</h2>
+                <p class="note">Amazing collection of  high-quality images and graphics.</p>
+            </div>
+        </div>
+        <div class="credit-block">
+            <div class="credit-logo">
+                <img src="images/credit Flaticon.png" alt="Flaticon">
+            </div>
+            <div class="credit-content">
+                <h2>Flaticon</h2>
+                <p class="note">Think of any kind of icon - it is there.</p>
+                <ul class="credit-list">
+                    <li>Website icons created by Freepik - Flaticon</li>
+                    <li>Adobe stock icons created by Freepik - Flaticon</li>
+                    <li>Register icons created by Pixel perfect - Flaticon</li>
+                    <li>Setting icons created by gungyoga04 - Flaticon</li>
+                    <li>Launch icons created by Freepik - Flaticon</li>
+                    <li>Big data icons created by xnimrodx - Flaticon</li>
+                    <li>Action icons created by Freepik - Flaticon</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+    <div id="footer-include"></div>
+    <script>
+    function includeHTML(id, file) {
+        fetch(file)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+            });
+    }
+    includeHTML('header-include', 'includes/header.html');
+    includeHTML('footer-include', 'includes/footer.html');
+    </script>
+</body>
+</html>
