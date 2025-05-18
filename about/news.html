@@ -5,4 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placeholder</title>
     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header-include"></div>
+
+    <!-- Page content goes here -->
+
+    <div id="footer-include"></div>
+
+    <script>
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => {
+                    // Fix relative image paths in includes for subfolders
+                    if (window.location.pathname.startsWith('/about/')) {
+                        data = data.replace(/src="images\//g, 'src="../images/');
+                    }
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        includeHTML('header-include', '/includes/header.html');
+        includeHTML('footer-include', '/includes/footer.html');
+    </script>
+    <script src="/js/cookies.js"></script>
+</body>
 </html>
