@@ -3,6 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Contact Schoolmait: Get in touch with our team for questions, support, or partnership opportunities.">
+    <title>Contact Us | Schoolmait</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-include"></div>
+    <section class="section">
+        <div class="contact-two-col">
+            <div class="contact-hero-col">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you!<br>
+                Use the following form or email us at <a href="mailto:info@schoolmait.com">info@schoolmait.com</a></p>
+            </div>
+            <div class="contact-form-col">
+                <div class="card" style="max-width:480px;width:100%;margin:auto;">
+                    <h2 style="margin-top:0;">Send us a message</h2>
+                    <script src="https://www.cognitoforms.com/f/seamless.js" data-key="7Y6bnLXRv0GXF3ednExIqg" data-form="1"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer-include"></div>
+    <script>
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => {
+                    if (window.location.pathname.startsWith('/about/')) {
+                        data = data.replace(/src="images\//g, 'src="../images/');
+                    }
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        includeHTML('header-include', '/includes/header.html');
+        includeHTML('footer-include', '/includes/footer.html');
+    </script>
+    <script src="/js/cookies.js"></script>
+</body>
 </html>
