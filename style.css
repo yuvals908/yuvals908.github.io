@@ -1467,3 +1467,42 @@ hr.footer-divider {
     transform: none;
     box-shadow: none;
 }
+
+/* Privacy Policy Document Style */
+.policy-doc-style {
+    background: #fff;
+    border: 0px solid #e0e0e0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 40px 30px;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    font-size: 1.08em;
+    line-height: 1.7;
+}
+.policy-doc-style h2, .policy-doc-style h3 {
+    margin-top: 2.2em;
+    margin-bottom: 0.7em;
+    color: #293241;
+    font-weight: 700;
+}
+.policy-doc-style h3 {
+    font-size: 1.1em;
+    text-transform: none;
+}
+.policy-doc-style ul {
+    list-style: disc;
+    margin-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+.policy-doc-style li {
+    margin-bottom: 0.1em !important;
+    padding-left: 0;
+}
+.policy-doc-style a { color: #3d5a80; text-decoration: underline; }
+.policy-doc-style a:hover { color: #e63946; }
+.policy-doc-style ul li::before {
+    content: none !important;
+    background: none !important;
+    color: inherit !important;
+}
