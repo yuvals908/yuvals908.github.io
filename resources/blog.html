@@ -3,6 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Student wellbeing blog: articles, tips, and resources for schools and students.">
+    <title>Student Wellbeing Blog</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-include"></div>
+    <section class="section" style="margin-top:7%;">
+        <div class="full-width-card">
+            <h2>Student Wellbeing Blog</h2>
+            <p>Explore our latest articles on student wellbeing, mental health, and tips for a happier school life.</p>
+        </div>
+        <div class="card-grid" style="display: flex; flex-direction: column; gap: 32px; justify-content: center; align-items: center; margin-top: 40px;">
+            <!-- Article 2: Sleep -->
+            <div style="display: flex; flex-direction: row; align-items: flex-start; padding: 0; max-width: 800px; width: 100%; min-width: 320px; background: none; box-shadow: none; border-radius: 0;">
+                <img src="/images/articles/AdobeStock_221109160.jpeg" alt="Importance of Sleep" style="width: 180px; height: 120px; object-fit: cover; border-radius: 12px; margin-right: 32px; background: #fff;">
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <a href="/resources/about-sleep.html" style="text-decoration: none; color: #293241; font-size: 1.35em; font-weight: bold;">A Silent Crisis: Students Are Missing Out on Sleep</a>
+                    <div style="color: #888; font-size: 1em; margin: 10px 0 12px 0;">August 2024</div>
+                    <div style="color: #293241; font-size: 1em; margin-bottom: 0;">Why good sleep matters for students' learning, health, and happiness.</div>
+                </div>
+            </div>
+            <hr style="width: 100%; max-width: 800px; border: none; border-top: 1.5px solid #e0e0e0; margin: 7px 0;" />
+            <!-- Article 1: Wellbeing of India's Children -->
+            <div style="display: flex; flex-direction: row; align-items: flex-start; padding: 0; max-width: 800px; width: 100%; min-width: 320px; background: none; box-shadow: none; border-radius: 0;">
+                <img src="/images/articles/AdobeStock_334688535-b.png" alt="Wellbeing of India's Children" style="width: 180px; height: 120px; object-fit: cover; object-position: left; border-radius: 12px; margin-right: 32px; background: #fff;">
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    <a href="/resources/the-wellbeing-of-indias-children.html" style="text-decoration: none; color: #293241; font-size: 1.35em; font-weight: bold;">The Wellbeing of India's Children</a>
+                    <div style="color: #888; font-size: 1em; margin: 10px 0 12px 0;">May 2024</div>
+                    <div style="color: #293241; font-size: 1em; margin-bottom: 0;">A look at challenges and solutions for improving children's wellbeing in India today.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="footer-include"></div>
+    <script>
+      // Simple include for header and footer
+      fetch('/includes/header.html').then(r=>r.text()).then(t=>document.getElementById('header-include').innerHTML=t);
+      fetch('/includes/footer.html').then(r=>r.text()).then(t=>document.getElementById('footer-include').innerHTML=t);
+    </script>
+</body>
 </html>
