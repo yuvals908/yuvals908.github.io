@@ -3,6 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Transparent pricing for Schoolmait wellbeing assessment tools. Use our estimator to calculate your school's price.">
+    <title>Pricing | Schoolmait</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-include"></div><br><br>
+    <section class="section">
+        <div class="card" style="max-width:800px;margin:auto;">
+            <h2 style="margin-top:0;">Pricing Estimator</h2>
+            <p>Our pricing is based on the number of students per survey per school. Public schools from lower-income countries* may qualify for a 50% discount.<br><br></p>
+            <div class="calculator-container">
+                <label for="numStudents">Number of Students: <span id="numStudentsValue">100</span></label>
+                <br>
+                <input type="range" id="numStudents" name="numStudents" min="0" max="1005" value="100" step="5" oninput="updatePrice()" style="accent-color:#3d5a80;">
+                <p id="price" style="font-size:1.5em;font-weight:bold;"></p>
+                <span id="vat-note" style="display:none;">plus VAT, if applicable</span>
+            </div>
+            <a id="submitButton" href="https://www.schoolmait.com/get-started" class="button" style="margin-top:18px;">Get Started</a>
+        </div>
+    </section>
+    <div style="max-width:800px;margin:18px auto 0 auto;font-size:0.85em;color:#666;">
+        <span style="font-weight:bold;">* Lower-Income Countries:</span>
+        <ul style="margin-top:6px;margin-bottom:0;padding-left:20px;">
+            <li>All African countries</li>
+            <li>
+                All Asian countries except Bahrain, Brunei Darussalam, Hong Kong SAR, Japan, Republic of Korea, Kuwait, Macau SAR, Qatar, Saudi Arabia, Singapore, UAE
+            </li>
+            <li>All Latin American countries</li>
+            <li>
+                And the following countries in wider Europe: Albania, Armenia, Azerbaijan, Belarus, Bosnia-Herzegovina, Bulgaria, Croatia, Czech Republic, Estonia, Georgia, Greece, Hungary, Kazakhstan, Kosovo, Latvia, Lithuania, FYR of Macedonia, Moldova, Montenegro, Poland, Portugal, Romania, Russia, Serbia, Slovakia, Slovenia, Turkey and Ukraine.
+            </li>
+        </ul>
+    </div>
+    <div id="footer-include"></div>
+    <script>
+    function includeHTML(id, file) {
+        fetch(file)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+                if(id === 'header-include') {
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const navLinks = document.getElementById('nav-links');
+                    if(menuToggle && navLinks) {
+                        menuToggle.addEventListener('click', () => {
+                            navLinks.classList.toggle('active');
+                            menuToggle.classList.toggle('active');
+                        });
+                    }
+                }
+            });
+    }
+    includeHTML('header-include', 'includes/header.html');
+    includeHTML('footer-include', 'includes/footer.html');
+    function updatePrice() {
+        var numStudents = document.getElementById("numStudents").value;
+        document.getElementById("numStudentsValue").innerText = numStudents < 1001 ? numStudents : "1000+";
+        var price = 0;
+        if (numStudents < 100) {
+            price = 700;
+        } else if (numStudents < 300) {
+            price = 700 + (numStudents - 100) * 6;
+        } else if (numStudents < 600) {
+            price = 1900 + (numStudents - 300) * 5;
+        } else if (numStudents < 1001) {
+            price = 3400 + (numStudents - 600) * 4;
+        } else {
+            document.getElementById("price").innerText = "Request a quote";
+            document.getElementById("submitButton").innerText = "Contact us!";
+            document.getElementById("vat-note").style.display = "none";
+            return;
+        }
+        var formattedPrice = price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById("price").innerText = "€" + formattedPrice;
+        document.getElementById("vat-note").style.display = "inline";
+    }
+    updatePrice();
+    </script>
+</body>
 </html>
