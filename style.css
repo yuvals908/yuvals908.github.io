@@ -229,7 +229,7 @@ nav ul li a:hover::after {
     border-bottom: 10px solid #293241;
     margin-bottom: 60px;
     position: relative;
-    margin-top: 7%;
+    margin-top: 10%;
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
@@ -265,7 +265,7 @@ nav ul li a:hover::after {
 /* Sections & Grid Layout */
 /* ========================================================================== */
 .section {
-    padding: 60px 40px;
+    padding: 30px 40px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
@@ -508,8 +508,6 @@ nav ul li a:hover::after {
     font-family: 'Space Grotesk', sans-serif;
 }
 
-.quote-section cite favorables: 0;
-}
 
 .quote-section cite {
     font-size: 0.9em;
@@ -1194,8 +1192,6 @@ hr.footer-divider {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
-    .error-page-container {
-    }
 
     .error-page-content-wrapper {
         padding: 30px;
@@ -1328,9 +1324,6 @@ hr.footer-divider {
         padding: 20px;
         border-width: 3px;
         border-bottom-width: 6px;
-    }
-
-    .error-page-title {
     }
 
     .error-page-message {

@@ -1,8 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VE0YBR0HPZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+        gtag('config', 'G-VE0YBR0HPZ');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Meet the Schoolmait team: committed to promoting positive mental health and wellbeing in education.">
+    <title>Our Team - Schoolmait</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-include"></div><br><br>
+    <section class="hero hero--small">
+        <h1>Meet our Team</h1>
+        <p>We are committed to promote positive mental health and wellbeing in education.</p>
+    </section>
+    <section class="section">
+        <div class="grid">
+            <div class="card">
+                <img src="/images/team/BK_IMG_3296 small.png" alt="Bosmat" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
+                <h2>Bosmat</h2>
+                <p>Bosmat holds an MA in Social Sciences and Educational Sciences and a BA in Psychology.<br><br>With years of experience as a coach and an educator, Bosmat works as a Wellbeing Coordinator at an international school in Luxembourg and is the driving force behind our survey methodology.</p>
+            </div>
+            <div class="card">
+                <img src="/images/team/YS_IMG_3326 small.png" alt="Yuval" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
+                <h2>Yuval</h2>
+                <p>Yuval holds an MBA in International Business and a BA in Accounting and Economics.<br><br>Yuval brings in extensive management experience in the technology sector. Yuval also serves as a Governor in an international school in Luxembourg and oversees our operations management.</p>
+            </div>
+            <div class="card">
+                <img src="/images/team/Alon_IMG_3268 small.png" alt="Alon" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
+                <h2>Alon</h2>
+                <p>Alon holds an MBA and a BA in Accounting and Economics.<br><br>With a strong background in business intelligence, Alon is responsible for all our analytics and data visualisations.</p>
+            </div>
+
+    </section>
+    <div id="footer-include"></div>
+    <script>
+        function includeHTML(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => {
+                    // Fix relative image paths in includes for subfolders
+                    if (window.location.pathname.startsWith('/about/')) {
+                        data = data.replace(/src="images\//g, 'src="../images/');
+                    }
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+        includeHTML('header-include', '/includes/header.html');
+        includeHTML('footer-include', '/includes/footer.html');
+    </script>
+    <script src="/js/cookies.js"></script>
+</body>
 </html>

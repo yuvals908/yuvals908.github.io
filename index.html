@@ -33,7 +33,6 @@
 
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="style.css">
-
     <!-- Google Font Link -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 
@@ -47,6 +46,8 @@
         "description": "Schoolmait provides student wellbeing assessment solutions for schools."
     }
     </script>
+    <!-- Hide body until header is loaded -->
+    <style id="hide-until-header">body { display: none !important; }</style>
 </head>
 <body>
     <div id="header-include"></div>
@@ -66,13 +67,12 @@
                     <li>Our mission is to equip schools with practical tools to measure wellbeing, identify issues early on, and implement evidence-based interventions.</li>
                 </ul>
                 <div class="diagram-embed">
-                    <img src="images/diagram.png" alt="Schoolmait wellbeing measurement process diagram" loading="lazy">
+                    <img src="images/home/diagram.png" alt="Schoolmait wellbeing measurement process diagram" loading="lazy">
                 </div>
             </div>
             <div class="card">
                 <h2>OUR PRODUCT</h2>
-                <p class="intro-paragraph">We provide a Comprehensive Student Wellbeing Assessment Solution to primary and secondary schools, and help schools to:</p>
-                <!-- Removed <br>, adjusted spacing via CSS -->
+                <p>We provide a Comprehensive Student Wellbeing Assessment Solution to primary and secondary schools, and help schools to:</p><br>
                 <ul>
                     <li>Track social, emotional, physical & digital wellbeing</li>
                     <li>Gain a holistic view of every student</li>
@@ -176,7 +176,7 @@
     <div id="footer-include"></div>
 
     <script>
-        function includeHTML(id, file) {
+        function includeHTML(id, file, callback) {
             fetch(file)
                 .then(res => res.text())
                 .then(data => {
@@ -191,10 +191,15 @@
                             });
                         }
                     }
+                    if (typeof callback === 'function') callback();
                 });
         }
-        includeHTML('header-include', 'includes/header.html');
-        includeHTML('footer-include', 'includes/footer.html');
+        // Load header, then show body, then load footer
+        includeHTML('header-include', 'includes/header.html', function() {
+            var hideStyle = document.getElementById('hide-until-header');
+            if (hideStyle) hideStyle.remove();
+            includeHTML('footer-include', 'includes/footer.html');
+        });
     </script>
     <script src="/js/cookies.js"></script>
 </body>
