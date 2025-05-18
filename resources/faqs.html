@@ -13,38 +13,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
-            <a href="/">
-                <img src="/images/logo.png" class="logo" alt="Schoolmait Logo"/>
-            </a>
-            <button class="menu-icon" id="menu-toggle" aria-label="Toggle navigation menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul id="nav-links">
-                <li><a href="/products.html">Products</a></li>
-                <li><a href="/pricing.html">Pricing</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">Resources</a>
-                    <div class="dropdown-content">
-                        <a href="/resources/faqs.html">FAQs</a>
-                        <a href="/resources/blog.html">Blog</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropbtn">About</a>
-                    <div class="dropdown-content">
-                        <a href="/about/team.html">Our Team</a>
-                        <a href="/about/principles.html">Guiding Principles</a>
-                        <a href="/about/news.html">News & Events</a>
-                    </div>
-                </li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+    <!--#include virtual="/includes/header.html" -->
+    <div id="header-include"></div>
 
     <section class="hero hero--small">
         <h1>Frequently Asked Questions</h1>
@@ -104,80 +74,20 @@
   </div>
 </section>
 
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-partners">
-                <div class="partner-item">
-                    <img src="/images/made-in-lux.png" alt="Made in Luxembourg">
-                </div>
-                <div class="partner-item">
-                    <img src="/images/pulse.png" alt="PULSE Logo">
-                    <p>Member of PULSE<br>Luxembourg Startup<br>Association</p>
-                </div>
-                <div class="partner-item">
-                    <img src="/images/SDGs.png" alt="Sustainable Development Goals">
-                    <p>Schoolmait promotes<br>4 UN SDGs</p>
-                </div>
-            </div>
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4>About</h4>
-                    <ul>
-                        <li><a href="/about/team.html">Our Team</a></li>
-                        <li><a href="/about/principles.html">Guiding Principles</a></li>
-                        <li><a href="/about/news.html">News & Events</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Products</h4>
-                    <ul>
-                        <li><a href="/products.html">Surveys for schools</a></li>
-                        <li><a href="/program-managers.html">Surveys for consultants</a></li>
-                        <li><a href="/pricing.html">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="/resources/faqs.html">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Wellbeing Blog</h4>
-                    <ul>
-                        <li><a href="/resources/blog.html">A call for action</a></li>
-                        <li><a href="/resources/blog.html">About Sleep</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    Copyright © 2025 Schoolmait | <a href="/legal/terms.html">Terms of Use</a> | <a href="/legal/privacy-policy.html">Privacy Policy</a> | <a href="/credits.html">Credits</a> | <a href="/contact.html">Contact Us</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/company/schoolmait/" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/linkedin-logo.png" alt="LinkedIn" class="social-icon">
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=100092340713612" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/facebook-logo.png" alt="Facebook" class="social-icon">
-                    </a>
-                    <a href="https://x.com/schoolmait" target="_blank" rel="noopener noreferrer">
-                        <img src="/images/twitter-logo.png" alt="Twitter" class="social-icon">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!--#include virtual="/includes/footer.html" -->
+    <div id="footer-include"></div>
 
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+    // Dynamically load header and footer
+    function loadInclude(id, url) {
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
         });
+    }
+    loadInclude('header-include', '/includes/header.html');
+    loadInclude('footer-include', '/includes/footer.html');
     </script>
     <script src="/js/cookies.js"></script>
 </body>
