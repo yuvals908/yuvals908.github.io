@@ -86,7 +86,11 @@
                     const panel = header.nextElementSibling;
                     const isOpen = panel.style.display === 'block';
                     document.querySelectorAll('.accordion-panel').forEach(p => p.style.display = 'none');
-                    if (!isOpen) panel.style.display = 'block';
+                    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                    if (!isOpen) {
+                        panel.style.display = 'block';
+                        header.classList.add('active');
+                    }
                 });
             });
         });
