@@ -3,16 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placeholder</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Schoolmait in the media and our latest milestones. News, partnerships, and press coverage.">
+    <title>In the News - Schoolmait</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="header-include"></div>
 
-    <!-- Page content goes here -->
+    <section class="hero hero--small">
+        <h1>In the News</h1>
+        <p>Schoolmait in the media and our latest milestones.</p>
+    </section>
+
+    <section class="section news-section">
+        <ul class="news-list no-arrow">
+            <li>
+                <button class="news-toggle" aria-expanded="false" aria-controls="news-content-1">
+                    <div class="news-title">Problematic Social Media Use Increases Amongst Luxembourg Students</div>
+                    <div class="news-meta">Chronicle.lu &nbsp;|&nbsp; Luxembourg City, February 2025</div>
+                </button>
+                <div class="news-content" id="news-content-1" hidden>
+                    <p>On Wednesday 26 February 2025, the Indian Business Chamber of Luxembourg (IBCL) held a conference on "Enhancing Student Wellbeing Through Technology" at the University of Luxembourg (Uni.lu) in Luxembourg-Kirchberg.</p>
+                    <p>The conference, organised in conjunction with the Uni.lu and Schoolmait, a Luxembourg startup company that develops tools to measure student wellbeing, brought experts, educators, parents and students together to explore "innovative tools and strategies to enhance social, emotional and physical wellbeing in education".</p>
+                    <p>Patrizia Luchetta, ESG leader, opened the event, IBCL’s first of 2025.</p>
+                    <p>...</p>
+                    <p>Yuval Somekh, co-founder of Schoolmait, discussed a case study from India in which collected information from 305 thirteen- to sixteen-year-olds in private schools. The wellbeing of the students was measured by analysing the feedback information, issues of concern were then identified, and interventions subsequently implemented. Students were asked about peer relations, safety, physical and digital wellbeing among other questions. The data collected allowed problems within the school setting to be recognised, goals to be identified and intervention plans to be implemented for both individual and classroom problems within the school setting. Student feedback following intervention indicated that they felt their voices were being heard, while parents reported the positive impact went beyond the school setting. In conclusion, Mr Somekh emphasised the importance of remeasuring students’ wellbeing following intervention.</p>
+                    <a class="news-link" href="https://chronicle.lu/category/universities/53665-problematic-social-media-use-increases-amongst-luxembourg-students" target="_blank" rel="noopener">Read full article at chronicle.lu</a>
+                </div>
+            </li>
+            <li>
+                <button class="news-toggle" aria-expanded="false" aria-controls="news-content-2">
+                    <div class="news-title">Winnou and Schoolmait Announce Strategic Partnership to Transform Student Wellbeing Across Indian Schools</div>
+                    <div class="news-meta">Luxembourg and Hyderabad, November 2024</div>
+                </button>
+                <div class="news-content" id="news-content-2" hidden>
+                    <p>Schoolmait SARL-S, a Luxembourg-based education technology startup, and Winnou Systems and Services (P) Ltd, a prominent Indian provider of school management solutions, are pleased to announce a strategic partnership to promote student wellbeing in schools across India. This collaboration will bring Schoolmait’s holistic school wellbeing measurement platform to primary and secondary schools throughout the country, with the mission of empowering educators to support students' social, emotional, and physical wellbeing.</p>
+                    <p>“We at Winnou are thrilled to bring Schoolmait’s pioneering approach to Indian schools,” said Rajagopal Yadavalli, CEO of Winnou Systems and Services. “By providing schools and teachers with meaningful insights, Schoolmait’s solution empowers educators to design timely and impactful interventions that can shape the lives of young students for the better. The partnership with Schoolmait aligns well with the recent CBSE guidelines and NEP 2020 which urge schools to implement enhanced counselling and wellness systems, recognising their essential role in student development. We look forward to seeing this collaboration enhance student wellbeing in the classroom and beyond.”</p>
+                    <p>“We are very excited about this collaboration with Winnou” said Bosmat Kochavi, Co-founder of Schoolmait. “Together, we are entering a large, diverse market that demonstrates our solution's scalability and adaptability. At Schoolmait, we’re passionate about the potential of wellbeing measurement to impact lives. We believe every child should feel safe, supported, and connected within their school community. This partnership will allow Indian schools to identify needs early on and deliver effective, evidence-based support that can make a lasting impact on young lives.”</p>
+                    <p>By joining forces, Winnou and Schoolmait are committed to creating a brighter future for students in India, empowering schools to nurture healthier, happier, and more successful students.</p>
+                </div>
+            </li>
+            <li>
+                <button class="news-toggle" aria-expanded="false" aria-controls="news-content-3">
+                    <div class="news-title">Elevator Pitch</div>
+                    <div class="news-meta">Think.Do Magazine &nbsp;|&nbsp; Rotterdam, October 2023</div>
+                </button>
+                <div class="news-content" id="news-content-3" hidden>
+                    <img src="/images/articles/2023-10 Think-do magazine adjusted.png" alt="Think.Do Magazine Elevator Pitch Article" style="max-width:100%;height:auto;">
+                </div>
+            </li>
+        </ul>
+    </section>
 
     <div id="footer-include"></div>
-
     <script>
         function includeHTML(id, file) {
             fetch(file)
@@ -29,5 +75,20 @@
         includeHTML('footer-include', '/includes/footer.html');
     </script>
     <script src="/js/cookies.js"></script>
+    <script>
+    // Accessible toggle for news content
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.news-toggle').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var content = document.getElementById(btn.getAttribute('aria-controls'));
+                var expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', !expanded);
+                if (content) {
+                    content.hidden = expanded;
+                }
+            });
+        });
+    });
+    </script>
 </body>
 </html>
