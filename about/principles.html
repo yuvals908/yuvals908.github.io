@@ -62,37 +62,23 @@
         </div>
     </section>
     <div id="footer-include"></div>
-
+    <script src="/js/include.js"></script>
     <script>
-        function includeHTML(id, file) {
-            fetch(file)
-                .then(res => res.text())
-                .then(data => {
-                    // Fix relative image paths in includes for subfolders
-                    if (window.location.pathname.startsWith('/about/')) {
-                        data = data.replace(/src="images\//g, 'src="../images/');
-                    }
-                    document.getElementById(id).innerHTML = data;
-                });
-        }
-        includeHTML('header-include', '/includes/header.html');
-        includeHTML('footer-include', '/includes/footer.html');
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Accordion for principles
-            document.querySelectorAll('.accordion-header').forEach(function(header, idx) {
-                header.addEventListener('click', function() {
-                    const panel = header.nextElementSibling;
-                    const isOpen = panel.style.display === 'block';
-                    document.querySelectorAll('.accordion-panel').forEach(p => p.style.display = 'none');
-                    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-                    if (!isOpen) {
-                        panel.style.display = 'block';
-                        header.classList.add('active');
-                    }
-                });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Accordion for principles
+        document.querySelectorAll('.accordion-header').forEach(function(header, idx) {
+            header.addEventListener('click', function() {
+                const panel = header.nextElementSibling;
+                const isOpen = panel.style.display === 'block';
+                document.querySelectorAll('.accordion-panel').forEach(p => p.style.display = 'none');
+                document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                if (!isOpen) {
+                    panel.style.display = 'block';
+                    header.classList.add('active');
+                }
             });
         });
+    });
     </script>
     <script src="/js/cookies.js"></script>
 </body>

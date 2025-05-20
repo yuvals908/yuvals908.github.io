@@ -40,10 +40,6 @@
         </div>
     </section>
     <div id="footer-include"></div>
-    <script>
-      // Simple include for header and footer
-      fetch('/includes/header.html').then(r=>r.text()).then(t=>document.getElementById('header-include').innerHTML=t);
-      fetch('/includes/footer.html').then(r=>r.text()).then(t=>document.getElementById('footer-include').innerHTML=t);
-    </script>
+    <script src="/js/include.js"></script>
 </body>
 </html>

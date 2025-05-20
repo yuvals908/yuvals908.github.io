@@ -33,10 +33,10 @@
             <div class="error-page-links">
                 <h3 class="error-page-links-title">Try these helpful directions:</h3>
                 <ul class="error-page-links-list">
-                    <li><a href="/">Go to the Homepage</a></li>
-                    <li><a href="/products.html">Explore Our Products</a></li>
-                    <li><a href="/resources/faqs.html">Read Frequently Asked Questions</a></li>
-                    <li><a href="/contact.html">Contact Us for Support</a></li>
+                    <li><a href="/">Go to our Homepage</a></li>
+                    <li><a href="/products/student-wellbeing-survey.html">Explore Our Products</a></li>
+                    <li><a href="/resources/faqs.html">Read our Frequently Asked Questions</a></li>
+                    <li><a href="/contact-us.html">Contact us for Support</a></li>
                 </ul>
             </div>
 
@@ -44,26 +44,6 @@
     </div>
 
     <div id="footer-include"></div>
-    <script>
-    function includeHTML(id, file) {
-        fetch(file)
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                if(id === 'header-include') {
-                    const menuToggle = document.getElementById('menu-toggle');
-                    const navLinks = document.getElementById('nav-links');
-                    if(menuToggle && navLinks) {
-                        menuToggle.addEventListener('click', () => {
-                            navLinks.classList.toggle('active');
-                            menuToggle.classList.toggle('active');
-                        });
-                    }
-                }
-            });
-    }
-    includeHTML('header-include', 'includes/header.html');
-    includeHTML('footer-include', 'includes/footer.html');
-    </script>
+    <script src="/js/include.js"></script>
 </body>
 </html>
