@@ -108,7 +108,7 @@ nav ul li:before {
 nav ul li a {
     color: #FEFEFE;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: bold;
     position: relative;
     padding: 5px 0;
@@ -163,6 +163,8 @@ nav ul li a:hover::after {
     font-weight: normal;
     position: relative;
     margin: 0;
+    white-space: nowrap; /* Prevent text from wrapping */
+
 }
 
 .dropdown-content a::after {
@@ -219,7 +221,7 @@ nav ul li a:hover::after {
 .hero {
     background: #425d81;
     color: #fff;
-    padding: 44px 40px;
+    padding: 24px 40px;
     border-bottom: 10px solid #293241;
     margin-bottom: 20px;
     position: relative;
@@ -259,7 +261,7 @@ nav ul li a:hover::after {
 /* Sections & Grid Layout */
 /* ========================================================================== */
 .section {
-    padding: 30px 40px;
+    padding: 30px 0px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
@@ -280,6 +282,7 @@ nav ul li a:hover::after {
     padding: 30px;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
     transition: all .3s ease;
 }
 
@@ -357,31 +360,55 @@ nav ul li a:hover::after {
 /* ========================================================================== */
 /* Products Page */
 /* ========================================================================== */
+/* Remove old .product-container layout, use .grid and .card instead */
 .product-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    margin-bottom: 60px;
-    padding: 0 20px;
+    display: unset;
+    align-items: unset;
+    gap: unset;
+    margin-bottom: unset;
+    padding: unset;
 }
 
+.product-flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
 .product-text {
     flex: 2;
     max-width: 700px;
 }
-
 .product-image {
     flex: 1;
     max-width: 300px;
 }
-
-.product-image img {
-    width: 144%;
+.responsive-product-img {
+    max-width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-left: 22%;
-    margin-right: auto;
-    margin-top: 20px;
+    display: block;
+    margin-left: 0;
+}
+
+@media (max-width: 900px) {
+    .product-flex-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .product-text, .product-image {
+        max-width: 100%;
+        min-width: 0;
+    }
+    .product-image {
+        align-items: stretch;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .product-image {
+        gap: 0.5rem;
+    }
 }
 
 .product-text h2,
@@ -1207,6 +1234,11 @@ nav ul li a:hover::after {
         font-size: 16px;
     }
 
+    .empty-hero {
+        padding: 60px 20px;
+        margin-top: 150px;
+    }
+
     .hero {
         padding: 60px 20px;
         margin-top: 50px;
@@ -1446,7 +1478,7 @@ nav ul li a:hover::after {
     padding: 0px 30px;
     max-width: 900px;
     margin: 0px auto 0 auto;
-    font-size: 1.08em;
+    font-size: 0.9em;
     line-height: 1.7;
 }
 .policy-doc-style h2, .policy-doc-style h3 {
@@ -1538,19 +1570,19 @@ body {
     content: none !important;
 }
 .news-title {
-    font-size: 1.15em;
+    font-size: 1.35em;
     font-weight: 700;
     color: #293241;
 }
 .news-meta {
     color: #888;
-    font-size: 1em;
+    font-size: 1.15em;
     margin: 0.2em 0 0.3em 0;
 }
 .news-link {
     color: #3d5a80;
     text-decoration: underline;
-    font-size: 1em;
+    font-size: 1.15em;
 }
 .news-link:hover {
     color: #e63946;

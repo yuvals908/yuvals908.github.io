@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="robots" content="index, follow">
+   <meta name="description" content="Schoolmait promotes wellbeing in schools by providing comprehensive student wellbeing assessment solutions.">
+   <title>Student Wellbeing Survey</title>
+   <link rel="icon" href="../images/favicon.png" type="image/png"> <!-- Simplified favicon link -->
+   <link rel="stylesheet" href="../style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-include"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Teachers' Wellbeing Survey</h1>
+        <p>A Comprehensive Teachers' Wellbeing Assessment Solution</p>
+    </section>
+
+    <!-- Main Content -->
+        <div class="product-text">
+            <div class="info-card">
+                <h3>Product Goals</h3>
+                <ul>
+                    <li>Evaluate teachers' wellbeing through an online survey.</li>
+                    <li>Provide a comprehensive view of teachers' wellbeing levels and identify areas of strength and areas for improvement.</li>
+                    <li>Support schools in aligning wellbeing strategies, improve performance and retention rates.</li>
+                </ul>
+            </div>
+            <h3>Ideal for</h3>
+            <p>Primary schools and Secondary schools</p>
+            <h3>Required Resources</h3>
+            <ul>
+                <li><strong>Before the survey</strong> - 1 hour from Survey Lead for setting up and communicating to participants.</li>
+                <li><strong>During the survey</strong> - the survey takes up to 10 minutes to complete. Participants' access to connected devices is required.</li>
+                <li><strong>After the survey</strong> - additional time is needed to review the reports, prepare and execute intervention plans.</li>
+            </ul>
+            <h3>Privacy</h3>
+            <p>The teachers' survey is conducted anonymously to ensure privacy and encourage honest responses.</p>
+            <h3>Pricing</h3>
+            <p><a href="/contact.html" class="button">Contact us</a></p>
+        </div>
+
+
+    <div id="footer-include"></div>
+    <script>
+    // Header/Footer include logic
+    function includeHTML(id, file) {
+        fetch(file)
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById(id).innerHTML = data;
+                if(id === 'header-include') {
+                    // Re-attach menu JS after header loads
+                    const menuToggle = document.getElementById('menu-toggle');
+                    const navLinks = document.getElementById('nav-links');
+                    if(menuToggle && navLinks) {
+                        menuToggle.addEventListener('click', () => {
+                            navLinks.classList.toggle('active');
+                            menuToggle.classList.toggle('active');
+                        });
+                    }
+                }
+            });
+    }
+    includeHTML('header-include', '../includes/header.html');
+    includeHTML('footer-include', '../includes/footer.html');
+    </script>
+</body>
+</html>
