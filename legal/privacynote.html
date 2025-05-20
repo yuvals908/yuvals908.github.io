@@ -92,7 +92,7 @@
                 <li>The right to object to processing</li>
                 <li>The right to data portability</li>
             </ul>
-            <p>If you wish to exercise any of these rights, please <a href="/contact.html">contact us</a>. We will respond within one month.</p>
+            <p>If you wish to exercise any of these rights, please <a href="/contact-us.html">contact us</a>. We will respond within one month.</p>
             <h3>What are cookies?</h3>
             <p>Cookies are text files placed on your computer to collect standard Internet log information and visitor behavior information. For more information, visit <a href="http://www.allaboutcookies.org/">www.allaboutcookies.org</a>.</p>
             <h3>How do we use cookies?</h3>
@@ -115,17 +115,7 @@
         </div>
     </section>
     <div id="footer-include"></div>
-    <script>
-        function includeHTML(id, file) {
-            fetch(file)
-                .then(res => res.text())
-                .then(data => {
-                    document.getElementById(id).innerHTML = data;
-                });
-        }
-        includeHTML('header-include', '/includes/header.html');
-        includeHTML('footer-include', '/includes/footer.html');
-    </script>
+    <script src="/js/include.js"></script>
     <script src="/js/cookies.js"></script>
 </body>
 </html>

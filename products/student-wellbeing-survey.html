@@ -6,8 +6,8 @@
    <meta name="robots" content="index, follow">
    <meta name="description" content="Schoolmait promotes wellbeing in schools by providing comprehensive student wellbeing assessment solutions.">
    <title>Student Wellbeing Survey</title>
-   <link rel="icon" href="/images/favicon.png" type="image/png"> <!-- Simplified favicon link -->
-   <link rel="stylesheet" href="/style.css">
+   <link rel="icon" href="../images/favicon.png" type="image/png"> <!-- Simplified favicon link -->
+   <link rel="stylesheet" href="../style.css">
    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -50,28 +50,6 @@
         </div>
 
     <div id="footer-include"></div>
-    <script>
-    // Header/Footer include logic
-    function includeHTML(id, file) {
-        fetch(file)
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById(id).innerHTML = data;
-                if(id === 'header-include') {
-                    // Re-attach menu JS after header loads
-                    const menuToggle = document.getElementById('menu-toggle');
-                    const navLinks = document.getElementById('nav-links');
-                    if(menuToggle && navLinks) {
-                        menuToggle.addEventListener('click', () => {
-                            navLinks.classList.toggle('active');
-                            menuToggle.classList.toggle('active');
-                        });
-                    }
-                }
-            });
-    }
-    includeHTML('header-include', '../includes/header.html');
-    includeHTML('footer-include', '../includes/footer.html');
-    </script>
+    <script src="/js/include.js"></script>
 </body>
 </html>

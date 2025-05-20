@@ -1073,13 +1073,15 @@ nav ul li a:hover::after {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: auto;
         background-color: #293241;
         padding: 10px 0;
         margin: 0;
         box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
         border-top: 1px solid #425d81;
+        min-width: 140px; 
+
     }
 
     #nav-links.active {
@@ -1092,11 +1094,10 @@ nav ul li a:hover::after {
         display: block;
         width: 100%;
         margin: 0;
-        text-align: center;
     }
 
     #nav-links li a {
-        padding: 15px 0;
+        padding: 15px 15px;
         display: block;
         border-bottom: 1px solid #425d81;
         font-size: 18px;
@@ -1131,7 +1132,7 @@ nav ul li a:hover::after {
 
     #nav-links .dropdown-content a {
         padding: 12px 20px 12px 40px;
-        text-align: center;
+        text-align: left;
         font-size: 16px;
         font-weight: normal;
         color: #B8DEEF;

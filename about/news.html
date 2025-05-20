@@ -59,21 +59,8 @@
     </section>
 
     <div id="footer-include"></div>
-    <script>
-        function includeHTML(id, file) {
-            fetch(file)
-                .then(res => res.text())
-                .then(data => {
-                    // Fix relative image paths in includes for subfolders
-                    if (window.location.pathname.startsWith('/about/')) {
-                        data = data.replace(/src="images\//g, 'src="../images/');
-                    }
-                    document.getElementById(id).innerHTML = data;
-                });
-        }
-        includeHTML('header-include', '/includes/header.html');
-        includeHTML('footer-include', '/includes/footer.html');
-    </script>
+    <script src="/js/include.js"></script>
+
     <script src="/js/cookies.js"></script>
     <script>
     // Accessible toggle for news content

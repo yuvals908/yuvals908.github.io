@@ -99,19 +99,7 @@
 
     <!--#include virtual="/includes/footer.html" -->
     <div id="footer-include"></div>
-
-    <script>
-    // Dynamically load header and footer
-    function loadInclude(id, url) {
-      fetch(url)
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-        });
-    }
-    loadInclude('header-include', '/includes/header.html');
-    loadInclude('footer-include', '/includes/footer.html');
-    </script>
+    <script src="/js/include.js"></script>
     <script src="/js/cookies.js"></script>
 </body>
 </html>

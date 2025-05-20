@@ -31,6 +31,30 @@
                 <a href="/about/news.html">News & Events</a>
             </div>
         </li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/contact-us.html">Contact Us</a></li>
     </ul>
 </nav>
+<script>
+// Hamburger menu logic always loaded with header
+(function() {
+    function setupHamburgerMenu() {
+        var menuToggle = document.getElementById('menu-toggle');
+        var navLinks = document.getElementById('nav-links');
+        if(menuToggle && navLinks) {
+            // Remove previous event listeners to avoid duplicates
+            menuToggle.onclick = null;
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        }
+    }
+    // Always run after header is injected, even if injected late
+    window.setupHamburgerMenu = setupHamburgerMenu;
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
+    } else {
+        setupHamburgerMenu();
+    }
+})();
+</script>

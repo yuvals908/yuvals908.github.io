@@ -6,8 +6,8 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="Meet the Schoolmait team: committed to promoting positive mental health and wellbeing in education.">
     <title>Our Team - Schoolmait</title>
-    <link rel="icon" href="/images/favicon.png" type="image/png">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,21 +20,21 @@
         <div class="grid">
             <a href="https://www.linkedin.com/in/bosmat-kochavi-33b5392/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
                 <div class="card">
-                    <img src="/images/team/BK_IMG_3296 small.png" alt="Bosmat" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
+                    <img src="../images/team/BK_IMG_3296 small.png" alt="Bosmat" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
                     <h2>Bosmat</h2>
                     <p>Bosmat holds an MA in Social Sciences and Educational Sciences and a BA in Psychology.<br><br>With years of experience as a coach and an educator, Bosmat works as a Wellbeing Coordinator at an international school in Luxembourg and is the driving force behind our survey methodology.</p>
                 </div>
             </a>
             <a href="https://www.linkedin.com/in/yuvalsomekh/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
                 <div class="card">
-                    <img src="/images/team/YS_IMG_3326 small.png" alt="Yuval" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
+                    <img src="../images/team/YS_IMG_3326 small.png" alt="Yuval" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
                     <h2>Yuval</h2>
                     <p>Yuval holds an MBA in International Business and a BA in Accounting and Economics.<br><br>Yuval brings in extensive management experience in the technology sector. Yuval also serves as a Governor in an international school in Luxembourg and oversees our operations management.</p>
                 </div>
             </a>
             <a href="https://www.linkedin.com/in/alonsomekh/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">
                 <div class="card">
-                    <img src="/images/team/Alon_IMG_3268 small.png" alt="Alon" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
+                    <img src="../images/team/Alon_IMG_3268 small.png" alt="Alon" style="max-width:150px;float:top;margin-left:30px;border-radius:8px;">
                     <h2>Alon</h2>
                     <p>Alon holds an MBA and a BA in Accounting and Economics.<br><br>With a strong background in business intelligence, Alon is responsible for all our analytics and data visualisations.</p>
                 </div>
@@ -42,21 +42,7 @@
 
     </section>
     <div id="footer-include"></div>
-    <script>
-        function includeHTML(id, file) {
-            fetch(file)
-                .then(res => res.text())
-                .then(data => {
-                    // Fix relative image paths in includes for subfolders
-                    if (window.location.pathname.startsWith('/about/')) {
-                        data = data.replace(/src="images\//g, 'src="../images/');
-                    }
-                    document.getElementById(id).innerHTML = data;
-                });
-        }
-        includeHTML('header-include', '/includes/header.html');
-        includeHTML('footer-include', '/includes/footer.html');
-    </script>
+    <script src="/js/include.js"></script>
     <script src="/js/cookies.js"></script>
 </body>
 </html>
