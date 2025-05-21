@@ -13,22 +13,22 @@
 <body>
     <div id="header-include"></div><br><br>
     <section class="section">
-        <div class="card" style="max-width:800px;margin:auto;">
-            <h2 style="margin-top:0;">Pricing Estimator</h2>
+        <div class="card pricing-card">
+            <h2>Pricing Estimator</h2>
             <p>Our pricing is based on the number of students per survey per school. Public schools from lower-income countries* may qualify for a 50% discount.<br><br></p>
             <div class="calculator-container">
                 <label for="numStudents">Number of Students: <span id="numStudentsValue">100</span></label>
                 <br>
-                <input type="range" id="numStudents" name="numStudents" min="0" max="1005" value="100" step="5" oninput="updatePrice()" style="accent-color:#3d5a80;">
-                <p id="price" style="font-size:1.5em;font-weight:bold;"></p>
-                <span id="vat-note" style="display:none;">plus VAT, if applicable</span>
+                <input type="range" id="numStudents" name="numStudents" min="0" max="1005" value="100" step="5" oninput="updatePrice()" class="pricing-slider">
+                <p id="price" class="pricing-price"></p>
+                <span id="vat-note" class="pricing-vat-note" style="display:none;">plus VAT, if applicable</span>
             </div>
-            <a id="submitButton" href="/get-started.html" class="button" style="margin-top:18px;">Get Started</a>
+            <a id="submitButton" href="/get-started.html" class="button pricing-btn-margin">Get Started</a>
         </div>
     </section>
-    <div style="max-width:800px;margin:18px auto 0 auto;font-size:0.85em;color:#666;">
-        <span style="font-weight:bold;">* Lower-Income Countries:</span>
-        <ul style="margin-top:6px;margin-bottom:0;padding-left:20px;">
+    <div class="pricing-lower-income-note">
+        <span class="pricing-lower-income-title">* Lower-Income Countries:</span>
+        <ul class="pricing-lower-income-list">
             <li>All African countries</li>
             <li>All Latin American countries</li>
             <li>All Asian countries except Bahrain, Brunei Darussalam, Hong Kong SAR, Japan, Republic of Korea, Kuwait, Macau SAR, Qatar, Saudi Arabia, Singapore, UAE</li>
