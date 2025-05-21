@@ -394,6 +394,7 @@ nav ul li a:hover::after {
     .product-flex-row {
         flex-direction: column;
         gap: 1.5rem;
+        margin: 10px;
     }
     .product-text, .product-image {
         max-width: 100%;
@@ -409,7 +410,11 @@ nav ul li a:hover::after {
     .product-image {
         gap: 0.5rem;
     }
+    .product-flex-row {
+    margin: 10px;
+    }
 }
+
 
 .product-text h2,
 .product-text h3 {
@@ -1644,4 +1649,52 @@ body {
 }
 .news-content p:last-child {
     margin-bottom: 0;
+}
+
+/* Pricing Estimator Card Styles */
+.pricing-card {
+    max-width: 800px;
+    margin: auto;
+}
+
+.pricing-slider {
+    accent-color: #3d5a80;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.pricing-price {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+
+.pricing-vat-note {
+    display: inline;
+    font-size: 0.95em;
+    color: #666;
+}
+
+.pricing-btn-margin {
+    margin-top: 18px;
+}
+
+.pricing-lower-income-note {
+    max-width: 800px;
+    margin: 18px auto 0 auto;
+    font-size: 0.85em;
+    color: #666;
+}
+
+.pricing-lower-income-title {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.pricing-lower-income-list {
+    margin-top: 6px;
+    margin-bottom: 0;
+    padding-left: 20px;
 }
