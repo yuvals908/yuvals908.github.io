@@ -9,6 +9,48 @@
     <link rel="icon" href="/images/favicon.png" type="image/png">
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "NewsArticle",
+          "headline": "Problematic Social Media Use Increases Amongst Luxembourg Students",
+          "datePublished": "2025-02-26",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Chronicle.lu"
+          },
+          "url": "https://chronicle.lu/category/universities/53665-problematic-social-media-use-increases-amongst-luxembourg-students"
+        },
+        {
+          "@type": "NewsArticle",
+          "headline": "Winnou and Schoolmait Announce Strategic Partnership to Transform Student Wellbeing Across Indian Schools",
+          "datePublished": "2024-11-01",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Schoolmait"
+          }
+        },
+        {
+          "@type": "NewsArticle",
+          "headline": "Elevator Pitch",
+          "datePublished": "2023-10-01",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Think.Do Magazine"
+          }
+        }
+      ]
+    }
+    </script>
+    <style>
+      /* Ensure news-title uses normal capitalization */
+      h2.news-title {
+        text-transform: none !important;
+      }
+    </style>
 </head>
 <body>
     <div id="header-include"></div>
@@ -22,7 +64,7 @@
         <ul class="news-list no-arrow">
             <li>
                 <button class="news-toggle" aria-expanded="false" aria-controls="news-content-1">
-                    <div class="news-title">Problematic Social Media Use Increases Amongst Luxembourg Students</div>
+                    <h2 class="news-title">Problematic Social Media Use Increases Amongst Luxembourg Students</h2>
                     <div class="news-meta">Chronicle.lu &nbsp;|&nbsp; Luxembourg City, February 2025</div>
                 </button>
                 <div class="news-content" id="news-content-1" hidden>
@@ -36,7 +78,7 @@
             </li>
             <li>
                 <button class="news-toggle" aria-expanded="false" aria-controls="news-content-2">
-                    <div class="news-title">Winnou and Schoolmait Announce Strategic Partnership to Transform Student Wellbeing Across Indian Schools</div>
+                    <h2 class="news-title">Winnou and Schoolmait Announce Strategic Partnership to Transform Student Wellbeing Across Indian Schools</h2>
                     <div class="news-meta">Luxembourg and Hyderabad, November 2024</div>
                 </button>
                 <div class="news-content" id="news-content-2" hidden>
@@ -48,7 +90,7 @@
             </li>
             <li>
                 <button class="news-toggle" aria-expanded="false" aria-controls="news-content-3">
-                    <div class="news-title">Elevator Pitch</div>
+                    <h2 class="news-title">Elevator Pitch</h2>
                     <div class="news-meta">Think.Do Magazine &nbsp;|&nbsp; Rotterdam, October 2023</div>
                 </button>
                 <div class="news-content" id="news-content-3" hidden>
