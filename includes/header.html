@@ -9,7 +9,7 @@
     </button>
     <ul id="nav-links">
         <li class="dropdown">
-            <a href="#" class="dropbtn">Products</a>
+            <a href="#" class="dropbtn">Products <span class="dropdown-arrow">▼</span></a>
             <div class="dropdown-content">
                 <a href="/products/student-wellbeing-survey">Student Wellbeing Survey</a>
                 <a href="/products/teachers-wellbeing-survey">Teachers' Wellbeing Survey</a>
@@ -17,14 +17,14 @@
         </li>
         <li><a href="/pricing">Pricing</a></li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">Resources</a>
+            <a href="#" class="dropbtn">Resources <span class="dropdown-arrow">▼</span></a>
             <div class="dropdown-content">
                 <a href="/resources/faqs">FAQs</a>
                 <a href="/resources/blog">Blog</a>
             </div>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">About</a>
+            <a href="#" class="dropbtn">About <span class="dropdown-arrow">▼</span></a>
             <div class="dropdown-content">
                 <a href="/about/team">Our Team</a>
                 <a href="/about/principles">Guiding Principles</a>
@@ -41,7 +41,6 @@
         var menuToggle = document.getElementById('menu-toggle');
         var navLinks = document.getElementById('nav-links');
         if(menuToggle && navLinks) {
-            // Remove previous event listeners to avoid duplicates
             menuToggle.onclick = null;
             menuToggle.addEventListener('click', function() {
                 navLinks.classList.toggle('active');
