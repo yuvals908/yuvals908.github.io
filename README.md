@@ -31,11 +31,11 @@ This README explains the preffered way to work with Git using VSCode and Google 
 
 ## Project Overview
 
-This repository (accessible at [https://schoolmait.github.io/](https://schoolmait.github.io/)) is a rebuild of the website [www.schoolmait.com](http://www.schoolmait.com). It uses **PHP**, **HTML**, **CSS**, **JS**, and various **assets** (like images, fonts, etc.) to build the website.
+This repository (accessible at []) is a rebuild of the website []. It uses **PHP**, **HTML**, **CSS**, **JS**, and various **assets** (like images, fonts, etc.) to build the website.
 
 **Setup:**
-- **[Main Branch](https://github.com/schoolmait/schoolmait.github.io/tree/main):** This is the final, most up-to-date version.
-- **[Website Branch](https://github.com/schoolmait/schoolmait.github.io/tree/website):** This is the production branch connected to the live website via GitHub Pages.
+- **[Main Branch]():** This is the final, most up-to-date version.
+- **[Website Branch]():** This is the production branch connected to the live website via GitHub Pages.
 - **Local Work Environment:** All development is done locally using VSCode, with your working files synced via Google Drive.
 - **Version Control:** All code changes are managed using Git and GitHub.
 
@@ -46,7 +46,7 @@ This repository (accessible at [https://schoolmait.github.io/](https://schoolmai
 Our workflow ensures that all changes are tracked properly and that we don’t accidentally affect the live website. Follow these steps carefully:
 
 ### 1. **Open an Issue & Create a Branch**
-   - Start by navigating to the [GitHub Project Board](https://github.com/users/schoolmait/projects/1).
+   - Start by navigating to the [GitHub Project Board]().
    - Find the relevant issue or create a new one.
    - Create a branch from the **"Development"** field within the issue, and change its status.
    - **Naming convention:** Use the issue number and a brief description (e.g., `issue-5-fix-navbar`).
@@ -197,7 +197,7 @@ Following this workflow ensures that the website remains in sync with the latest
 ## Project Board
 
 We use a project board to track all issues and tasks. Access the board here:
-- [Project Board](https://github.com/users/schoolmait/projects/3)
+- [Project Board]()
 
 The board helps you:
 - See all open and closed issues.
