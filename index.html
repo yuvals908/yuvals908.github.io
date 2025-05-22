@@ -210,10 +210,10 @@
                 });
         }
         // Load header, then show body, then load footer
-        includeHTML('header-include', 'includes/header', function() {
+        includeHTML('header-include', 'includes/header.html', function() {
             var hideStyle = document.getElementById('hide-until-header');
             if (hideStyle) hideStyle.remove();
-            includeHTML('footer-include', 'includes/footer');
+            includeHTML('footer-include', 'includes/footer.html');
         });
     </script>
     <script src="/js/cookies.js"></script>

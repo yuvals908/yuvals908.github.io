@@ -16,5 +16,5 @@ function includeHTML(id, file) {
             }
         });
 }
-includeHTML('header-include', '../includes/header');
-includeHTML('footer-include', '../includes/footer');
+includeHTML('header-include', '../includes/header.html');
+includeHTML('footer-include', '../includes/footer.html');

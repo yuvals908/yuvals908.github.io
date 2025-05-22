@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <p>
           This website uses cookies to improve your experience and to help us analyze site usage.
           By clicking "Accept", you consent to the use of cookies for analytics.
-          <a href="/privacy">Learn more</a>
+          <a href="../legal/privacynote">Learn more</a>
         </p>
         <div class="cookie-banner-actions">
             <button class="cookie-btn cookie-btn-accept">Accept</button>

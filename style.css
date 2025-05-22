@@ -193,6 +193,22 @@ nav ul li a:hover::after {
 }
 
 /* ========================================================================== */
+/* Dropdown arrow for header navigation */
+.dropdown-arrow {
+    font-size: 0.8em;
+    margin-left: 6px;
+    vertical-align: middle;
+    color: #B8DEEF;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+/* Optionally rotate arrow when dropdown is open (on hover) */
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* ========================================================================== */
 /* Hamburger Menu Icon */
 /* ========================================================================== */
 .menu-icon {
