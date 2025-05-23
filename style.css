@@ -70,7 +70,11 @@ nav {
     justify-content: space-between;
     flex-wrap: nowrap;
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     z-index: 1000;
     background-color: #293241;
     padding: 10px 0;
@@ -194,6 +198,7 @@ nav ul li a:hover::after {
 
 /* ========================================================================== */
 /* Dropdown arrow for header navigation */
+/* ========================================================================== */
 .dropdown-arrow {
     font-size: 0.8em;
     margin-left: 6px;
@@ -382,7 +387,6 @@ nav ul li a:hover::after {
 /* ========================================================================== */
 /* Products Page */
 /* ========================================================================== */
-/* Remove old .product-container layout, use .grid and .card instead */
 .product-container {
     display: unset;
     align-items: unset;
@@ -412,7 +416,7 @@ nav ul li a:hover::after {
     margin-left: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .product-flex-row {
         flex-direction: column;
         gap: 1.5rem;
@@ -670,7 +674,7 @@ nav ul li a:hover::after {
   background: #fff;
   box-shadow: 0 4px 16px rgba(44,50,64,0.18);
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .footer-links.modern-footer-links {
     flex-direction: column;
     gap: 1.5rem;
@@ -696,7 +700,7 @@ nav ul li a:hover::after {
     font-size: 0.93rem;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .site-footer {
     width: 100vw;
     left: 50%;
@@ -1080,11 +1084,21 @@ nav ul li a:hover::after {
 /* ========================================================================== */
 /* Media Queries */
 /* ========================================================================== */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+    body {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
     nav {
-        min-height: 60px;
-        padding: 10px 5%;
+min-height: 60px;
+        padding: 10px 0;
         flex-wrap: nowrap;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
     }
 
     .logo {
@@ -1367,7 +1381,7 @@ nav ul li a:hover::after {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
     body {
         padding-left: 15%;
         padding-right: 15%;
@@ -1376,13 +1390,12 @@ nav ul li a:hover::after {
     nav,
     .site-footer,
     #cookie-banner {
-        width: 100%;
-        left: 0;
-        right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 0;
-        margin-right: 0;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding: 10px 0;
     }
 
     .hero,
@@ -1477,7 +1490,7 @@ nav ul li a:hover::after {
     flex-direction: column;
     align-items: stretch;
 }
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .contact-two-col {
         flex-direction: column;
         gap: 1.5rem;
@@ -1504,7 +1517,7 @@ nav ul li a:hover::after {
     border-radius: 0;
     box-shadow: none;
     padding: 0px 30px;
-    max-width: 900px;
+    max-width: 1024px;
     margin: 0px auto 0 auto;
     font-size: 0.9em;
     line-height: 1.7;
