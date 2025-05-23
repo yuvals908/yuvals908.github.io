@@ -431,6 +431,14 @@ nav ul li a:hover::after {
         align-items: stretch;
         gap: 1rem;
     }
+
+    /* Hide dropdown-content by default on mobile (when hamburger menu is visible) */
+    nav ul#nav-links .dropdown .dropdown-content {
+        display: none !important;
+    }
+    nav ul#nav-links .dropdown.open .dropdown-content {
+        display: block !important;
+    }
 }
 
 @media (max-width: 600px) {
