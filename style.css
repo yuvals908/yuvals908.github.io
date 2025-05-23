@@ -74,7 +74,8 @@ nav {
     left: 50%;
     right: 50%;
     margin-left: -50vw;
-    margin-right: -50vw;    z-index: 1000;
+    margin-right: -50vw;
+    z-index: 1000;
     background-color: #293241;
     padding: 10px 0;
     box-sizing: border-box;
@@ -198,6 +199,7 @@ nav ul li a:hover::after {
 
 /* ========================================================================== */
 /* Dropdown arrow for header navigation */
+/* ========================================================================== */
 .dropdown-arrow {
     font-size: 0.8em;
     margin-left: 6px;
@@ -386,7 +388,6 @@ nav ul li a:hover::after {
 /* ========================================================================== */
 /* Products Page */
 /* ========================================================================== */
-/* Remove old .product-container layout, use .grid and .card instead */
 .product-container {
     display: unset;
     align-items: unset;
@@ -1101,9 +1102,14 @@ nav ul li a:hover::after {
     }
     
     nav {
-        min-height: 60px;
-        padding: 10px 5%;
+min-height: 60px;
+        padding: 10px 0;
         flex-wrap: nowrap;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
     }
 
     .logo {
@@ -1395,13 +1401,12 @@ nav ul li a:hover::after {
     nav,
     .site-footer,
     #cookie-banner {
-        width: 100%;
-        left: 0;
-        right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 0;
-        margin-right: 0;
+        width: 100vw;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding: 10px 0;
     }
 
     .hero,
