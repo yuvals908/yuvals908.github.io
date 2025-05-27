@@ -143,6 +143,11 @@ nav ul li a:hover::after {
 }
 
 .dropdown-content {
+    @media (max-width: 1024px) {
+        -webkit-tap-highlight-color: transparent; /* For Safari/Chrome on iOS/Android */
+        -webkit-touch-callout: none;              /* Prevent callout, optional */
+        outline: none;                            /* Remove outline, optional */
+    }
     display: block;
     position: absolute;
     background-color: #293241;
@@ -439,6 +444,7 @@ nav ul li a:hover::after {
         transform: translateY(0);
         position: static; /* Prevent it from disappearing */
     }
+    
     .dropdown:hover .dropdown-content {
         visibility: visible;
         opacity: 1;
@@ -447,6 +453,7 @@ nav ul li a:hover::after {
     .dropdown-content a {
         display: block;
     }
+
 }
 
 @media (max-width: 600px) {
@@ -1192,6 +1199,7 @@ nav ul li a:hover::after {
     #nav-links .dropdown.active .dropdown-content {
     display: block;
     }
+
     
     #nav-links .dropdown-content {
         list-style: none;
@@ -1202,6 +1210,7 @@ nav ul li a:hover::after {
         transition: max-height 0.3s ease;
         display: none;
     }
+    
 
     #nav-links .dropdown-content.active {
         max-height: 200px; 
@@ -1509,6 +1518,9 @@ nav ul li a:hover::after {
 }
 .contact-hero-col {
     flex: 1 1 320px;
+    @media (max-width: 600px) {
+        flex: 1 1 1px;
+    }
     max-width: 420px;
     min-width: 220px;
     padding: 2.5rem 1.5rem 2.5rem 0;
