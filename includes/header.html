@@ -9,77 +9,29 @@
     </button>
     <ul id="nav-links">
         <li class="dropdown">
-            <a href="#" class="dropbtn">Products <span class="dropdown-arrow">▼</span></a>
-            <div class="dropdown-content">
-                <a href="../products/student-wellbeing-survey">Student Wellbeing Survey</a>
-                <a href="../products/teachers-wellbeing-survey">Teachers' Wellbeing Survey</a>
-            </div>
+            <a href="#" class="dropdown-toggle">Products <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="../products/student-wellbeing-survey">Student Wellbeing Survey</a></li>
+                <li><a href="../products/teachers-wellbeing-survey">Teachers' Wellbeing Survey</a></li>
+            </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">Resources <span class="dropdown-arrow">▼</span></a>
-            <div class="dropdown-content">
-                <a href="../resources/faqs">FAQs</a>
-                <a href="../resources/blog">Blog</a>
-            </div>
+            <a href="#" class="dropdown-toggle">Resources <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="../resources/faqs">FAQs</a></li>
+                <li><a href="../resources/blog">Blog</a></li>
+            </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropbtn">About <span class="dropdown-arrow">▼</span></a>
-            <div class="dropdown-content">
-                <a href="../about/team">Our Team</a>
-                <a href="../about/principles">Guiding Principles</a>
-                <a href="../about/news">News & Events</a>
-            </div>
+            <a href="#" class="dropdown-toggle">About <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-content">
+                <li><a href="../about/team">Our Team</a></li>
+                <li><a href="../about/principles">Guiding Principles</a></li>
+                <li><a href="../about/news">News & Events</a></li>
+            </ul>
         </li>
         <li><a href="../pricing">Pricing</a></li>
         <li><a href="../contact-us">Contact Us</a></li>
     </ul>
 </nav>
-<script>
-// Hamburger menu logic always loaded with header
-(function() {
-    function setupHamburgerMenu() {
-        var menuToggle = document.getElementById('menu-toggle');
-        var navLinks = document.getElementById('nav-links');
-        if(menuToggle && navLinks) {
-            menuToggle.onclick = null;
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                menuToggle.classList.toggle('active');
-                // When closing menu, close all dropdowns
-                if (!navLinks.classList.contains('active')) {
-                    var dropdowns = navLinks.querySelectorAll('.dropdown');
-                    dropdowns.forEach(function(drop) { drop.classList.remove('open'); });
-                }
-            });
-        }
-        // Dropdown collapse/expand logic for hamburger/mobile menu
-        var dropdowns = navLinks ? navLinks.querySelectorAll('.dropdown') : [];
-        var dropbtns = navLinks ? navLinks.querySelectorAll('.dropbtn') : [];
-        dropbtns.forEach(function(btn) {
-            btn.onclick = function(e) {
-                // Only activate on mobile (hamburger active)
-                if (window.getComputedStyle(menuToggle).display !== 'none') {
-                    e.preventDefault();
-                    var parentDropdown = btn.parentElement;
-                    // Close all other dropdowns
-                    dropdowns.forEach(function(drop) {
-                        if (drop !== parentDropdown) {
-                            drop.classList.remove('open');
-                        }
-                    });
-                    // Toggle this dropdown
-                    parentDropdown.classList.toggle('open');
-                }
-                // On desktop, allow normal navigation (do not preventDefault)
-            };
-        });
-    }
-    // Always run after header is injected, even if injected late
-    window.setupHamburgerMenu = setupHamburgerMenu;
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupHamburgerMenu);
-    } else {
-        setupHamburgerMenu();
-    }
-})();
-</script>
+<div class="overlay"></div>
