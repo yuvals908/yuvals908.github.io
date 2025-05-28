@@ -143,24 +143,28 @@ nav ul li a:hover::after {
 }
 
 .dropdown-content {
-    @media (max-width: 1024px) {
-        -webkit-tap-highlight-color: transparent; /* For Safari/Chrome on iOS/Android */
-        -webkit-touch-callout: none;              /* Prevent callout, optional */
-        outline: none;                            /* Remove outline, optional */
-    }
+
     display: block;
     position: absolute;
     background-color: #293241;
     min-width: 140px;
     margin-left: -20px;
-    z-index: 1001;
     top: 100%;
     left: 0;
     padding: 10px 0;
     border-radius: 0 0 5px 5px;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s;
+    opacity: 0;
+    transition: opacity 0.5s ease,  visibility 0.5s ease;
+    z-index: 900;
+}
+
+@media (max-width: 1024px) {
+    .dropdown-content {
+        -webkit-tap-highlight-color: transparent; /* For Safari/Chrome on iOS/Android */
+        -webkit-touch-callout: none;              /* Prevent callout, optional */
+        outline: none;                            /* Remove outline, optional */
+    }
 }
 
 .dropdown-content a {
@@ -210,7 +214,7 @@ nav ul li a:hover::after {
     margin-left: 6px;
     vertical-align: middle;
     color: #B8DEEF;
-    transition: transform 0.2s;
+    transition: transform 0.5s;
     display: inline-block;
 }
 
@@ -218,6 +222,17 @@ nav ul li a:hover::after {
 .dropdown:hover .dropdown-arrow {
     transform: rotate(180deg);
 }
+@media (max-width: 1024px) {
+  .dropdown:hover .dropdown-arrow {
+    /* Disable hover rotation on mobile */
+    transform: none;
+  }
+  #nav-links .dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+}
+
+
 
 /* ========================================================================== */
 /* Hamburger Menu Icon */
@@ -608,15 +623,16 @@ nav ul li a:hover::after {
 .partner-item img {
   height: 70px;
   opacity: 0.85;
-  transition: opacity 0.3s, border-radius 0.3s, box-shadow 0.3s;
-  border-radius: 12px;
+  /*transition: opacity 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  border-radius: 12px;*/
   box-shadow: 0 2px 10px rgba(44,50,64,0.10);
 }
+/*
 .partner-item img:hover {
   opacity: 1;
   box-shadow: 0 4px 16px rgba(44,50,64,0.18);
   border-radius: 16px;
-}
+}*/
 .footer-links.modern-footer-links {
   display: flex;
   justify-content: space-between;
@@ -785,22 +801,34 @@ nav ul li a:hover::after {
 /* Testimonials */
 /* ========================================================================== */
 .testimonials {
-    padding: 60px 40px;
+    padding: 30px 40px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
     background: transparent;
 }
+.Testimonials-header2{
+    margin-bottom: 0;
+}
 
-.testimonials::before {
+.grid::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 20px;
     width: 80px;
     height: 20px;
     background: #f08d94;
     transform: rotate(-15deg);
+    opacity: 0.8;
+    z-index: 7;
+}
+
+@media (max-width: 1024px) {
+    .grid::before {
+        left:0;
+        top:15px;
+    }
 }
 
 .testimonial-card {
@@ -1145,7 +1173,7 @@ nav ul li a:hover::after {
     }
 
     #nav-links {
-        display: none;
+        display: block;
         position: absolute;
         top: 100%;
         right: 0;
@@ -1157,11 +1185,14 @@ nav ul li a:hover::after {
         box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
         border-top: 1px solid #425d81;
         min-width: 140px; 
-
+        max-height: 100vh;
+        overflow: hidden;
+        transform: translateX(100%);
+        transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     #nav-links.active {
-        display: flex;
+        transform: translateX(0);
         max-height: calc(100vh - 60px);
         overflow-y: auto;
     }
@@ -1202,13 +1233,14 @@ nav ul li a:hover::after {
 
     
     #nav-links .dropdown-content {
+        display: block; /* Always block so transition works */
         list-style: none;
         position: relative;
         cursor: pointer;
         overflow: hidden;
         max-height: 0px;
-        transition: max-height 0.3s ease;
-        display: none;
+        transition: max-height 0.7s ease;
+        
     }
     
 

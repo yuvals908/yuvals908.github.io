@@ -6,7 +6,7 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="Discover Schoolmait's five guiding principles for promoting wellbeing in education, including ethics, data protection, and global citizenship.">
     <title>Our Guiding Principles</title>
-    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="icon" href="/favicon.png" type="image/png">
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <!-- Google tag (gtag.js) --> 
@@ -76,23 +76,24 @@
     </section>
     <div id="footer-include"></div>
     <script src="/js/include.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Accordion for principles
-        document.querySelectorAll('.accordion-header').forEach(function(header, idx) {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Accordion for principles (multiple open allowed)
+        document.querySelectorAll('.accordion-header').forEach(function(header) {
             header.addEventListener('click', function() {
-                const panel = header.nextElementSibling;
-                const isOpen = panel.style.display === 'block';
-                document.querySelectorAll('.accordion-panel').forEach(p => p.style.display = 'none');
-                document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
-                if (!isOpen) {
-                    panel.style.display = 'block';
-                    header.classList.add('active');
-                }
+            const panel = header.nextElementSibling;
+            const isOpen = panel.style.display === 'block';
+            if (isOpen) {
+                panel.style.display = 'none';
+                header.classList.remove('active');
+            } else {
+                panel.style.display = 'block';
+                header.classList.add('active');
+            }
             });
         });
     });
-    </script>
+</script>
     <script src="/js/cookies.js"></script>
 </body>
 </html>
