@@ -1,4 +1,4 @@
-# Welcome to the <img src="images/logo.png" alt="shhh" style="width:100px; vertical-align:middle;"> **Website Rebuild** repository
+# Welcome to the shhh **Website Rebuild** repository
 This README explains the preffered way to work with Git using VSCode and Google Drive.
 
 ---
