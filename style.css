@@ -82,7 +82,7 @@ nav {
 }
 
 .logo {
-    width: 170px;
+    width: 250px;
     border-radius: 5%;
     margin-left: 15%;
     display: block;
@@ -1187,10 +1187,12 @@ nav ul li a:hover::after {
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
+        background-color: white;
+        border-bottom: #23283a 1px solid;
     }
 
     .logo {
-        width: 150px;
+        width: 200px;
     }
 
     .menu-icon {
@@ -1418,7 +1420,7 @@ nav ul li a:hover::after {
 
     .logo {
         margin-top: 7px;
-        margin-bottom: 6px;
+        margin-bottom: 1px;
     }
 
     nav ul {
@@ -1507,6 +1509,8 @@ nav ul li a:hover::after {
     nav,
     .site-footer,
     #cookie-banner {
+        background-color: white;
+        border-bottom: #23283a 1px solid;
         width: 100vw;
         left: 50%;
         right: 50%;
