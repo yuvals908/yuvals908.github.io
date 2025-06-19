@@ -1527,6 +1527,11 @@ nav ul li a:hover::after {
         background-color: white;
     }
 
+    #cookie-banner {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
     .hero,
     .section,
     .testimonials,
