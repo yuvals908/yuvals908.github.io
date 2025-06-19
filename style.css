@@ -76,7 +76,7 @@ nav {
     margin-left: -50vw;
     margin-right: -50vw;
     z-index: 1000;
-    background-color: #293241;
+   /* background-color: #293241;*/
     padding: 10px 0;
     box-sizing: border-box;
 }
@@ -111,7 +111,7 @@ nav ul li:before {
 }
 
 nav ul li a {
-    color: #FEFEFE;
+    color: #293241;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
@@ -120,6 +120,11 @@ nav ul li a {
     display: block;
 }
 
+@media (max-width: 1024px) {
+    nav ul li a {
+    color: #aab3c2;
+    }
+}
 nav ul li a::after {
     content: '';
     width: 0;
@@ -213,9 +218,14 @@ nav ul li a:hover::after {
     font-size: 0.8em;
     margin-left: 6px;
     vertical-align: middle;
-    color: #B8DEEF;
+    color: #293241;
     transition: transform 0.5s;
     display: inline-block;
+}
+@media (max-width: 1024px) {
+    .dropdown-arrow {
+    color: #aab3c2;
+    }
 }
 
 /* Optionally rotate arrow when dropdown is open (on hover) */
@@ -251,7 +261,7 @@ nav ul li a:hover::after {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #FEFEFE;
+    background-color: #293241;
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
     flex-shrink: 0;
@@ -1193,7 +1203,7 @@ nav ul li a:hover::after {
         position: absolute;
         top: 100%;
         right: 0;
-        width: 67%;
+        /*width: 67%;*/
         background-color: #293241;
         flex-direction: column;
         padding: 10px 0;
