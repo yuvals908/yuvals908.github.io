@@ -87,6 +87,12 @@ nav {
     margin-left: 15%;
     display: block;
 }
+@media (max-width: 1024px) {
+    .logo {
+        width: 200px;
+        margin-left: 5%;
+    }
+}
 
 nav ul {
     flex-direction: column;
@@ -626,6 +632,7 @@ nav ul li a:hover::after {
   margin-left: -50vw;
   margin-right: -50vw;
   box-sizing: border-box;
+  
 }
 .site-footer .container {
   max-width: 1200px;
@@ -665,6 +672,7 @@ nav ul li a:hover::after {
   gap: 2rem;
   flex-wrap: wrap;
   margin-bottom: 2.5rem;
+  
 }
 .footer-column {
   min-width: 180px;
@@ -1191,9 +1199,6 @@ nav ul li a:hover::after {
         border-bottom: #23283a 1px solid;
     }
 
-    .logo {
-        width: 200px;
-    }
 
     .menu-icon {
         display: block;
@@ -1509,7 +1514,7 @@ nav ul li a:hover::after {
     nav,
     .site-footer,
     #cookie-banner {
-        background-color: white;
+        
         border-bottom: #23283a 1px solid;
         width: 100vw;
         left: 50%;
@@ -1517,6 +1522,9 @@ nav ul li a:hover::after {
         margin-left: -50vw;
         margin-right: -50vw;
         padding: 10px 0;
+    }
+    nav{
+        background-color: white;
     }
 
     .hero,
