@@ -75,6 +75,40 @@
         document.getElementById("vat-note").style.display = "inline";
     }
     updatePrice();
+
+    // Google Analytics event tracking for simulator slider
+    (function() {
+        var numStudentsInput = document.getElementById('numStudents');
+        var numStudentsValue = document.getElementById('numStudentsValue');
+        var priceElem = document.getElementById('price');
+        var gaEventCount = 0;
+        var GA_EVENT_LIMIT = 3;
+
+        function getCurrentAmount() {
+            // Extract the numeric value from the price element
+            var priceText = priceElem.innerText.replace(/[^\d.]/g, '');
+            return priceText ? parseFloat(priceText.replace(/,/g, '')) : 0;
+        }
+
+        function sendGAEvent() {
+            if (gaEventCount >= GA_EVENT_LIMIT) return;
+            var numStudents = numStudentsInput.value;
+            var amount = getCurrentAmount();
+            if (typeof gtag === 'function') {
+                gtag('event', 'price check', {
+                    'event_category': 'Pricing Estimator',
+                    'event_label': 'Number of Students Changed',
+                    'num_students': numStudents,
+                    'amount': amount
+                });
+                gaEventCount++;
+            }
+        }
+
+        numStudentsInput.addEventListener('mouseup', sendGAEvent);
+        numStudentsInput.addEventListener('touchend', sendGAEvent);
+        numStudentsInput.addEventListener('change', sendGAEvent);
+    })();
     </script>
 </body>
 </html>
