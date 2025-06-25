@@ -327,11 +327,13 @@
     </div>
     <!-- Results Section -->
     <div class="survey-flex-row" id="survey-results" style="display:none;">
-        <div class="survey-col" id="survey-chart-col" style="max-width:420px; min-width:260px; flex:1 1 40%; display:none;">
+            <div id="survey-results-header" style="display:block; margin-top:0; color:#293241; font-size:1.25em; text-align:left; margin-bottom:18px;">
+                <h2 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Scores</h2>
+            </div>
+            <div class="survey-col" id="survey-chart-col" style=" min-width:390px; flex:1 1 65%; display:none;">
             <div id="survey-results" style="display:block; margin-top:0; color:#293241; font-size:1.08em; text-align:left;">
-                <h4 style="color:#3d5a80;margin-bottom:12px;">Your Self-Assessment Wellbeing Scores</h4>
                 <div style="display: flex; flex-direction: row; gap: 32px; align-items: flex-start;">
-                    <canvas id="wellbeing-chart" style="max-height: 300px; flex: 1 1 60%;"></canvas>
+                    <canvas id="wellbeing-chart" style="max-height: 400px; flex: 1 1 60%;"></canvas>
                     <div id="subelement-summary" style="margin-top:0; flex: 1 1 60%; min-width:320px;"></div>
                 </div>
             </div>
@@ -426,15 +428,15 @@
             width: 100%;
         }
         .survey-col {
-            flex: 1 1 50%;
-            max-width: 50%;
+            flex: 1 1 35%;
+            max-width: 35%;
             min-width: 320px;
             box-sizing: border-box;
         }
         #survey-chart-col {
-            max-width: 420px;
-            min-width: 260px;
-            flex: 1 1 40%;
+            max-width: 630px;
+            min-width: 390px;
+            flex: 1 1 65%;
             display: flex;
             flex-direction: column;
             align-items: stretch;
@@ -470,7 +472,7 @@
             .survey-card { padding: 16px 4px; }
             .survey-q-title { font-size: 1em; }
             .survey-options label { font-size: 0.98em; }
-            #wellbeing-chart { max-height: 300px; }
+            #wellbeing-chart { max-height: 400px; }
         }
     </style>
     <script>
@@ -492,88 +494,46 @@
             "Safety & Belonging",
         ];
 
+        // Add radarLabels with line breaks for long labels
+        const radarLabels = [
+            ["Meaning &", "Purpose"],
+            ["Emotional", "Wellbeing"],
+            ["Social", "Wellbeing"],
+            ["Physical", "Wellbeing"],
+            ["Professional", "Wellbeing"],
+            ["Financial", "Wellbeing"],
+            ["Safety &", "Belonging"]
+        ];
+
         let wellbeingChart;
 
         function initializeChart() {
             const ctx = document.getElementById('wellbeing-chart').getContext('2d');
             wellbeingChart = new Chart(ctx, {
-                type: 'bar',
+                type: 'radar',
                 data: {
-                    labels: [...wellbeingElements, 'Overall'],
+                    labels: radarLabels,
                     datasets: [{
                         label: 'Wellbeing Scores',
-                        data: new Array(wellbeingElements.length + 1).fill(0.1),
-                        backgroundColor: function(context) {
+                        data: new Array(wellbeingElements.length).fill(0.1),
+                        backgroundColor: 'rgba(44, 204, 113, 0.15)',
+                        borderColor: '#3d5a80',
+                        borderWidth: 2,
+                        pointBackgroundColor: function(context) {
                             const value = context.dataset.data[context.dataIndex];
                             if (value <= 0) return '#e63946';
                             if (value <= 0.5) return '#f4c430';
                             return '#2ecc71';
                         },
-                        borderColor: '#293241',
-                        borderWidth: 1,
-                        borderRadius: 8,
-                        borderSkipped: false
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        pointBorderWidth: 2,
+                        pointBorderColor: '#fff'
                     }]
                 },
                 options: {
-                    indexAxis: 'y',
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            min: -2,
-                            max: 2.1,
-                            display: false,
-                            ticks: {
-                                stepSize: 0.5,
-                                font: {
-                                    size: 12,
-                                    family: "'Space Grotesk', sans-serif"
-                                }
-                            },
-                            title: {
-                                display: false,
-                                text: 'Score',
-                                font: {
-                                    size: 14,
-                                    family: "'Space Grotesk', sans-serif",
-                                    weight: 'bold'
-                                },
-                                color: '#293241'
-                            },
-                            grid: {
-                                color: 'rgba(200, 200, 200, 0.2)',
-                                drawBorder: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
-                                // We'll add a plugin for the axis line
-                            }
-                        },
-                        y: {
-                            ticks: {
-                                font: {
-                                    size: 12,
-                                    family: "'Space Grotesk', sans-serif"
-                                },
-                                maxRotation: 0,
-                                minRotation: 0
-                            },
-                            title: {
-                                display: false,
-                                text: 'Wellbeing Elements',
-                                font: {
-                                    size: 14,
-                                    family: "'Space Grotesk', sans-serif",
-                                    weight: 'bold'
-                                },
-                                color: '#293241'
-                            },
-                            grid: {
-                                display: false
-                            }
-                        }
-                    },
                     plugins: {
                         legend: {
                             display: false
@@ -595,33 +555,41 @@
                                 }
                             }
                         }
-                    }
-                },
-                plugins: [
-                    {
-                        id: 'xAxisLineAboveOverall',
-                        afterDraw: function(chart) {
-                            const yScale = chart.scales.y;
-                            const xScale = chart.scales.x;
-                            if (!yScale || !xScale) return;
-                            const ctx = chart.ctx;
-                            const overallIdx = chart.data.labels.length - 1;
-                            const yTick = yScale.getPixelForTick(overallIdx);
-                            const barHeight = yScale.getPixelForTick(1) - yScale.getPixelForTick(0);
-                            const yLine = yTick - barHeight / 2;
-                            ctx.save();
-                            ctx.beginPath();
-                            ctx.moveTo(xScale.left, yLine);
-                            ctx.lineTo(xScale.right, yLine);
-                            ctx.lineWidth = 0.5; // very thin line
-                            ctx.strokeStyle = '#293241';
-                            ctx.globalAlpha = 0.5;
-                            ctx.stroke();
-                            ctx.globalAlpha = 1;
-                            ctx.restore();
+                    },
+                    scales: {
+                        r: {
+                            min: -2,
+                            max: 2,
+                            ticks: {
+                                display: false,
+                                stepSize: 1 // Show grid lines at -2, -1, 0, 1, 2
+                            },
+                            angleLines: {
+                                color: 'rgba(41,50,65,0.08)'
+                            },
+                            grid: {
+                                color: 'rgba(41,50,65,0.13)'
+                            },
+                            pointLabels: {
+                                font: {
+                                    size: 12,
+                                    family: "'Space Grotesk', sans-serif"
+                                },
+                                color: '#425d81',
+                                padding: 4,
+                                // Chart.js will automatically split on \n
+                            }
+                        }
+                    },
+                    layout: {
+                        padding: {
+                            top: 10,
+                            bottom: 10,
+                            left: 10,
+                            right: 10
                         }
                     }
-                ]
+                }
             });
         }
 
@@ -707,9 +675,9 @@
                     }
                 });
 
-                const overallScore = elementAverages.reduce((sum, avg) => sum + avg, 0) / wellbeingElements.length;
-
-                elementAverages.push(overallScore);
+                // Remove overallScore from chart data
+                // const overallScore = elementAverages.reduce((sum, avg) => sum + avg, 0) / wellbeingElements.length;
+                // elementAverages.push(overallScore);
 
                 wellbeingChart.data.datasets[0].data = elementAverages;
                 wellbeingChart.update();
