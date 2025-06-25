@@ -317,7 +317,7 @@
                 </div>
                 <div style="display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 24px;">
 <button type="button" id="survey-back-btn" class="button" style="display:none; min-width:140px; border-radius: 8px;">Back</button>
-<button type="submit" id="survey-submit-btn" class="button" style="display:none; min-width:140px; border-radius: 8px; font-size: 1.15em;">View Results</button>
+<button type="submit" id="survey-submit-btn" class="button" style="display:none; min-width:140px; border-radius: 8px; ">View Results</button>
 </div>
                 <div id="survey-thankyou" style="display:none; color:#3d5a80; font-size:1.2em; text-align:center; margin-top:30px;">
                     Thank you for completing the survey!<br>Your responses have been recorded anonymously.
@@ -325,32 +325,34 @@
             </form>
         </section>
     </div>
-    <!-- Results Section -->
+<!-- Results Section -->
     <div class="survey-flex-row" id="survey-results" style="display:none;">
-            <div id="survey-results-header" style="display:block; margin-top:0; color:#293241; font-size:1.25em; text-align:left; margin-bottom:18px;">
-                <h2 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Scores</h2>
-            </div>
-            <div class="survey-col" id="survey-chart-col" style=" min-width:390px; flex:1 1 65%; display:none;">
-            <div id="survey-results" style="display:block; margin-top:0; color:#293241; font-size:1.08em; text-align:left;">
-                <div style="display: flex; flex-direction: row; gap: 32px; align-items: flex-start;">
-                    <canvas id="wellbeing-chart" style="max-height: 400px; flex: 1 1 60%;"></canvas>
-                    <div id="subelement-summary" style="margin-top:0; flex: 1 1 60%; min-width:320px;"></div>
+        <div id="survey-results-header" style="display:none; margin-top:0; color:#293241; font-size:1.25em; text-align:left; margin-bottom:18px;">
+            <h3 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Scores</h3>
+        </div>
+        <div class="survey-col" id="survey-chart-col" style="display:none;">
+            <div id="survey-results-inner">
+                <div class="survey-results-row">
+                    <canvas id="wellbeing-chart"></canvas>
+                    <div id="subelement-summary"></div>
                 </div>
             </div>
         </div>
     </div>
+<!-- Styling -->
     <style>
+        /* Default styles for 1025px and above */
         .survey-card {
             background: #f0f0f0;
             border-radius: 18px;
             box-shadow: 0 4px 24px rgba(66,93,129,0.07);
-            padding: 32px 24px;
-            margin: 0 auto 40px auto;
+            padding: 24px 24px;
+            margin: 0 auto 24px auto;
             border: 2px solid #3d5a80;
         }
         .survey-q {
             margin-bottom: 28px;
-            padding-bottom: 18px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #e0e0e0;
         }
         .survey-q.survey-q-hidden {
@@ -364,7 +366,7 @@
             font-weight: 600;
             color: #425d81;
             margin-bottom: 10px;
-            font-size: 1.08em;
+            font-size: 1em;
         }
         .survey-required {
             color: #e63946;
@@ -434,47 +436,61 @@
             box-sizing: border-box;
         }
         #survey-chart-col {
-            max-width: 630px;
-            min-width: 390px;
-            flex: 1 1 65%;
+            max-width: 450px;
+            min-width: 350px;
             display: flex;
             flex-direction: column;
-            align-items: stretch;
+            align-items: left;
             justify-content: flex-start;
         }
         #survey-results {
             padding: 0px 18px;
             margin-top: 24px;
+            display: block;
+            color: #293241;
+            font-size: 1.08em;
+            text-align: left;
         }
+        .survey-results-row {
+            display: flex;
+            flex-direction: row;
+            gap: 48px;
+            align-items: flex-start;
+        }
+        #wellbeing-chart {
+            max-height: 350px;
+            min-height: 250px;
+            flex: 1 1 100%;
+            align-self: flex-start;
+            justify-self: flex-start;
+        }
+        #subelement-summary {
+            margin-top: 24px !important;
+            flex: 1 1 100%;
+            min-width: 320px;
+        }
+        /* Up to 1024px */
         @media (max-width: 1024px) {
+            .survey-card { padding: 16px 4px; }
+            .survey-q-title { font-size: 1em; }
+            .survey-options label { font-size: 0.98em; }
             .survey-flex-row {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem;
             }
             .survey-col, #survey-chart-col {
                 max-width: 100%;
                 min-width: 0;
             }
-            #survey-results {
-                margin-top: 0;
+            .survey-results-row {
+                flex-direction: column !important;
+                gap: 18px !important;
             }
-        }
-        @media (max-width: 800px) {
-    #survey-results > div {
-        flex-direction: column !important;
-        gap: 18px !important;
-    }
-    #subelement-summary {
-        margin-top: 24px !important;
-    }
-}
-        @media (max-width: 600px) {
-            .survey-card { padding: 16px 4px; }
-            .survey-q-title { font-size: 1em; }
-            .survey-options label { font-size: 0.98em; }
-            #wellbeing-chart { max-height: 400px; }
+            #wellbeing-chart { max-height: 300px; }
+            #subelement-summary { margin-top: 24px !important; }
         }
     </style>
+<!-- Script Section -->
     <script>
 
         function getScore(qIdx, value, answerScores) {
@@ -603,6 +619,7 @@
             const resultsDiv = document.getElementById('survey-results');
             const surveySection = document.getElementById('teacher-survey-section');
             const chartCol = document.getElementById('survey-chart-col');
+            const resultsHeader = document.getElementById('survey-results-header');
 
             let currentIdx = 0;
 
@@ -704,7 +721,7 @@
                 let html = '';
                 if (subElementAverages.length > 0) {
                     html += '<div style="display:flex;flex-direction:column;gap:18px;flex-wrap:wrap;">';
-                    html += '<div style="flex:1;"><b style="color:#2ecc71;">Areas of strength</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
+                    html += '<div style="flex:1;"><b style="color:#2ecc71;">Areas of Strength</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
                     if (topStrengths.length === 0) {
                         html += '<li style="color:#888;">None</li>';
                     } else {
@@ -713,7 +730,7 @@
                         });
                     }
                     html += '</ol></div>';
-                    html += '<div style="flex:1;"><b style="color:#e63946;">Areas to improve</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
+                    html += '<div style="flex:1;"><b style="color:#e63946;">Areas to Improve</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
                     if (bottomAreas.length === 0) {
                         html += '<li style="color:#888;">None</li>';
                     } else {
@@ -794,13 +811,17 @@
                 backBtn.style.display = 'none';
                 // Hide the survey section
                 surveySection.style.display = 'none';
-                // Show the chart/results column
+                // Show the chart/results column and results section
+                resultsDiv.style.display = 'flex';
                 chartCol.style.display = 'flex';
+                // Show the results header
+                if (resultsHeader) resultsHeader.style.display = 'block';
                 // Hide progress bar and thank you message
                 progressBar.style.width = '100%';
                 document.getElementById('survey-questions').style.display = 'none';
                 document.getElementById('survey-thankyou').style.display = 'none';
-                // Show results (already handled by updateScoresDisplay)
+                // Show results (now update and show)
+                updateScoresDisplay();
             });
         })();
     </script>
