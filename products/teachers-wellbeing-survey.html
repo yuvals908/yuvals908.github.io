@@ -281,7 +281,7 @@
                             <label><input type="radio" name="q21" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Financial Wellbeing" data-sub-element="Compensation" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q" data-wellbeing-element="Financial Wellbeing" data-sub-element="Compensation" data-answer-scores='{"Strongly agree":1.5,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-1.5,"I prefer not to answer":null}'>
                         <label class="survey-q-title">22) I feel that my salary is proportionate to the work I do</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q22" value="Strongly agree" required> Strongly agree</label>
@@ -326,12 +326,13 @@
         </section>
     </div>
     <!-- Results Section -->
-    <div class="survey-flex-row" id="survey-results" style="display:none; margin-top: 50px;">
+    <div class="survey-flex-row" id="survey-results" style="display:none;">
         <div class="survey-col" id="survey-chart-col" style="max-width:420px; min-width:260px; flex:1 1 40%; display:none;">
             <div id="survey-results" style="display:block; margin-top:0; color:#293241; font-size:1.08em; text-align:left;">
-                <h4 style="color:#3d5a80;margin-bottom:12px;">Your Wellbeing Scores</h4>
-                <canvas id="wellbeing-chart" style="max-height: 300px;"></canvas>
-                <div id="subelement-summary" style="margin-top:24px;">
+                <h4 style="color:#3d5a80;margin-bottom:12px;">Your Self-Assessment Wellbeing Scores</h4>
+                <div style="display: flex; flex-direction: row; gap: 32px; align-items: flex-start;">
+                    <canvas id="wellbeing-chart" style="max-height: 300px; flex: 1 1 60%;"></canvas>
+                    <div id="subelement-summary" style="margin-top:0; flex: 1 1 60%; min-width:320px;"></div>
                 </div>
             </div>
         </div>
@@ -440,7 +441,7 @@
             justify-content: flex-start;
         }
         #survey-results {
-            padding: 48px 18px;
+            padding: 0px 18px;
             margin-top: 24px;
         }
         @media (max-width: 1024px) {
@@ -456,6 +457,15 @@
                 margin-top: 0;
             }
         }
+        @media (max-width: 800px) {
+    #survey-results > div {
+        flex-direction: column !important;
+        gap: 18px !important;
+    }
+    #subelement-summary {
+        margin-top: 24px !important;
+    }
+}
         @media (max-width: 600px) {
             .survey-card { padding: 16px 4px; }
             .survey-q-title { font-size: 1em; }
@@ -477,7 +487,6 @@
             "Emotional Wellbeing",
             "Social Wellbeing",
             "Physical Wellbeing",
-            "Digital Wellbeing",
             "Professional Wellbeing",
             "Financial Wellbeing",
             "Safety & Belonging",
@@ -581,7 +590,8 @@
                             },
                             callbacks: {
                                 label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}`;
+                                    // Remove score from tooltip
+                                    return context.dataset.label;
                                 }
                             }
                         }
@@ -717,24 +727,32 @@
                 }
                 subElementAverages.sort((a, b) => b.avg - a.avg);
 
-                // Top 3 and bottom 3
-                const top3 = subElementAverages.slice(0, 3);
-                const bottom3 = subElementAverages.slice(-3).reverse();
+                // Only include strengths with avg > 0.5, and bottom with avg < 0
+                const topStrengths = subElementAverages.filter(item => item.avg > 0.5).slice(0, 3);
+                const bottomAreas = subElementAverages.filter(item => item.avg < 0).slice(-3).reverse();
 
                 // Render summary
                 const summaryDiv = document.getElementById('subelement-summary');
                 let html = '';
                 if (subElementAverages.length > 0) {
-                    html += '<div style="display:flex;gap:18px;flex-wrap:wrap;">';
-                    html += '<div style="flex:1;"><b style="color:#2ecc71;">Top 3 strengths</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
-                    top3.forEach(item => {
-                        html += `<li>${item.name} <span style="color:#2ecc71;font-weight:bold;">${item.avg.toFixed(2)}</span></li>`;
-                    });
+                    html += '<div style="display:flex;flex-direction:column;gap:18px;flex-wrap:wrap;">';
+                    html += '<div style="flex:1;"><b style="color:#2ecc71;">Areas of strength</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
+                    if (topStrengths.length === 0) {
+                        html += '<li style="color:#888;">None</li>';
+                    } else {
+                        topStrengths.forEach(item => {
+                            html += `<li>${item.name}</li>`;
+                        });
+                    }
                     html += '</ol></div>';
-                    html += '<div style="flex:1;"><b style="color:#e63946;">Bottom 3 areas</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
-                    bottom3.forEach(item => {
-                        html += `<li>${item.name} <span style="color:#e63946;font-weight:bold;">${item.avg.toFixed(2)}</span></li>`;
-                    });
+                    html += '<div style="flex:1;"><b style="color:#e63946;">Areas to improve</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
+                    if (bottomAreas.length === 0) {
+                        html += '<li style="color:#888;">None</li>';
+                    } else {
+                        bottomAreas.forEach(item => {
+                            html += `<li>${item.name}</li>`;
+                        });
+                    }
                     html += '</ol></div>';
                     html += '</div>';
                 }
@@ -810,8 +828,6 @@
                 surveySection.style.display = 'none';
                 // Show the chart/results column
                 chartCol.style.display = 'flex';
-                // Optionally, scroll to chart/results
-                chartCol.scrollIntoView({ behavior: 'smooth' });
                 // Hide progress bar and thank you message
                 progressBar.style.width = '100%';
                 document.getElementById('survey-questions').style.display = 'none';
