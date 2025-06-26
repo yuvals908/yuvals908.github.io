@@ -50,7 +50,8 @@
                 </div>
                 
                 <div id="survey-questions">
-                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Happiness" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <!-- Q1 -->
+                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Engagement" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
                         <label class="survey-q-title">1) I feel happy to go to work</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q1" value="Strongly agree" required> Strongly agree</label>
@@ -61,6 +62,7 @@
                             <label><input type="radio" name="q1" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
+                    <!-- Q2 -->
                     <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Fatigue" data-answer-scores='{"Always":-2,"Often":-1,"Sometimes":0,"Rarely":1,"Never":2,"I prefer not to answer":null}'>
                         <label class="survey-q-title">2) I feel tired during my work days</label>
                         <div class="survey-options">
@@ -72,8 +74,9 @@
                             <label><input type="radio" name="q2" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Teamwork" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">3) I have strong and positive relationships with my coworkers and supervisors</label>
+                    <!-- Q3 -->
+                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Values Alignment" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">3) I agree with the values of my school</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q3" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q3" value="Agree"> Agree</label>
@@ -83,8 +86,9 @@
                             <label><input type="radio" name="q3" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="School Vision Alignment" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">4) I agree with the vision that my school promotes</label>
+                    <!-- Q4 -->
+                    <div class="survey-q" data-wellbeing-element="Safety & Belonging" data-sub-element="Physical Safety" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">4) I feel physically safe in the school I work in</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q4" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q4" value="Agree"> Agree</label>
@@ -94,8 +98,9 @@
                             <label><input type="radio" name="q4" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Work-Life Balance" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">5) I feel like I have a good work-life balance</label>
+                    <!-- Q5 -->
+                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Student Relationships" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">5) I have strong and positive relationships with my students</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q5" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q5" value="Agree"> Agree</label>
@@ -105,19 +110,21 @@
                             <label><input type="radio" name="q5" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Frustration" data-answer-scores='{"Always":-2,"Often":-1,"Sometimes":0,"Rarely":1,"Never":2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">6) When I am at work, I am frustrated</label>
+                    <!-- Q6 -->
+                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Workload" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">6) I have enough time during the workday to complete my tasks</label>
                         <div class="survey-options">
-                            <label><input type="radio" name="q6" value="Always" required> Always</label>
-                            <label><input type="radio" name="q6" value="Often"> Often</label>
-                            <label><input type="radio" name="q6" value="Sometimes"> Sometimes</label>
-                            <label><input type="radio" name="q6" value="Rarely"> Rarely</label>
-                            <label><input type="radio" name="q6" value="Never"> Never</label>
+                            <label><input type="radio" name="q6" value="Strongly agree" required> Strongly agree</label>
+                            <label><input type="radio" name="q6" value="Agree"> Agree</label>
+                            <label><input type="radio" name="q6" value="Neither agree nor disagree"> Neither agree nor disagree</label>
+                            <label><input type="radio" name="q6" value="Disagree"> Disagree</label>
+                            <label><input type="radio" name="q6" value="Strongly disagree"> Strongly disagree</label>
                             <label><input type="radio" name="q6" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Safety & Belonging" data-sub-element="Physical Safety" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">7) I feel physically safe in the school I work in</label>
+                    <!-- Q7 -->
+                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Motivation" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">7) In my workplace I feel motivated to do things to the best of my ability</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q7" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q7" value="Agree"> Agree</label>
@@ -127,19 +134,21 @@
                             <label><input type="radio" name="q7" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Student Relationships" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">8) I have strong and positive relationships with my students</label>
+                    <!-- Q8 -->
+                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Support Networks" data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">8) I feel supported by my colleagues and supervisors</label>
                         <div class="survey-options">
-                            <label><input type="radio" name="q8" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q8" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q8" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q8" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q8" value="Strongly disagree"> Strongly disagree</label>
+                            <label><input type="radio" name="q8" value="Always" required> Always</label>
+                            <label><input type="radio" name="q8" value="Often"> Often</label>
+                            <label><input type="radio" name="q8" value="Sometimes"> Sometimes</label>
+                            <label><input type="radio" name="q8" value="Rarely"> Rarely</label>
+                            <label><input type="radio" name="q8" value="Never"> Never</label>
                             <label><input type="radio" name="q8" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Availability for students" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">9) I have time to meet with my students when they need to talk to me</label>
+                    <!-- Q9 -->
+                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Stress Management" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">9) I am able to manage work-related stress well</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q9" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q9" value="Agree"> Agree</label>
@@ -149,8 +158,9 @@
                             <label><input type="radio" name="q9" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Motivation" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">10) In my workplace I feel motivated to do things to the best of my ability</label>
+                    <!-- Q10 -->
+                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Sense of Achievement" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">10) I feel a sense of achievement in my day-to-day work</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q10" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q10" value="Agree"> Agree</label>
@@ -160,19 +170,21 @@
                             <label><input type="radio" name="q10" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Teamwork" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">11) In my school there is a strong sense of mutual support and teamwork</label>
+                    <!-- Q11 -->
+                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Sleep Duration" data-answer-scores='{"5 hours or less":-2,"6 hours":-1,"7 hours":0,"8 hours":1,"9 hours or more":2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">11) During the work week my average night sleep is</label>
                         <div class="survey-options">
-                            <label><input type="radio" name="q11" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q11" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q11" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q11" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q11" value="Strongly disagree"> Strongly disagree</label>
+                            <label><input type="radio" name="q11" value="5 hours or less" required> 5 hours or less</label>
+                            <label><input type="radio" name="q11" value="6 hours"> 6 hours</label>
+                            <label><input type="radio" name="q11" value="7 hours"> 7 hours</label>
+                            <label><input type="radio" name="q11" value="8 hours"> 8 hours</label>
+                            <label><input type="radio" name="q11" value="9 hours or more"> 9 hours or more</label>
                             <label><input type="radio" name="q11" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Teamwork" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">12) I get along well with my colleagues</label>
+                    <!-- Q12 -->
+                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Positive relationships" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">12) I laugh a lot with my colleagues and students during my work day</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q12" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q12" value="Agree"> Agree</label>
@@ -182,8 +194,9 @@
                             <label><input type="radio" name="q12" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Stress Management" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">13) I manage the stress that comes with my work well</label>
+                    <!-- Q13 -->
+                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Recognition" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">13) I feel that my work is appreciated and valued</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q13" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q13" value="Agree"> Agree</label>
@@ -193,8 +206,9 @@
                             <label><input type="radio" name="q13" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Sense of Achievement" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">14) I feel a sense of achievement in my day to day work</label>
+                    <!-- Q14 -->
+                    <div class="survey-q" data-wellbeing-element="Safety & Belonging" data-sub-element="Personal Safety" data-answer-scores='{"Strongly agree":-2,"Agree":-1,"Neither agree nor disagree":0,"Disagree":1,"Strongly disagree":2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">14) In the last few months I felt that I have been abused by someone from work</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q14" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q14" value="Agree"> Agree</label>
@@ -204,8 +218,9 @@
                             <label><input type="radio" name="q14" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Self-Confidence" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">15) I am confident that I can handle unexpected and challenging work events</label>
+                    <!-- Q15 -->
+                    <div class="survey-q" data-wellbeing-element="Financial Wellbeing" data-sub-element="Compensation" data-answer-scores='{"Strongly agree":1.5,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-1.5,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">15) I feel that my salary is proportionate to the work I do</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q15" value="Strongly agree" required> Strongly agree</label>
                             <label><input type="radio" name="q15" value="Agree"> Agree</label>
@@ -215,103 +230,16 @@
                             <label><input type="radio" name="q15" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Sleep Duration" data-answer-scores='{"5 hours or less":-2,"6 hours":-1,"7 hours":0,"8 hours":1,"9 hours or more":2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">16) During the work week my average night sleep is</label>
+                    <!-- Q16 -->
+                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Physical Exercise" data-answer-scores='{"No activity at all":-2,"1 hour per week":-1,"2 hours per week":0,"3 hours per week":1,"4 hours or more":2,"I prefer not to answer":null}'>
+                        <label class="survey-q-title">16) During the week, I usually have activities that involve sport</label>
                         <div class="survey-options">
-                            <label><input type="radio" name="q16" value="5 hours or less" required> 5 hours or less</label>
-                            <label><input type="radio" name="q16" value="6 hours"> 6 hours</label>
-                            <label><input type="radio" name="q16" value="7 hours"> 7 hours</label>
-                            <label><input type="radio" name="q16" value="8 hours"> 8 hours</label>
-                            <label><input type="radio" name="q16" value="9 hours or more"> 9 hours or more</label>
+                            <label><input type="radio" name="q16" value="No activity at all" required> No activity at all</label>
+                            <label><input type="radio" name="q16" value="1 hour per week"> 1 hour per week</label>
+                            <label><input type="radio" name="q16" value="2 hours per week"> 2 hours per week</label>
+                            <label><input type="radio" name="q16" value="3 hours per week"> 3 hours per week</label>
+                            <label><input type="radio" name="q16" value="4 hours or more"> 4 hours or more</label>
                             <label><input type="radio" name="q16" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Teamwork" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">17) I laugh a lot with my colleagues and students during my work day</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q17" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q17" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q17" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q17" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q17" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q17" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Self-confidence" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">18) I feel that my work is appreciated and valued</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q18" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q18" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q18" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q18" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q18" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q18" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="School Vision Alignment" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">19) In my school there is a strong sense of commitment to make a positive impact on society</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q19" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q19" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q19" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q19" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q19" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q19" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Safety and Belonging" data-sub-element="Safety" data-answer-scores='{"Strongly agree":-2,"Agree":-1,"Neither agree nor disagree":0,"Disagree":1,"Strongly disagree":2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">20) In the last few months I felt that I have been abused by someone from work</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q20" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q20" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q20" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q20" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q20" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q20" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="General Health" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">21) Generally, I feel healthy</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q21" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q21" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q21" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q21" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q21" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q21" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Financial Wellbeing" data-sub-element="Compensation" data-answer-scores='{"Strongly agree":1.5,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-1.5,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">22) I feel that my salary is proportionate to the work I do</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q22" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q22" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q22" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q22" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q22" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q22" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Exercise" data-answer-scores='{"No activity at all":-2,"1 hour per week":-1,"2 hours per week":0,"3 hours per week":1,"4 hours or more":2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">23) During the week, I usually have activities that involve sport</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q23" value="No activity at all" required> No activity at all</label>
-                            <label><input type="radio" name="q23" value="1 hour per week"> 1 hour per week</label>
-                            <label><input type="radio" name="q23" value="2 hours per week"> 2 hours per week</label>
-                            <label><input type="radio" name="q23" value="3 hours per week"> 3 hours per week</label>
-                            <label><input type="radio" name="q23" value="4 hours or more"> 4 hours or more</label>
-                            <label><input type="radio" name="q23" value="I prefer not to answer"> I prefer not to answer</label>
-                        </div>
-                    </div>
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Work-Life Balance" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
-                        <label class="survey-q-title">24) My workplace promotes and encourages a healthy lifestyle (e.g., exercise, nutrition, healthy work-life balance).</label>
-                        <div class="survey-options">
-                            <label><input type="radio" name="q24" value="Strongly agree" required> Strongly agree</label>
-                            <label><input type="radio" name="q24" value="Agree"> Agree</label>
-                            <label><input type="radio" name="q24" value="Neither agree nor disagree"> Neither agree nor disagree</label>
-                            <label><input type="radio" name="q24" value="Disagree"> Disagree</label>
-                            <label><input type="radio" name="q24" value="Strongly disagree"> Strongly disagree</label>
-                            <label><input type="radio" name="q24" value="I prefer not to answer"> I prefer not to answer</label>
                         </div>
                     </div>
                 </div>
