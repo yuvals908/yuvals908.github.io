@@ -1488,10 +1488,10 @@ nav ul li a:hover::after {
 
     .testimonial-carousel .testimonial-card p,
     .testimonial-carousel .testimonial-author {
-        font-size: 0.92em;
+        font-size: 1em;
     }
     .testimonials {
-        margin-bottom: 70px;
+        margin-bottom: 130px;
     }
 }
 
@@ -2070,7 +2070,7 @@ body {
     min-height: 280px;
     box-sizing: border-box;
     padding: 54px 38px 38px 90px;
-    overflow: visible; /* changed from visible to visible for clarity */
+    overflow: visible; 
 }
 .testimonial-carousel .testimonial-card::after {
     /* Folded corner effect */
