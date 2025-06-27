@@ -62,6 +62,13 @@
 </script>
     <!-- Hide body until header is loaded -->
     <style id="hide-until-header">body { visibility:hidden !important; }</style>
+    <style>
+        @media (max-width: 600px) {
+            .testimonial-arrow {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -163,19 +170,143 @@
     </section><br>
 
     <!-- Testimonials -->
-        <section class="testimonials">
+    <section class="testimonials">
         <h2 class="Testimonials-header2">Schools Love Schoolmait—Here’s Why</h2><br>
-            <div class="grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-author"><strong>MAYA SUKUMARAN</strong><br>Principal, Gitanjali Senior School, INDIA</p> <!-- Added class, removed <br> -->
-                    <p>“We engaged Schoolmait to measure student wellness in Jan 2024. This exercise identified the physical, mental, social and emotional wellbeing of our students both at overall school level as well as individual student level. The reports have <span class="highlight-red">helped us in planning the intervention programs</span> aimed at improving student wellbeing. I personally feel that <span class="highlight-red">this should be a mandatory exercise for every school</span>.”</p> <!-- Replaced inline style with class -->
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-author"><strong>ANNE MORGENSZTERN</strong><br>Adjointe Pédagogique, Lycée ORT Daniel Mayer, FRANCE</p> <!-- Added class, removed <br> -->
-                    <p>“Schoolmait is an <span class="highlight-blue">extremely easy-to-use tool</span> for all stakeholders: teachers, parents, and students. Its main advantage: <span class="highlight-blue">dealing with issues as close as possible to realities on the ground</span>. The results are used in a clear and direct manner and make it possible to implement rapid remediation.”</p> <!-- Replaced inline style with class -->
-                </div>
-        </section>
-    </div>
+        <div class="testimonial-carousel">
+            <div class="testimonial-card" data-color="#e63946">
+                <div class="testimonial-quote-icon" style="color:#e63946;">“</div>
+                <p class="testimonial-author"><strong>MAYA SUKUMARAN</strong><br>Principal, Gitanjali Senior School, INDIA</p>
+                <p>
+                    We engaged Schoolmait to measure student wellness in Jan 2024. This exercise identified the <span class="highlight-key" style="background:#fdeaea;color:#e63946;">physical, mental, social and emotional wellbeing</span> of our students both at overall school level as well as individual student level.
+                    <br><br>
+                    The reports have <span class="highlight-key" style="background:#fdeaea;color:#e63946;">helped us in planning the intervention programs</span> aimed at improving student wellbeing. I personally feel that <span class="highlight-key" style="background:#fdeaea;color:#e63946;">this should be a mandatory exercise for every school</span>.
+                </p>
+            </div>
+            <div class="testimonial-card" data-color="#3d5a80">
+                <div class="testimonial-quote-icon" style="color:#3d5a80;">“</div>
+                <p class="testimonial-author"><strong>ANNE MORGENSZTERN</strong><br>Adjointe Pédagogique, Lycée ORT Daniel Mayer, FRANCE</p>
+                <p>
+                    Schoolmait is an <span class="highlight-key" style="background:#eaf2fa;color:#3d5a80;">extremely easy-to-use tool</span> for all stakeholders: teachers, parents, and students.
+                    <br><br>
+                    Its main advantage: <span class="highlight-key" style="background:#eaf2fa;color:#3d5a80;">dealing with issues as close as possible to realities on the ground</span>. The results are used in a <span class="highlight-key" style="background:#eaf2fa;color:#3d5a80;">clear and direct manner</span> and make it possible to implement <span class="highlight-key" style="background:#eaf2fa;color:#3d5a80;">rapid remediation</span>.
+                </p>
+            </div>
+            <div class="testimonial-card" data-color="#f4c430">
+                <div class="testimonial-quote-icon" style="color:#f4c430;">“</div>
+                <p class="testimonial-author"><strong>TABITHA LABELLE</strong><br>Joba Divine Early Learners' Center, UGANDA</p>
+                <p>
+                    I appreciate the <span class="highlight-key" style="background:#fffbe6;color:#bfa100;">statistical way</span> it was presented. It has really opened up the school's administration to the <span class="highlight-key" style="background:#fffbe6;color:#bfa100;">powerful relationship between students, teachers and parents</span>.
+                    <br><br>
+                    I think this is <span class="highlight-key" style="background:#fffbe6;color:#bfa100;">important for every school</span>. I recommend the wellbeing survey.
+                </p>
+            </div>
+            <button class="testimonial-arrow testimonial-arrow-left" aria-label="Previous testimonial" style="font-family: Arial, sans-serif; font-weight: bold; display: flex; align-items: center; justify-content: center;">&lt;</button>
+            <button class="testimonial-arrow testimonial-arrow-right" aria-label="Next testimonial" style="font-family: Arial, sans-serif; font-weight: bold; display: flex; align-items: center; justify-content: center;">&gt;</button>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.testimonial-carousel .testimonial-card');
+            const leftBtn = document.querySelector('.testimonial-arrow-left');
+            const rightBtn = document.querySelector('.testimonial-arrow-right');
+            let idx = 0;
+            let timer = null;
+            let animating = false;
+
+            function showCard(i, direction = 1) {
+                if (animating || i === idx) return;
+                animating = true;
+                const prev = idx;
+                cards[prev].classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+                cards[i].classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+                // Animate out previous
+                cards[prev].classList.add(direction > 0 ? 'slide-out-left' : 'slide-out-right');
+                // Animate in next
+                cards[i].style.display = 'block';
+                cards[i].classList.add(direction > 0 ? 'slide-in-right' : 'slide-in-left');
+                setTimeout(() => {
+                    cards[prev].style.display = 'none';
+                    cards[prev].classList.remove('slide-out-left', 'slide-out-right');
+                    cards[i].classList.add('active');
+                    cards[i].classList.remove('slide-in-left', 'slide-in-right');
+                    animating = false;
+                }, 600);
+                idx = i;
+            }
+
+            // Initialize
+            cards.forEach((card, i) => {
+                card.style.display = i === 0 ? 'block' : 'none';
+                if (i === 0) card.classList.add('active');
+            });
+
+            function nextCard() {
+                let next = (idx + 1) % cards.length;
+                showCard(next, 1);
+            }
+            function prevCard() {
+                let prev = (idx - 1 + cards.length) % cards.length;
+                showCard(prev, -1);
+            }
+
+            function startCarousel() {
+                timer = setInterval(nextCard, 10000);
+            }
+            function stopCarousel() {
+                if (timer) clearInterval(timer);
+            }
+
+            if (leftBtn && rightBtn) {
+                leftBtn.addEventListener('click', function() {
+                    stopCarousel();
+                    prevCard();
+                    startCarousel();
+                });
+                rightBtn.addEventListener('click', function() {
+                    stopCarousel();
+                    nextCard();
+                    startCarousel();
+                });
+            }
+
+            // --- Swipe support for small screens ---
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const carousel = document.querySelector('.testimonial-carousel');
+            if (carousel) {
+                carousel.addEventListener('touchstart', function(e) {
+                    if (e.touches.length === 1) {
+                        touchStartX = e.touches[0].clientX;
+                    }
+                });
+                carousel.addEventListener('touchmove', function(e) {
+                    if (e.touches.length === 1) {
+                        touchEndX = e.touches[0].clientX;
+                    }
+                });
+                carousel.addEventListener('touchend', function(e) {
+                    const deltaX = touchEndX - touchStartX;
+                    if (Math.abs(deltaX) > 50) { // swipe threshold
+                        stopCarousel();
+                        if (deltaX < 0) {
+                            nextCard();
+                        } else {
+                            prevCard();
+                        }
+                        startCarousel();
+                    }
+                    touchStartX = 0;
+                    touchEndX = 0;
+                });
+            }
+            // --- End swipe support ---
+
+            startCarousel();
+        });
+    </script>
+
+    <!-- Add spacing between carousel and CTA -->
+    <div style="height:40px"></div>
 
     <!-- Call to Action -->
     <section class="cta" id="cognito-form">
