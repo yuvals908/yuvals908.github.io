@@ -1370,11 +1370,6 @@ nav ul li a:hover::after {
         padding: 15px;
         gap: 15px;
     }
-
-    #cookie-banner .cookie-banner-actions {
-        width: 100%;
-        justify-content: center;
-    }
 }
 
 @media (max-width: 600px) {
@@ -1488,10 +1483,10 @@ nav ul li a:hover::after {
 
     .testimonial-carousel .testimonial-card p,
     .testimonial-carousel .testimonial-author {
-        font-size: 1em;
+        font-size: 1.05em;
     }
     .testimonials {
-        margin-bottom: 130px;
+        margin-bottom: 170px;
     }
 }
 
@@ -2159,7 +2154,34 @@ body {
     }
 }
 
-/* --- End carousel styles --- */
+/* Add above carousel arrow row styles */
+.testimonial-arrows-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+    width: 100%;
+    gap: 18px;
+}
+@media (max-width: 700px) {
+    .testimonial-arrows-row {
+        margin-bottom: 20px;
+        gap: 12px;
+    }
+}
+@media (max-width: 600px) {
+    .testimonial-arrows-row {
+        margin-bottom: 20px;
+        gap: 10vw;
+    }
+}
+
+/* Override arrow position for above carousel */
+.testimonial-arrow {
+    position: static !important;
+    transform: none !important;
+    margin: 0 4px;
+}
 
 /* --- Testimonial quote icon and highlight --- */
 .testimonial-quote-icon {

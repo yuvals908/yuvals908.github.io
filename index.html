@@ -62,13 +62,6 @@
 </script>
     <!-- Hide body until header is loaded -->
     <style id="hide-until-header">body { visibility:hidden !important; }</style>
-    <style>
-        @media (max-width: 600px) {
-            .testimonial-arrow {
-                display: none !important;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -172,6 +165,10 @@
     <!-- Testimonials -->
     <section class="testimonials">
         <h2 class="Testimonials-header2">Schools Love Schoolmait—Here’s Why</h2><br>
+        <div class="testimonial-arrows-row">
+            <button class="testimonial-arrow testimonial-arrow-left" aria-label="Previous testimonial" style="font-family: Arial, sans-serif; font-weight: bold;">&lt;</button>
+            <button class="testimonial-arrow testimonial-arrow-right" aria-label="Next testimonial" style="font-family: Arial, sans-serif; font-weight: bold;">&gt;</button>
+        </div>
         <div class="testimonial-carousel">
             <div class="testimonial-card" data-color="#e63946">
                 <div class="testimonial-quote-icon" style="color:#e63946;">“</div>
@@ -200,8 +197,7 @@
                     I think this is <span class="highlight-key" style="background:#fffbe6;color:#bfa100;">important for every school</span>. I recommend the wellbeing survey.
                 </p>
             </div>
-            <button class="testimonial-arrow testimonial-arrow-left" aria-label="Previous testimonial" style="font-family: Arial, sans-serif; font-weight: bold; display: flex; align-items: center; justify-content: center;">&lt;</button>
-            <button class="testimonial-arrow testimonial-arrow-right" aria-label="Next testimonial" style="font-family: Arial, sans-serif; font-weight: bold; display: flex; align-items: center; justify-content: center;">&gt;</button>
+            <!-- Remove arrow buttons from here -->
         </div>
     </section>
     <script>
