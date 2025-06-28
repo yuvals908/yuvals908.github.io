@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- Google Font Link -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lilita One font for carousel arrows -->
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -164,13 +166,11 @@
 
     <!-- Testimonials -->
     <section class="testimonials">
-        <h2 class="Testimonials-header2">Schools Love Schoolmait—Here’s Why</h2><br>
-        <div class="testimonial-arrows-row">
-            <button class="testimonial-arrow testimonial-arrow-left" aria-label="Previous testimonial" style="font-family: Arial, sans-serif; font-weight: bold;">&lt;</button>
-            <button class="testimonial-arrow testimonial-arrow-right" aria-label="Next testimonial" style="font-family: Arial, sans-serif; font-weight: bold;">&gt;</button>
-        </div>
-        <div class="testimonial-carousel">
-            <div class="testimonial-card" data-color="#e63946">
+    <h2 class="Testimonials-header2">Schools Love Schoolmait—Here’s Why</h2><br>
+    <div class="testimonial-carousel">
+        <button class="testimonial-arrow testimonial-arrow-left" aria-label="Previous testimonial" style="font-family: 'Lilita One', Arial, sans-serif; font-weight: bold; left:0; right:auto; position:absolute;">&lt;</button>
+        <button class="testimonial-arrow testimonial-arrow-right" aria-label="Next testimonial" style="font-family: 'Lilita One', Arial, sans-serif; font-weight: bold; right:0; left:auto; position:absolute;">&gt;</button>
+        <div class="testimonial-card" data-color="#e63946">
                 <div class="testimonial-quote-icon" style="color:#e63946;">“</div>
                 <p class="testimonial-author"><strong>MAYA SUKUMARAN</strong><br>Principal, Gitanjali Senior School, INDIA</p>
                 <p>
@@ -197,7 +197,6 @@
                     I think this is <span class="highlight-key" style="background:#fffbe6;color:#bfa100;">important for every school</span>. I recommend the wellbeing survey.
                 </p>
             </div>
-            <!-- Remove arrow buttons from here -->
         </div>
     </section>
     <script>
@@ -301,7 +300,7 @@
         });
     </script>
 
-    <!-- Add spacing between carousel and CTA -->
+    <!-- Add spacing between carousel and CTAli -->
     <div style="height:40px"></div>
 
     <!-- Call to Action -->
