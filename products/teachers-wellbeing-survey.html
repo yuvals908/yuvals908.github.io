@@ -31,9 +31,14 @@
     <div id="disclaimer-section" style="max-width:640px;margin:15vh auto 0 auto;padding:28px 20px;background:#f8fafd;border:2px solid #3d5a80;border-radius:14px;box-shadow:0 2px 12px rgba(66,93,129,0.07);text-align:left;">
         <h2 style="color:#3d5a80;margin-bottom:14px;">Teacher Wellbeing Check</h2>
         <p style="color:#293241;font-size:0.9em;margin-bottom:24px;">
-            This free self-assessment consists of 15 multiple-choice questions designed to help you reflect on various aspects of your wellbeing in the school workplace. There are no ‘right’ or ‘wrong’ answers - simply respond based on how you're feeling right now.  Once you complete the questionnaire, you'll receive personalized feedback offering insights into your current wellbeing at work.
+            This free online self-assessment tool consists of 15 multiple-choice questions designed to help teachers reflect on various aspects of their wellbeing in the school workplace. There are no ‘right’ or ‘wrong’ answers - simply respond based on how you're feeling right now.  Once you complete the questionnaire, you'll receive personalized report offering insights into your current wellbeing at work, including ideas for next steps.
             <br><br>
-            <u>Please note:</u> This assessment is for informational purposes only. Schoolmait does not take responsibility for any decisions made based on the results. The survey is not intended to replace professional advice, diagnosis, or treatment. Participation is completely voluntary and anonymous.
+            <u>Disclaimer:</u> This assessment is for informational purposes only. Schoolmait accepts no responsibility or liability for any decision made based on this survey. The survey is not intended to address the specific circumstances of any particular individual and cannot replace professional advice, diagnosis, or treatment. Participation is completely voluntary and anonymous. 
+            <br><br>
+            By clicking "Agree and Continue," you confirm that you have read and understood this disclaimer and that you accept our 
+            <a href="/termsconditions" target="_blank" style="color:#3d5a80;text-decoration:underline;">Terms of Use</a> 
+            and 
+            <a href="/privacynote" target="_blank" style="color:#3d5a80;text-decoration:underline;">Privacy Policy</a>.
         </p>
         <button id="disclaimer-proceed-btn" class="button" style="min-width:140px;border-radius:8px;font-size:1.1em;" disabled>Agree & Continue</button>
         <div style="margin-top:18px;">
@@ -51,7 +56,12 @@
                 
                 <div id="survey-questions">
                     <!-- Q1 -->
-                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Engagement" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Emotional Wellbeing"
+                        data-sub-element="Engagement"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Practice positive psychology techniques (e.g. mindfulness, gratitude journals) to boost wellbeing. For example: Allocate two minutes for gratitude reflection: note one positive aspect of your teaching today."
+                        data-intervention-2="">
                         <label class="survey-q-title">1) I feel happy to go to work</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q1" value="Strongly agree" required> Strongly agree</label>
@@ -63,7 +73,12 @@
                         </div>
                     </div>
                     <!-- Q2 -->
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Fatigue" data-answer-scores='{"Always":-2,"Often":-1,"Sometimes":0,"Rarely":1,"Never":2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Physical Wellbeing"
+                        data-sub-element="Fatigue"
+                        data-answer-scores='{"Always":-2,"Often":-1,"Sometimes":0,"Rarely":1,"Never":2,"I prefer not to answer":null}'
+                        data-intervention-1="Schedule regular rest breaks and brief exercise to restore your energy throughout the day."
+                        data-intervention-2="Keep hydrated and choose protein-rich snacks to sustain your energy levels.">
                         <label class="survey-q-title">2) I feel tired during my work days</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q2" value="Always" required> Always</label>
@@ -75,7 +90,12 @@
                         </div>
                     </div>
                     <!-- Q3 -->
-                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Shared Values" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Meaning & Purpose"
+                        data-sub-element="Shared Values"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Get involved in school vision development, for example, present one personally significant idea to the decision makers."
+                        data-intervention-2="">
                         <label class="survey-q-title">3) I agree with the values of my school</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q3" value="Strongly agree" required> Strongly agree</label>
@@ -87,7 +107,12 @@
                         </div>
                     </div>
                     <!-- Q4 -->
-                    <div class="survey-q" data-wellbeing-element="Safety & Belonging" data-sub-element="Feeling Safe" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Safety & Belonging"
+                        data-sub-element="Feeling Safe"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Practice boundary‑setting scripts to maintain respectful interactions at school."
+                        data-intervention-2="Attend personal safety or de‑escalation workshops to feel more secure at work.">
                         <label class="survey-q-title">4) I feel physically and emotionally safe at school</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q4" value="Strongly agree" required> Strongly agree</label>
@@ -99,7 +124,12 @@
                         </div>
                     </div>
                     <!-- Q5 -->
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Student Relationships" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Social Wellbeing"
+                        data-sub-element="Student Relationships"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Practice empathic listening with students to deepen your understanding of their needs."
+                        data-intervention-2="Greet each student by name and aim to recognise one effort‑based achievement daily.">
                         <label class="survey-q-title">5) I have strong and positive relationships with my students</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q5" value="Strongly agree" required> Strongly agree</label>
@@ -111,7 +141,12 @@
                         </div>
                     </div>
                     <!-- Q6 -->
-                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Workload" data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Professional Wellbeing"
+                        data-sub-element="Workload"
+                        data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Reserve non‑negotiable personal time in your calendar and treat it as an appointment."
+                        data-intervention-2="Apply prioritization techniques to focus on high‑impact tasks and reduce overload. For example: Identify your top three daily priorities each morning and focus on their completion.">
                         <label class="survey-q-title">6) I have enough time during the workday to complete my tasks</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q6" value="Always" required> Always</label>
@@ -123,7 +158,12 @@
                         </div>
                     </div>
                     <!-- Q7 -->
-                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Motivation" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Meaning & Purpose"
+                        data-sub-element="Motivation"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Set personally meaningful teaching goals to fuel your daily motivation."
+                        data-intervention-2="Record and celebrate one instance of student progress each day to reinforce your motivation.">
                         <label class="survey-q-title">7) In my workplace I feel motivated to do things to the best of my ability</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q7" value="Strongly agree" required> Strongly agree</label>
@@ -135,7 +175,12 @@
                         </div>
                     </div>
                     <!-- Q8 -->
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Support Networks" data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Social Wellbeing"
+                        data-sub-element="Support Networks"
+                        data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Join or convene a weekly peer roundtable to share teaching challenges and exchange coping strategies."
+                        data-intervention-2="Reach out to a mentor or colleague each week for guidance and mutual support.">
                         <label class="survey-q-title">8) I feel supported by my colleagues and supervisors</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q8" value="Always" required> Always</label>
@@ -147,7 +192,12 @@
                         </div>
                     </div>
                     <!-- Q9 -->
-                    <div class="survey-q" data-wellbeing-element="Emotional Wellbeing" data-sub-element="Stress Management" data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Emotional Wellbeing"
+                        data-sub-element="Stress Management"
+                        data-answer-scores='{"Always":2,"Often":1,"Sometimes":0,"Rarely":-1,"Never":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Practice a 5‑minute sensory grounding exercise whenever you feel overwhelmed."
+                        data-intervention-2="Attend a short mindfulness or CBT workshop to build resilience and reduce burnout.">
                         <label class="survey-q-title">9) I am able to manage work-related stress well</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q9" value="Always" required> Always</label>
@@ -159,7 +209,12 @@
                         </div>
                     </div>
                     <!-- Q10 -->
-                    <div class="survey-q" data-wellbeing-element="Meaning & Purpose" data-sub-element="Sense of Achievement" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Meaning & Purpose"
+                        data-sub-element="Sense of Achievement"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Document small wins each day to recognize and reinforce your progress."
+                        data-intervention-2="Establish SMART objectives and use tracking tools to visualize and celebrate your achievements.">
                         <label class="survey-q-title">10) I feel a sense of achievement in my day-to-day work</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q10" value="Strongly agree" required> Strongly agree</label>
@@ -171,7 +226,12 @@
                         </div>
                     </div>
                     <!-- Q11 -->
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Sleep Duration" data-answer-scores='{"5 hours or less":-2,"6 hours":-1,"7 hours":0,"8 hours":1,"9 hours or more":2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Physical Wellbeing"
+                        data-sub-element="Sleep Duration"
+                        data-answer-scores='{"5 hours or less":-2,"6 hours":-1,"7 hours":0,"8 hours":1,"9 hours or more":2,"I prefer not to answer":null}'
+                        data-intervention-1="Follow a consistent sleep hygiene ritual (cool, dark, and quiet) before bedtime."
+                        data-intervention-2="Practice evening relaxation routines, like deep breathing or gentle stretching, to improve sleep.">
                         <label class="survey-q-title">11) During the work week my average night sleep is</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q11" value="5 hours or less" required> 5 hours or less</label>
@@ -183,7 +243,12 @@
                         </div>
                     </div>
                     <!-- Q12 -->
-                    <div class="survey-q" data-wellbeing-element="Social Wellbeing" data-sub-element="Positive relationships" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Social Wellbeing"
+                        data-sub-element="Positive relationships"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Organize or host informal staff gatherings to foster positive relationships and social support."
+                        data-intervention-2="">
                         <label class="survey-q-title">12) I laugh a lot with my colleagues and students during my work day</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q12" value="Strongly agree" required> Strongly agree</label>
@@ -195,7 +260,12 @@
                         </div>
                     </div>
                     <!-- Q13 -->
-                    <div class="survey-q" data-wellbeing-element="Professional Wellbeing" data-sub-element="Recognition" data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Professional Wellbeing"
+                        data-sub-element="Recognition"
+                        data-answer-scores='{"Strongly agree":2,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-2,"I prefer not to answer":null}'
+                        data-intervention-1="Implement a self‑reward system for reaching your teaching milestones. For example: treat yourself when key tasks are completed"
+                        data-intervention-2="Share one success in staff meetings or newsletters to publicly acknowledge your contributions.">
                         <label class="survey-q-title">13) I feel that my work is appreciated and valued</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q13" value="Strongly agree" required> Strongly agree</label>
@@ -207,7 +277,12 @@
                         </div>
                     </div>
                     <!-- Q14 -->
-                    <div class="survey-q" data-wellbeing-element="Financial Wellbeing" data-sub-element="Compensation" data-answer-scores='{"Strongly agree":1.5,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-1.5,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Financial Wellbeing"
+                        data-sub-element="Compensation"
+                        data-answer-scores='{"Strongly agree":1.5,"Agree":1,"Neither agree nor disagree":0,"Disagree":-1,"Strongly disagree":-1.5,"I prefer not to answer":null}'
+                        data-intervention-1="While salary negotiation might be limited, you can take charge of your financial wellbeing by setting clear financial goals and reviewing your budget monthly to reduce compensation‑related stress"
+                        data-intervention-2="">
                         <label class="survey-q-title">14) I feel that my salary is proportionate to the work I do</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q14" value="Strongly agree" required> Strongly agree</label>
@@ -219,7 +294,12 @@
                         </div>
                     </div>
                     <!-- Q15 -->
-                    <div class="survey-q" data-wellbeing-element="Physical Wellbeing" data-sub-element="Physical Exercise" data-answer-scores='{"No activity at all":-2,"1 hour per week":-1,"2 hours per week":0,"3 hours per week":1,"4 hours or more":2,"I prefer not to answer":null}'>
+                    <div class="survey-q"
+                        data-wellbeing-element="Physical Wellbeing"
+                        data-sub-element="Physical Exercise"
+                        data-answer-scores='{"No activity at all":-2,"1 hour per week":-1,"2 hours per week":0,"3 hours per week":1,"4 hours or more":2,"I prefer not to answer":null}'
+                        data-intervention-1="Do 10‑minute micro‑workouts (e.g., bodyweight exercises) during breaks to stay active."
+                        data-intervention-2="Choose active commuting (walking, cycling or stairs) whenever possible to integrate exercise seamlessly into your day.">
                         <label class="survey-q-title">15) During the week, I usually have activities that involve sport</label>
                         <div class="survey-options">
                             <label><input type="radio" name="q15" value="No activity at all" required> No activity at all</label>
@@ -247,13 +327,19 @@
             <h3 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Scores</h3>
         </div>
         <div class="survey-col" id="survey-chart-col" style="display:none;">
-            <div id="survey-results-inner">
+            <div id="survey-results-inner" style="border:2px solid #3d5a80; border-radius:18px; box-shadow:0 2px 12px rgba(66,93,129,0.07); padding:28px 18px 28px 18px; background:#f8fafd;">
                 <div class="survey-results-row">
                     <canvas id="wellbeing-chart"></canvas>
                     <div id="subelement-summary"></div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="intervention-ideas" style="margin:32px auto 0 auto;display:none;max-width:900px;">
+        <div style="font-weight:bold;color:#425d81;margin-bottom:10px;">
+            Here are few ideas you may want to consider in order to boost your wellebing:
+        </div>
+        <ul id="intervention-ideas-list" style="margin-left:18px;padding-left:0;font-size:1em;"></ul>
     </div>
 <!-- Styling -->
     <style>
@@ -646,7 +732,7 @@
                         });
                     }
                     html += '</ol></div>';
-                    html += '<div style="flex:1;"><b style="color:#e63946;">Areas to Improve</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
+                    html += '<div style="flex:1;"><b style="color:#e63946;">Areas for development</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
                     if (bottomAreas.length === 0) {
                         html += '<li style="color:#888;">None</li>';
                     } else {
@@ -658,6 +744,32 @@
                     html += '</div>';
                 }
                 summaryDiv.innerHTML = html;
+
+                // --- Intervention ideas for bottomAreas ---
+                const interventionDiv = document.getElementById('intervention-ideas');
+                const interventionList = document.getElementById('intervention-ideas-list');
+                interventionList.innerHTML = '';
+                // Always hide intervention ideas until submit
+                interventionDiv.style.display = 'none';
+                if (bottomAreas.length > 0) {
+                    bottomAreas.forEach(area => {
+                        const q = questions.find(qEl => qEl.dataset.subElement === area.name);
+                        if (q) {
+                            const int1 = q.getAttribute('data-intervention-1');
+                            const int2 = q.getAttribute('data-intervention-2');
+                            if (int1 && int1.trim()) {
+                                const li = document.createElement('li');
+                                li.textContent = int1;
+                                interventionList.appendChild(li);
+                            }
+                            if (int2 && int2.trim()) {
+                                const li = document.createElement('li');
+                                li.textContent = int2;
+                                interventionList.appendChild(li);
+                            }
+                        }
+                    });
+                }
             }
 
             function showQuestion(idx) {
@@ -738,6 +850,8 @@
                 document.getElementById('survey-thankyou').style.display = 'none';
                 // Show results (now update and show)
                 updateScoresDisplay();
+                // Show intervention ideas only after submit
+                document.getElementById('intervention-ideas').style.display = '';
             });
         })();
     </script>
