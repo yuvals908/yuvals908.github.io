@@ -2242,21 +2242,21 @@ body {
     opacity: 1;
 }
 .testimonial-arrow-left {
-    left: -24px;
+    left: -1px;
 }
 .testimonial-arrow-right {
-    right: -24px;
+    right: -1px;
 }
 @media (max-width: 700px) {
     .testimonial-arrow {
         width: 36px;
         height: 36px;
         font-size: 1.5rem;
-        left: 2px;
-        right: 2px;
+     /*   left: 2px;
+        right: 2px;*/
     }
-    .testimonial-arrow-left { left: 2px; }
-    .testimonial-arrow-right { right: 2px; }
+    .testimonial-arrow-left { left: -15px; }
+    .testimonial-arrow-right { right: -15px; }
 }
 
 /* --- End testimonial carousel design --- */
