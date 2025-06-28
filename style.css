@@ -2178,7 +2178,7 @@ body {
 
 /* Override arrow position for above carousel */
 .testimonial-arrow {
-    position: static !important;
+    position: block !important;
     transform: none !important;
     margin: 0 4px;
 }
@@ -2247,10 +2247,11 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #fff;
+    /*background: #fff;*/
     border: 2px solid #3d5a80;
     color: #3d5a80;
     border-radius: 50%;
+    border-color:transparent! important;
     width: 44px;
     height: 44px;
     font-size: 2rem;
@@ -2265,27 +2266,27 @@ body {
     opacity: 0.85;
 }
 .testimonial-arrow:hover {
-    background: #3d5a80;
+    /*background: #3d5a80;
     color: #fff;
     border-color: #e63946;
-    opacity: 1;
+    opacity: 1;*/
 }
 .testimonial-arrow-left {
-    left: -24px;
+    left: -1px;
 }
 .testimonial-arrow-right {
-    right: -24px;
+    right: -1px;
 }
 @media (max-width: 700px) {
     .testimonial-arrow {
         width: 36px;
         height: 36px;
         font-size: 1.5rem;
-        left: 2px;
-        right: 2px;
+     /*   left: 2px;
+        right: 2px;*/
     }
-    .testimonial-arrow-left { left: 2px; }
-    .testimonial-arrow-right { right: 2px; }
+    .testimonial-arrow-left { left: -15px; }
+    .testimonial-arrow-right { right: -15px; }
 }
 
 /* --- End testimonial carousel design --- */
