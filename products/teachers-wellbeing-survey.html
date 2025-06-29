@@ -323,25 +323,19 @@
         </section>
     </div>
 <!-- Results Section -->
-    <div class="survey-flex-row" id="survey-results" style="display:none;">
+    <div id="survey-results" style="display:none; width:100%;">
         <div id="survey-results-header" style="display:none; margin-top:0; color:#293241; font-size:1.25em; text-align:left; margin-bottom:18px;">
             <h3 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Report</h3>
         </div>
-        <div class="survey-col" id="survey-chart-col" style="display:none;">
+        <div id="survey-chart-col" class="survey-col" style="display:none;">
             <div id="survey-results-inner" style="border:2px solid #3d5a80; border-radius:18px; box-shadow:0 2px 12px rgba(66,93,129,0.07); padding:28px 18px 28px 18px; background:#f8fafd;">
                 <div class="survey-results-row">
                     <canvas id="wellbeing-chart"></canvas>
-                    <div id="subelement-summary"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="intervention-ideas" style="margin:32px auto 0 auto;display:none;max-width:900px;">
-        <div style="font-weight:bold;color:#425d81;margin-bottom:10px;">
-            Here are a few ideas you may wish to consider to enhance your wellbeing:
-        </div>
-        <ul id="intervention-ideas-list" style="margin-left:18px;padding-left:0;font-size:1em;"></ul>
-    </div>
+    <div id="subelement-summary" style="display:none;"></div>
 <!-- Styling -->
     <style>
         /* Default styles for 1025px and above */
@@ -495,7 +489,6 @@
     </style>
 <!-- Script Section -->
     <script>
-
         function getScore(qIdx, value, answerScores) {
             if (value == null) return null;
             const baseScore = answerScores[value];
@@ -695,13 +688,9 @@
                     }
                 });
 
-                // Remove overallScore from chart data
-                // const overallScore = elementAverages.reduce((sum, avg) => sum + avg, 0) / wellbeingElements.length;
-                // elementAverages.push(overallScore);
-
                 wellbeingChart.data.datasets[0].data = elementAverages;
                 wellbeingChart.update();
-                resultsDiv.style.display = "block";
+                // resultsDiv.style.display = "block"; // already removed
 
                 // Sub-element averages and summary
                 const subElementAverages = [];
@@ -733,44 +722,40 @@
                         });
                     }
                     html += '</ol></div>';
-                    html += '<div style="flex:1;"><b style="color:#e63946;">Areas for development</b><ol style="margin:8px 0 0 18px;padding:0;font-size:0.98em;">';
+
+                    // --- Table for Areas for development ---
+                    html += '<div style="flex:1;margin-top:18px;"><b style="color:#e63946;">Areas for development</b>';
                     if (bottomAreas.length === 0) {
-                        html += '<li style="color:#888;">None</li>';
+                        html += '<div style="margin-top:8px;color:#888;">None</div>';
                     } else {
-                        bottomAreas.forEach(item => {
-                            html += `<li>${item.name}</li>`;
+                        html += '<table style="width:100%;margin-top:8px;border-collapse:collapse;font-size:0.98em;">';
+                        html += '<thead><tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0e0e0;">Area</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0e0e0;">Ideas to consider</th></tr></thead><tbody>';
+                        bottomAreas.forEach(area => {
+                            // Find intervention ideas for this area
+                            const q = questions.find(qEl => qEl.dataset.subElement === area.name);
+                            let interventions = [];
+                            if (q) {
+                                const int1 = q.getAttribute('data-intervention-1');
+                                const int2 = q.getAttribute('data-intervention-2');
+                                if (int1 && int1.trim()) interventions.push(int1);
+                                if (int2 && int2.trim()) interventions.push(int2);
+                            }
+                            html += `<tr>
+                                <td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #f0f0f0;">${area.name}</td>
+                                <td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #f0f0f0;">
+                                    <ul style="margin:0 0 0 18px;padding:0;font-size:1em;">
+                                        ${interventions.length > 0 ? interventions.map(idea => `<li>${idea}</li>`).join('') : '<li style="color:#888;">No suggestions</li>'}
+                                    </ul>
+                                </td>
+                            </tr>`;
                         });
+                        html += '</tbody></table>';
                     }
-                    html += '</ol></div>';
+                    html += '</div>';
                     html += '</div>';
                 }
                 summaryDiv.innerHTML = html;
-
-                // --- Intervention ideas for bottomAreas ---
-                const interventionDiv = document.getElementById('intervention-ideas');
-                const interventionList = document.getElementById('intervention-ideas-list');
-                interventionList.innerHTML = '';
-                // Always hide intervention ideas until submit
-                interventionDiv.style.display = 'none';
-                if (bottomAreas.length > 0) {
-                    bottomAreas.forEach(area => {
-                        const q = questions.find(qEl => qEl.dataset.subElement === area.name);
-                        if (q) {
-                            const int1 = q.getAttribute('data-intervention-1');
-                            const int2 = q.getAttribute('data-intervention-2');
-                            if (int1 && int1.trim()) {
-                                const li = document.createElement('li');
-                                li.textContent = int1;
-                                interventionList.appendChild(li);
-                            }
-                            if (int2 && int2.trim()) {
-                                const li = document.createElement('li');
-                                li.textContent = int2;
-                                interventionList.appendChild(li);
-                            }
-                        }
-                    });
-                }
+                // Do not show summaryDiv yet
             }
 
             function showQuestion(idx) {
@@ -851,8 +836,8 @@
                 document.getElementById('survey-thankyou').style.display = 'none';
                 // Show results (now update and show)
                 updateScoresDisplay();
-                // Show intervention ideas only after submit
-                document.getElementById('intervention-ideas').style.display = '';
+                // Show subelement-summary now
+                document.getElementById('subelement-summary').style.display = '';
             });
         })();
     </script>
@@ -869,12 +854,10 @@
                 if (proceedBtn.disabled) return;
                 document.getElementById('disclaimer-section').style.display = 'none';
                 var surveyMain = document.getElementById('survey-main-content');
-                // Remove display:none and set to flex (for desktop) or block (for mobile)
-                surveyMain.style.display = window.innerWidth <= 1024 ? 'block' : 'flex';
+                surveyMain.style.display = 'block';
             });
         });
     </script>
-
     <div id="footer-include"></div>
     <script src="/js/include.js"></script>
 </body>
