@@ -2215,7 +2215,7 @@ body {
 /* Carousel navigation arrows */
 .testimonial-arrow {
     position: absolute;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     background: none;
     border: none;
@@ -2252,12 +2252,12 @@ body {
     .testimonial-arrow {
         width: 36px;
         height: 36px;
-        font-size: 1.5rem;
+        font-size: 2rem;
      /*   left: 2px;
         right: 2px;*/
     }
-    .testimonial-arrow-left { left: -15px; }
-    .testimonial-arrow-right { right: -15px; }
+    .testimonial-arrow-left { left: -25px !important; }
+    .testimonial-arrow-right { right: -25px !important; }
 }
 
 /* --- End testimonial carousel design --- */
