@@ -323,43 +323,48 @@
         </section>
     </div>
 <!-- Results Section -->
-    <div id="survey-results" style="display:none; width:100%;">
+    <div id="survey-results" style="display:none; width:100%;border:2px solid #3d5a80; border-radius:18px; box-shadow:0 2px 12px rgba(66,93,129,0.07); padding:28px 18px 28px 18px; background:#f8fafd;">
         <div id="survey-results-header" style="display:none; margin-top:0; color:#293241; font-size:1.25em; text-align:left; margin-bottom:18px;">
             <h3 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Results</h3>
         </div>
         <div id="survey-chart-col" class="survey-col" style="display:none;">
-            <div id="survey-results-inner" style="border:2px solid #3d5a80; border-radius:18px; box-shadow:0 2px 12px rgba(66,93,129,0.07); padding:28px 18px 28px 18px; background:#f8fafd;">
+            <div id="survey-results-inner" style="border:1px solid #3d5a80; border-radius:18px; box-shadow:0 2px 12px rgba(66,93,129,0.07); padding:28px 18px 28px 18px; background:#ffffff;">
                 <div class="survey-results-row">
                     <canvas id="wellbeing-chart"></canvas>
                 </div>
             </div>
-        </div>
-    </div><br>
+        </div><br>
     <div id="subelement-summary" style="display:none;"></div>
+    </div>
 
     <!-- Call to Action Section -->
-    <div id="survey-call-to-action" style="display:none;max-width:700px;margin:36px auto 0 auto;padding:32px 24px;background:#f8fafd;border:2px solid #e63946;border-radius:16px;box-shadow:0 2px 12px rgba(230,57,70,0.07);">
+    <div id="survey-call-to-action" style="display:none;max-width:1000px;margin:36px 0 0 0;padding:32px 24px;background:#e7e7e7;">
         <h2 style="color:#e63946;margin-bottom:18px;font-size:1.3em;">What's next?</h2>
+        <div style="margin-bottom:18px;">
+            Here are some ways to stay engaged:
+        </div>
         <ol style="margin-left:18px;padding-left:0;font-size:1.08em;color:#293241;">
             <li style="margin-bottom:18px;">
-                <b>If you liked the survey:</b> Leave your email and get a reminder from us to fill in the survey at the beginning of each month.<br>
-                <form id="cta-reminder-form" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
-                    <input type="email" id="cta-reminder-email" placeholder="Your email" required style="padding:7px 12px;border-radius:6px;border:1px solid #ccc;font-size:1em;min-width:220px;">
-                    <button type="submit" class="button" style="border-radius:8px;font-size:1em;">Remind Me Monthly</button>
-                </form>
-                <div id="cta-reminder-success" style="display:none;color:#2ecc71;margin-top:8px;font-size:0.98em;">Thank you! We'll remind you at the start of each month.</div>
-            </li>
-            <li style="margin-bottom:18px;">
-                <b>Share your view:</b> Share your thoughts on the survey or invite friends to try it on social media.<br>
-                <div style="margin-top:10px;">
-                    <a href="https://twitter.com/intent/tweet?text=I%20just%20completed%20the%20Teacher%20Wellbeing%20Survey%20by%20@Schoolmait!%20Check%20it%20out%3A%20https%3A%2F%2Fwww.schoolmait.com%2Fproducts%2Fteachers-wellbeing-survey.html" target="_blank" rel="noopener" class="button" style="background:#1da1f2;margin-right:8px;">Share on X</a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.schoolmait.com/products/teachers-wellbeing-survey" target="_blank" rel="noopener" class="button" style="background:#4267B2;margin-right:8px;">Share on Facebook</a>
-                    <a href="mailto:?subject=Try%20the%20Teacher%20Wellbeing%20Survey!&body=I%20found%20this%20Teacher%20Wellbeing%20Survey%20useful%20-%20check%20it%20out%20here:%20https://www.schoolmait.com/products/teachers-wellbeing-survey.html" class="button" style="background:#3d5a80;">Invite by Email</a>
+                <b>Stay Connected:</b> Enter your email to receive a monthly reminder to complete the Teacher Wellbeing Survey.<br>
+                <div style="margin-top:10px; padding-left:0px; text-align:left;">
+                    <div style="max-width:340px;">
+                        <script src="https://www.cognitoforms.com/f/seamless.js" data-key="7Y6bnLXRv0GXF3ednExIqg" data-form="12"></script>
+                    </div>
                 </div>
             </li>
             <li>
-                <b>Want a much more detailed report to promote your students' wellbeing?</b><br>
+                <b>Support Student Wellbeing:</b> Explore our Student Wellbeing Survey to help your students thrive.<br>
                 <a href="/products/student-wellbeing-survey" class="button" style="margin-top:10px;border-radius:8px;font-size:1em;">Check out our Student Wellbeing Survey</a>
+                <br><br><br><br>
+            </li>            
+            <li style="margin-bottom:18px;">
+                <b>Share with Colleagues:</b> Invite fellow teachers to benefit from this survey!<br>
+                <div style="margin-top:10px;">
+                    <a href="https://twitter.com/intent/tweet?text=I%20just%20completed%20the%20Teacher%20Wellbeing%20Survey%20by%20@Schoolmait!%20Check%20it%20out%3A%20https%3A%2F%2Fwww.schoolmait.com%2Fproducts%2Fteachers-wellbeing-survey.html" target="_blank" rel="noopener" class="button" style="background:#1da1f2;margin-right:8px;">Share on X</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.schoolmait.com/products/teachers-wellbeing-survey" target="_blank" rel="noopener" class="button" style="background:#4267B2;margin-right:8px;">Share on Facebook</a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.schoolmait.com/products/teachers-wellbeing-survey.html" target="_blank" rel="noopener" class="button" style="background:#0077b5;margin-right:8px;">Share on Linkedin</a>
+                    <a href="mailto:?subject=Try%20the%20Teacher%20Wellbeing%20Survey!&body=I%20found%20this%20Teacher%20Wellbeing%20Survey%20useful%20-%20check%20it%20out%20here:%20https://www.schoolmait.com/products/teachers-wellbeing-survey.html" class="button" style="background:#3d5a80;">Invite by Email</a>
+                </div>
             </li>
         </ol>
     </div>
@@ -424,6 +429,14 @@
             height: 18px;
         }
         .survey-options label:hover, .survey-options input[type="radio"]:checked + label {
+            background-color: #e63946;
+            color: #fff;
+            border-radius: 10px;
+            border-color: #007bff;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.2);
+        }
+        .survey-options label.survey-option-selected,
+        .survey-options input[type="radio"]:checked + label {
             background-color: #e63946;
             color: #fff;
             border-radius: 10px;
@@ -640,6 +653,9 @@
             const progressBar = document.getElementById('survey-progress-bar');
             const total = questions.length;
             const resultsDiv = document.getElementById('survey-results');
+            // Ensure resultsDiv is hidden initially (including border)
+            resultsDiv.style.display = 'none';
+            resultsDiv.style.border = 'none';
             const surveySection = document.getElementById('teacher-survey-section');
             const chartCol = document.getElementById('survey-chart-col');
             const resultsHeader = document.getElementById('survey-results-header');
@@ -809,6 +825,12 @@
                 radios.forEach(radio => {
                     radio.addEventListener('click', function() {
                         updateScoresDisplay();
+                        // Visually mark the selected label
+                        radios.forEach(r => {
+                            // Remove 'selected' class from all labels in this group
+                            if (r.parentElement) r.parentElement.classList.remove('survey-option-selected');
+                        });
+                        if (radio.parentElement) radio.parentElement.classList.add('survey-option-selected');
                         if (i < questions.length - 1) {
                             currentIdx = i + 1;
                             showQuestion(currentIdx);
@@ -854,6 +876,7 @@
                 surveySection.style.display = 'none';
                 // Show the chart/results column and results section
                 resultsDiv.style.display = 'flex';
+                resultsDiv.style.border = '2px solid #3d5a80';
                 chartCol.style.display = 'flex';
                 // Show the results header
                 if (resultsHeader) resultsHeader.style.display = 'block';
