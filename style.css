@@ -43,6 +43,7 @@ ul {
 
 ul li {
     padding-left: 30px;
+    padding-right: 40px;
     margin-bottom: 15px;
     position: relative;
     transition: transform .2s ease;
@@ -2485,12 +2486,9 @@ body {
     background: transparent;
     position: relative;
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 .cta-card:nth-child(2) {
-    border: 8px solid #3d5a80;
+    border: 8px sleft: 30olid #3d5a80;
     border-bottom: 5px dashed #f08d94;
 }
 .cta-card:nth-child(3) {
@@ -2515,7 +2513,7 @@ body {
     font-size: 1em;
     line-height: 1.6;
     margin-bottom: 18px;
-    flex-grow: 0;
+    flex-grow: 1; /* Allows paragraph to take available space, pushing buttons down */
 }
 
 .cognito-form-wrapper {
