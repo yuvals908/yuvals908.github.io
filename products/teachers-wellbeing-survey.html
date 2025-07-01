@@ -30,7 +30,7 @@
 
     <!-- Disclaimer Section -->
     <div id="disclaimer-section" style="width:100%;margin:15vh auto 0 auto;padding:28px 20px;text-align:left;">
-        <h1 style="color:#3d5a80;margin-bottom:14px;">Teacher Wellbeing Check</h1>
+        <h1 class="teacher-wellbeing-heading" style="color:#3d5a80;margin-bottom:14px;">Teacher Wellbeing Check</h1>
         <p style="color:#293241;margin-bottom:24px;">
             This quick, free self-assessment includes 15 multiple-choice questions to help teachers reflect on their wellbeing at work. There are no right or wrong answers, just respond based on how you feel now. Once completed, you'll receive a personalized report with insights into your current state of wellbeing.
         </p>
@@ -397,6 +397,10 @@
             color: #425d81;
             margin-bottom: 10px;
             font-size: 1em;
+        }
+        @media (max-width: 600px) {
+            .teacher-wellbeing-heading {font-size: 1.2rem;}
+            #disclaimer-section { margin-top: 11vh !important; }
         }
         .survey-required {
             color: #e63946;
