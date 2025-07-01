@@ -31,12 +31,13 @@
     <!-- Disclaimer Section -->
     <div id="disclaimer-section" style="width:100%;margin:15vh auto 0 auto;padding:28px 20px;text-align:left;">
         <h1 style="color:#3d5a80;margin-bottom:14px;">Teacher Wellbeing Check</h1>
-        <p style="color:#293241;font-size:0.9em;margin-bottom:24px;">
-            This free online self-assessment tool consists of 15 multiple-choice questions designed to help teachers reflect on various aspects of their wellbeing in the school workplace. There are no ‘right’ or ‘wrong’ answers - simply respond based on how you're feeling right now.  Once you complete the questionnaire, you'll receive personalized report offering insights into your current wellbeing at work, including ideas for next steps.
+        <p style="color:#293241;margin-bottom:24px;">
+            This quick, free self-assessment includes 15 multiple-choice questions to help teachers reflect on their wellbeing at work. There are no right or wrong answers, just respond based on how you feel now. Once completed, you'll receive a personalized report with insights into your current state of wellbeing.
+        </p>
+        <p style="border:1px solid #e0e0e0; border-radius:7px; background:#fafbfc; color:#293241; font-size:0.8em; margin-bottom:24px; padding:14px 16px;">
+            <b>Note:</b> This assessment is for informational purposes only. Schoolmait accepts no liability for any decision made based on this survey. The survey is not intended to address the specific circumstances of any particular individual and cannot replace professional advice, diagnosis, or treatment. Participation is completely voluntary. Schoolmait does not collect or store any answers submitted through this survey.
             <br><br>
-            <u>Disclaimer:</u> This assessment is for informational purposes only. Schoolmait accepts no responsibility or liability for any decision made based on this survey. The survey is not intended to address the specific circumstances of any particular individual and cannot replace professional advice, diagnosis, or treatment. Participation is completely voluntary and anonymous. Schoolmait does not collect or store any answers submitted through this survey.
-            <br><br>
-            By clicking "Agree and Continue," you confirm that you have read and understood this disclaimer and accept our 
+            By clicking "Agree and Continue," you confirm that you have read and understood this Note and accept our 
             <a href="/termsconditions" target="_blank" style="color:#3d5a80;text-decoration:underline;">Terms of Use</a> 
             and 
             <a href="/privacynote" target="_blank" style="color:#3d5a80;text-decoration:underline;">Privacy Policy</a>.
@@ -299,7 +300,7 @@
                         data-wellbeing-element="Physical Wellbeing"
                         data-sub-element="Physical Exercise"
                         data-answer-scores='{"No activity at all":-2,"1 hour per week":-1,"2 hours per week":0,"3 hours per week":1,"4 hours or more":2,"I prefer not to answer":null}'
-                        data-intervention-1="Do 10‑minute micro‑workouts (e.g., bodyweight exercises) during breaks to stay active.<a href='#resources-table-section'><sup>[15]</sup></a>"
+                        data-intervention-1="Do 10‑minute micro‑workouts (e.g., Yoga exercises) during breaks to stay active.<a href='#resources-table-section'><sup>[15]</sup></a>"
                         data-intervention-2="Choose active commuting (walking, cycling or stairs) whenever possible to integrate exercise seamlessly into your day.<a href='#resources-table-section'><sup>[10]</sup></a>">
                         <label class="survey-q-title">15) During the week, I usually have activities that involve sport</label>
                         <div class="survey-options">
@@ -323,7 +324,7 @@
         </section>
     </div>
 <!-- Results Section -->
-    <div id="survey-results" style="display:none; width:100%;border:2px solid #3d5a80; border-radius:14px; box-shadow:0 2px 12px rgba(66,93,129,0.07); padding:28px 18px 28px 18px; background:#f8fafd;">
+    <div id="survey-results" style="display:none; width:100%; padding:28px 18px 28px 18px; border-radius:14px; margin-top:24px;">
         <div id="survey-results-header" style="display:none; margin-top:0; color:#293241; font-size:1.25em; text-align:left; margin-bottom:18px;">
             <h3 style="color:#3d5a80; margin-bottom:10px; font-size:1.3em;">Your Self-Assessment Wellbeing Results</h3>
         </div>
@@ -417,7 +418,7 @@
             cursor: pointer;
             transition: border-color 0.18s, box-shadow 0.18s;
             margin-bottom: 0;
-            min-width: 120px;
+            min-width: 100px;
             box-shadow: 0 1px 8px rgba(66,93,129,0.04);
             display: inline-block;
             align-items: center;
@@ -481,12 +482,24 @@
             justify-content: flex-start;
         }
         #survey-results {
+            /* Remove border/background/box-shadow from default */
+            /* Only padding, border-radius, margin-top remain */
             padding: 0px 18px;
             margin-top: 24px;
             display: block;
             color: #293241;
             font-size: 1.08em;
             text-align: left;
+            border: none;
+            background: none;
+            box-shadow: none;
+        }
+        #survey-results.survey-results-active {
+            border: 2px solid #3d5a80;
+            background: #f8fafd;
+            box-shadow: 0 2px 12px rgba(66,93,129,0.07);
+            padding: 28px 18px 28px 18px;
+            border-radius: 18px;
         }
         .survey-results-row {
             display: flex;
@@ -653,12 +666,6 @@
             const progressBar = document.getElementById('survey-progress-bar');
             const total = questions.length;
             const resultsDiv = document.getElementById('survey-results');
-            resultsDiv.style.display = 'none';
-            resultsDiv.style.border = 'none';
-            resultsDiv.style.background = 'none';
-            resultsDiv.style.boxShadow = 'none';
-            resultsDiv.style.padding = '0';
-            resultsDiv.style.borderRadius = '0';
             const surveySection = document.getElementById('teacher-survey-section');
             const chartCol = document.getElementById('survey-chart-col');
             const resultsHeader = document.getElementById('survey-results-header');
@@ -879,11 +886,7 @@
                 surveySection.style.display = 'none';
                 // Show the chart/results column and results section
                 resultsDiv.style.display = 'flex';
-                resultsDiv.style.border = '2px solid #3d5a80';
-                resultsDiv.style.background = '#f8fafd';
-                resultsDiv.style.boxShadow = '0 2px 12px rgba(66,93,129,0.07)';
-                resultsDiv.style.padding = '28px 18px 28px 18px';
-                resultsDiv.style.borderRadius = '18px';
+                resultsDiv.classList.add('survey-results-active');
                 chartCol.style.display = 'flex';
                 // Show the results header
                 if (resultsHeader) resultsHeader.style.display = 'block';
@@ -901,6 +904,7 @@
                 var resourcesTable = document.getElementById('resources-table-section');
                 if (resourcesTable) resourcesTable.style.display = 'block';
             });
+            // Optionally, remove the class when hiding results (if you ever hide it again)
         })();
     </script>
     <script>
@@ -923,7 +927,7 @@
 
     <!-- Resources Table (initially hidden, shown after results) -->
     <div id="resources-table-section" style="display:none;max-width:900px;margin:48px auto 32px auto;padding:24px 18px 18px 18px;">
-        <h2 style="color:#3d5a80;font-size:1.18em;margin-bottom:18px;">Resources for Improving Teacher Wellbeing</h2>
+        <h3 style="color:#3d5a80;font-size:1.18em;margin-bottom:18px;">Resources for Improving Teacher Wellbeing</h3>
         <table style="width:100%;border-collapse:collapse;font-size:0.8em;">
             <thead>
                 <tr style="background:#e7e7e7;">
@@ -963,7 +967,7 @@
                 </tr>
                 <tr>
                     <td style="padding:8px 6px;vertical-align:top;">5</td>
-                    <td style="padding:8px 6px;vertical-align:top;">The Role of Teacher–Student Relationships in Predicting Teachers’ Occupational Wellbeing, Emotional Exhaustion, and Enthusiasm (Cui et al. 2022)</td>
+                    <td style="padding:8px 6px;vertical-align:top;">The Role of Teacher–Student Relationships in Predicting Teachers’ Occupational Wellbeing... (Cui et al. 2022)</td>
                     <td style="padding:8px 6px;vertical-align:top;">
                         <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.896813/full" target="_blank" rel="noopener">View</a>
                     </td>
