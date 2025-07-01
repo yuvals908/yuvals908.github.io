@@ -44,7 +44,7 @@
         </p>
         <button id="disclaimer-proceed-btn" class="button" style="min-width:140px;border-radius:8px;font-size:1.1em;" disabled>Agree & Continue</button>
         <div style="margin-top:18px;">
-            <span style="color:#e63946;font-weight:bold;">#Under_Construction:</span>
+            <span style="color:#e63946;font-weight:bold;">#Testing Code:</span>
             <input id="disclaimer-code-input" type="text" maxlength="8" style="margin-left:10px;padding:4px 8px;border-radius:6px;border:1px solid #ccc;font-size:1em;">
         </div>
     </div>
@@ -945,6 +945,13 @@
                 // Show resources table after call-to-action section
                 var resourcesTable = document.getElementById('resources-table-section');
                 if (resourcesTable) resourcesTable.style.display = 'block';
+                // Google Tag event: survey finished
+                if (typeof gtag === 'function') {
+                    gtag('event', 'survey finished', {
+                        'event_category': 'Teacher Wellbeing Survey',
+                        'event_label': 'User viewed results'
+                    });
+                }
             });
             // Optionally, remove the class when hiding results (if you ever hide it again)
         })();
@@ -963,6 +970,13 @@
                 document.getElementById('disclaimer-section').style.display = 'none';
                 var surveyMain = document.getElementById('survey-main-content');
                 surveyMain.style.display = 'block';
+                // Google Tag event: survey starts
+                if (typeof gtag === 'function') {
+                    gtag('event', 'survey starts', {
+                        'event_category': 'Teacher Wellbeing Survey',
+                        'event_label': 'User agreed and continued'
+                    });
+                }
             });
         });
     </script>
