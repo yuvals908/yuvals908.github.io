@@ -541,6 +541,16 @@
             #wellbeing-chart { max-height: 300px; }
             #subelement-summary { margin-top: 24px !important; }
         }
+        .areas-development-table { display: block; }
+.areas-development-compact { display: none; }
+@media (max-width: 600px) {
+    .areas-development-table { display: none !important; }
+    .areas-development-compact { display: block !important; }
+    #subelement-summary {
+        padding-left: 8px !important;
+        padding-right: 0 !important;
+    }
+}
     </style>
 <!-- Script Section -->
     <script>
@@ -778,33 +788,63 @@
                     }
                     html += '</ol></div>';
 
-                    // --- Table for Areas for development ---
+                    // --- Responsive Areas for development ---
                     html += '<div style="flex:1;margin-top:18px;"><b style="color:#e63946;">Areas for development</b>';
                     if (bottomAreas.length === 0) {
                         html += '<div style="margin-top:8px;color:#888;">None</div>';
                     } else {
-                        html += '<table style="width:100%;margin-top:8px;border-collapse:collapse;font-size:0.98em;">';
-                        html += '<thead><tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0e0e0;">Area</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0e0e0;">Ideas to consider</th></tr></thead><tbody>';
-                        bottomAreas.forEach(area => {
-                            // Find intervention ideas for this area
-                            const q = questions.find(qEl => qEl.dataset.subElement === area.name);
-                            let interventions = [];
-                            if (q) {
-                                const int1 = q.getAttribute('data-intervention-1');
-                                const int2 = q.getAttribute('data-intervention-2');
-                                if (int1 && int1.trim()) interventions.push(int1);
-                                if (int2 && int2.trim()) interventions.push(int2);
-                            }
-                            html += `<tr>
-                                <td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #f0f0f0;">${area.name}</td>
-                                <td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #f0f0f0;">
-                                    <ul style="margin:0 0 0 18px;padding:0;font-size:1em;">
-                                        ${interventions.length > 0 ? interventions.map(idea => `<li>${idea}</li>`).join('') : '<li style="color:#888;">No suggestions</li>'}
-                                    </ul>
-                                </td>
-                            </tr>`;
-                        });
-                        html += '</tbody></table>';
+                        // Responsive rendering: table for desktop, stacked for mobile
+                        html += `
+                        <div class="areas-development-responsive">
+                            <div class="areas-development-table">
+                                <table style="width:100%;margin-top:8px;border-collapse:collapse;font-size:0.98em;">
+                                    <thead><tr><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0e0e0;">Area</th><th style="text-align:left;padding:6px 8px;border-bottom:1px solid #e0e0e0;">Ideas to consider</th></tr></thead>
+                                    <tbody>
+                                        ${bottomAreas.map(area => {
+                                            // Find intervention ideas for this area
+                                            const q = questions.find(qEl => qEl.dataset.subElement === area.name);
+                                            let interventions = [];
+                                            if (q) {
+                                                const int1 = q.getAttribute('data-intervention-1');
+                                                const int2 = q.getAttribute('data-intervention-2');
+                                                if (int1 && int1.trim()) interventions.push(int1);
+                                                if (int2 && int2.trim()) interventions.push(int2);
+                                            }
+                                            return `<tr>
+                                                <td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #f0f0f0;">${area.name}</td>
+                                                <td style="vertical-align:top;padding:6px 8px;border-bottom:1px solid #f0f0f0;">
+                                                    <ul style="margin:0 0 0 18px;padding:0;font-size:1em;">
+                                                        ${interventions.length > 0 ? interventions.map(idea => `<li>${idea}</li>`).join('') : '<li style="color:#888;">No suggestions</li>'}
+                                                    </ul>
+                                                </td>
+                                            </tr>`;
+                                        }).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="areas-development-compact">
+                                ${bottomAreas.map(area => {
+                                    // Find intervention ideas for this area
+                                    const q = questions.find(qEl => qEl.dataset.subElement === area.name);
+                                    let interventions = [];
+                                    if (q) {
+                                        const int1 = q.getAttribute('data-intervention-1');
+                                        const int2 = q.getAttribute('data-intervention-2');
+                                        if (int1 && int1.trim()) interventions.push(int1);
+                                        if (int2 && int2.trim()) interventions.push(int2);
+                                    }
+                                    return `<div class="compact-area-block" style="margin-bottom:14px;">
+                                        <div class="compact-area-title" style="font-weight:bold;color:#3d5a80;margin-bottom:4px;">${area.name}</div>
+                                        <div class="compact-area-ideas" style="margin-left:0;">
+                                            <ul style="margin:0 10 0 18px;padding:0;font-size:1em;">
+                                                ${interventions.length > 0 ? interventions.map(idea => `<li>${idea}</li>`).join('') : '<li style="color:#888;">No suggestions</li>'}
+                                            </ul>
+                                        </div>
+                                    </div>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                        `;
                     }
                     html += '</div>';
                     html += '</div>';
