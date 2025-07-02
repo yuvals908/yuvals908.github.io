@@ -114,7 +114,6 @@
             <div class="card">
                 <h2>Schoolmait in action:<br>Real School Case Study</h2>
                 <p>Watch a real case example: a school using the Schoolmait platform to promote student wellbeing — presented at the University of Luxembourg, Feb 2025.</p>
-                <!-- Removed inline style, added modifier class if specific styling needed, or target via CSS -->
                 <div class="video-embed video-embed--rounded">
                     <iframe src="https://www.youtube.com/embed/gnVXUWNIndA?start=123" title="Schoolmait Case Study Video" referrerpolicy="strict-origin-when-cross-origin" frameborder="0" loading="lazy"></iframe>
                 </div>
@@ -142,7 +141,7 @@
                 </div>
                 <div class="element-item">
                     <h3>Safety & Belonging</h3>
-                    Having a secure, supportive school environment.
+                    having a secure school environment where students feel valued and connected.
                 </div>
                 <div class="element-item">
                     <h3>Student-Teacher Relations</h3>
@@ -156,13 +155,75 @@
                     <h3>Resilience</h3>
                     Having the ability to adapt to stress and challenging experiences.
                 </div>
-                                <div class="element-item">
+                <div class="element-item">
                     <h3>Meaning & Purpose</h3>
                     Finding purpose in the world around and staying motivated.
                 </div>
             </div>
+            <!-- Accordion for mobile only -->
+            <div class="elements-accordion" style="display:none;">
+                <h3 class="element-accordion-header" data-idx="0">Physical Wellbeing</h3>
+                <div class="element-accordion-panel" style="display:none;">Maintaining a healthy diet, exercise, and sleep habits.</div>
+                <h3 class="element-accordion-header" data-idx="1">Digital Wellbeing</h3>
+                <div class="element-accordion-panel" style="display:none;">Maintaining healthy screen time management and online behavior.</div>
+                <h3 class="element-accordion-header" data-idx="2">Peer Relations</h3>
+                <div class="element-accordion-panel" style="display:none;">Building healthy and supportive relationships with peers.</div>
+                <h3 class="element-accordion-header" data-idx="3">Safety & Belonging</h3>
+                <div class="element-accordion-panel" style="display:none;">having a secure school environment where students feel valued and connected.</div>
+                <h3 class="element-accordion-header" data-idx="4">Student-Teacher Relations</h3>
+                <div class="element-accordion-panel" style="display:none;">Having positive and supportive relationships with teachers.</div>
+                <h3 class="element-accordion-header" data-idx="5">Emotion Management</h3>
+                <div class="element-accordion-panel" style="display:none;">Having skills to understand, regulate, and express emotions effectively.</div>
+                <h3 class="element-accordion-header" data-idx="6">Resilience</h3>
+                <div class="element-accordion-panel" style="display:none;">Having the ability to adapt to stress and challenging experiences.</div>
+                <h3 class="element-accordion-header" data-idx="7">Meaning & Purpose</h3>
+                <div class="element-accordion-panel" style="display:none;">Finding purpose in the world around and staying motivated.</div>
+            </div>
         </div>
     </section><br>
+
+    <script>
+    function setupElementsAccordion() {
+        var headers = document.querySelectorAll('.element-accordion-header');
+        headers.forEach(function(header) {
+            // Remove previous listeners to avoid duplicates
+            header.onclick = null;
+            header.addEventListener('click', function() {
+                var panel = header.nextElementSibling;
+                var isOpen = panel.style.display === 'block';
+                if (isOpen) {
+                    panel.style.display = 'none';
+                    header.classList.remove('active');
+                } else {
+                    panel.style.display = 'block';
+                    header.classList.add('active');
+                }
+            });
+        });
+    }
+    function showAccordionIfMobile() {
+        var accordion = document.querySelector('.elements-accordion');
+        if (!accordion) return;
+        var grid = document.querySelector('.elements-grid');
+        if (window.innerWidth <= 600) {
+            accordion.style.display = 'block';
+            if (grid) grid.style.display = 'none';
+            // Hide all panels initially
+            document.querySelectorAll('.element-accordion-panel').forEach(function(panel) {
+                panel.style.display = 'none';
+            });
+            document.querySelectorAll('.element-accordion-header').forEach(function(header) {
+                header.classList.remove('active');
+            });
+            setupElementsAccordion();
+        } else {
+            accordion.style.display = 'none';
+            if (grid) grid.style.display = '';
+        }
+    }
+    window.addEventListener('DOMContentLoaded', showAccordionIfMobile);
+    window.addEventListener('resize', showAccordionIfMobile);
+    </script>
 
     <!-- Testimonials -->
     <section class="testimonials">
@@ -306,9 +367,8 @@
     <!-- Call to Action -->
     <section class="cta" id="cognito-form">
         <h2>Want to see how it can work in your school?</h2>
-        <p>Leave your details and we’ll reach out to schedule a free consultation or a personalized demo.<br>
+        <p>Leave your details and we’ll reach out to schedule a free consultation and demo.<br>
         You can also write to us at <a href="mailto:info@Schoolmait.com">info@Schoolmait.com</a></p> <!-- Removed inline style -->
-        <!-- Removed <br>, added margin via CSS -->
         <iframe src="https://www.cognitoforms.com/f/7Y6bnLXRv0GXF3ednExIqg/9" height="390" loading="lazy"></iframe> <!-- Removed inline style -->
         <script src="https://www.cognitoforms.com/f/iframe.js"></script>
     </section>
