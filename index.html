@@ -183,22 +183,24 @@
     </section><br>
 
     <script>
+    // Only attach listeners once
     function setupElementsAccordion() {
         var headers = document.querySelectorAll('.element-accordion-header');
         headers.forEach(function(header) {
-            // Remove previous listeners to avoid duplicates
-            header.onclick = null;
-            header.addEventListener('click', function() {
-                var panel = header.nextElementSibling;
-                var isOpen = panel.style.display === 'block';
-                if (isOpen) {
-                    panel.style.display = 'none';
-                    header.classList.remove('active');
-                } else {
-                    panel.style.display = 'block';
-                    header.classList.add('active');
-                }
-            });
+            if (!header.hasAttribute('data-accordion-initialized')) {
+                header.setAttribute('data-accordion-initialized', 'true');
+                header.addEventListener('click', function() {
+                    var panel = header.nextElementSibling;
+                    var isOpen = panel.style.display === 'block';
+                    if (isOpen) {
+                        panel.style.display = 'none';
+                        header.classList.remove('active');
+                    } else {
+                        panel.style.display = 'block';
+                        header.classList.add('active');
+                    }
+                });
+            }
         });
     }
     function showAccordionIfMobile() {
@@ -221,7 +223,7 @@
             if (grid) grid.style.display = '';
         }
     }
-    window.addEventListener('DOMContentLoaded', showAccordionIfMobile);
+    document.addEventListener('DOMContentLoaded', showAccordionIfMobile);
     window.addEventListener('resize', showAccordionIfMobile);
     </script>
 
