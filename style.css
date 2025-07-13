@@ -2265,7 +2265,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scaleX(0.5);
+    transform: scaleX(0.8);
     opacity: 0.85;
 }
 
@@ -2276,10 +2276,10 @@ body {
     opacity: 1;
 }
 .testimonial-arrow-left {
-    left: 1px;
+    left: 3px;
 }
 .testimonial-arrow-right {
-    right: 1px;
+    right: 3px;
 }
 @media (max-width: 850px) {
     .testimonial-arrow {
