@@ -2248,8 +2248,7 @@ body {
 /* Carousel navigation arrows */
 .testimonial-arrow {
     position: absolute;
-    top: 60%;
-    transform: translateY(-50%);
+    top: 50%;
     background: none;
     border: none;
     color: #e63946;
@@ -2266,6 +2265,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: scaleX(0.5);
     opacity: 0.85;
 }
 
@@ -2276,10 +2276,10 @@ body {
     opacity: 1;
 }
 .testimonial-arrow-left {
-    left: -1px;
+    left: 1px;
 }
 .testimonial-arrow-right {
-    right: -1px;
+    right: 1px;
 }
 @media (max-width: 850px) {
     .testimonial-arrow {
@@ -2633,6 +2633,8 @@ body {
         cursor: pointer;
         transition: background 0.2s;
         position: relative;
+        display: flex;
+        align-items: center;
     }
     .element-accordion-header.active {
         background: #e0f7fa;
