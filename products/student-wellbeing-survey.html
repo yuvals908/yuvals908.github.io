@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const rightBtn = document.querySelector('.report-arrow-right');
     const slideNumbers = document.querySelectorAll('.slide-number');
     let idx = 0;
-    let timer = null;
     let animating = false;
 
     function showSlide(i) {
@@ -132,25 +131,14 @@ document.addEventListener('DOMContentLoaded', function() {
         let prev = (idx - 1 + slides.length) % slides.length;
         showSlide(prev);
     }
-    function startCarousel() {
-        timer = setInterval(nextSlide, 6000);
-    }
-    function stopCarousel() {
-        if (timer) clearInterval(timer);
-    }
     if (leftBtn && rightBtn) {
         leftBtn.addEventListener('click', function() {
-            stopCarousel();
             prevSlide();
-            startCarousel();
         });
         rightBtn.addEventListener('click', function() {
-            stopCarousel();
             nextSlide();
-            startCarousel();
         });
     }
-    startCarousel();
 });
 </script>
 </body>
