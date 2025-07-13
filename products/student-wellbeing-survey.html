@@ -53,10 +53,34 @@
                     <li><strong>During the survey</strong> - the survey takes approximately 10 minutes for students, 30 min for teachers and 5 minutes for parents to complete. Participants' access to connected devices is required (smartphones / tablets / laptops / computers).</li>
                     <li><strong>After the survey</strong> - additional staff time is needed to review the reports, prepare and execute intervention plans.</li>
                 </ul>
+                <h3>Outcome</h3>
+                <div class="report-carousel testimonial-carousel" style="margin-bottom: 48px; position: relative; min-height: 320px; width: 100%; overflow: visible; display: flex; align-items: center; justify-content: center;">
+                    <button class="report-arrow report-arrow-left testimonial-arrow testimonial-arrow-left" aria-label="Previous report">&lt;</button>
+                    <button class="report-arrow report-arrow-right testimonial-arrow testimonial-arrow-right" aria-label="Next report">&gt;</button>
+                    <div class="report-slide testimonial-card" style="display:block; text-align:center; position:relative; padding:54px 38px 38px 38px;">
+                        <img src="/images/report carousel/Slide1.webp" alt="Report Slide 1" class="responsive-product-img" style="margin:0 auto; display:block;">
+                    </div>
+                    <div class="report-slide testimonial-card" style="display:none; text-align:center; position:relative; padding:54px 38px 38px 38px;">
+                        <img src="/images/report carousel/Slide2.webp" alt="Report Slide 2" class="responsive-product-img" style="margin:0 auto; display:block;">
+                    </div>
+                    <div class="report-slide testimonial-card" style="display:none; text-align:center; position:relative; padding:54px 38px 38px 38px;">
+                        <img src="/images/report carousel/Slide3.webp" alt="Report Slide 3" class="responsive-product-img" style="margin:0 auto; display:block;">
+                    </div>
+                    <div class="report-slide testimonial-card" style="display:none; text-align:center; position:relative; padding:54px 38px 38px 38px;">
+                        <img src="/images/report carousel/Slide4.webp" alt="Report Slide 4" class="responsive-product-img" style="margin:0 auto; display:block;">
+                    </div>
+                    <div class="report-slide testimonial-card" style="display:none; text-align:center; position:relative; padding:54px 38px 38px 38px;">
+                        <img src="/images/report carousel/Slide5.webp" alt="Report Slide 5" class="responsive-product-img" style="margin:0 auto; display:block;">
+                    </div>
+                    <div class="report-slide testimonial-card" style="display:none; text-align:center; position:relative; padding:54px 38px 38px 38px;">
+                        <img src="/images/report carousel/Slide6.webp" alt="Report Slide 6" class="responsive-product-img" style="margin:0 auto; display:block;">
+                    </div>
+                </div>
                 <h3>Privacy</h3>
                 <p>We collect student aliases, instead of real names, so that school staff can recognize and support every student, while keeping student identities safer.</p>
                 <h3>Pricing</h3>
                 <p><a href="/pricing" class="button">Check here</a></p>
+                <h3>Outcome</h3>
             </div>
             <div class="product-image">
                 <img src="/images/school-wellbeing-score.webp" alt="Student Wellbeing Score - Dashboard for Schools" class="responsive-product-img">
@@ -66,5 +90,65 @@
 
     <div id="footer-include"></div>
     <script src="/js/include.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.report-carousel .report-slide');
+    const leftBtn = document.querySelector('.report-arrow-left');
+    const rightBtn = document.querySelector('.report-arrow-right');
+    let idx = 0;
+    let timer = null;
+    let animating = false;
+
+    function showSlide(i, direction = 1) {
+        if (animating || i === idx) return;
+        animating = true;
+        const prev = idx;
+        slides[prev].classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+        slides[i].classList.remove('active', 'slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+        // Animate out previous
+        slides[prev].classList.add(direction > 0 ? 'slide-out-left' : 'slide-out-right');
+        // Animate in next
+        slides[i].style.display = 'block';
+        slides[i].classList.add(direction > 0 ? 'slide-in-right' : 'slide-in-left');
+        setTimeout(() => {
+            slides[prev].style.display = 'none';
+            slides[i].classList.add('active');
+            animating = false;
+        }, 300);
+        idx = i;
+    }
+    slides.forEach((slide, i) => {
+        slide.style.display = i === 0 ? 'block' : 'none';
+        if (i === 0) slide.classList.add('active');
+    });
+    function nextSlide() {
+        let next = (idx + 1) % slides.length;
+        showSlide(next, 1);
+    }
+    function prevSlide() {
+        let prev = (idx - 1 + slides.length) % slides.length;
+        showSlide(prev, -1);
+    }
+    function startCarousel() {
+        timer = setInterval(nextSlide, 6000);
+    }
+    function stopCarousel() {
+        if (timer) clearInterval(timer);
+    }
+    if (leftBtn && rightBtn) {
+        leftBtn.addEventListener('click', function() {
+            stopCarousel();
+            prevSlide();
+            startCarousel();
+        });
+        rightBtn.addEventListener('click', function() {
+            stopCarousel();
+            nextSlide();
+            startCarousel();
+        });
+    }
+    startCarousel();
+});
+</script>
 </body>
 </html>
