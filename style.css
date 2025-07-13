@@ -689,10 +689,11 @@ nav ul li a:hover::after {
 }
 .footer-column h4 {
   color: #fff;
-  font-size: 1rem; /* Smaller heading */
+  font-size: 1rem; 
   margin-bottom: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+  text-align: left !important;
 }
 .footer-column ul {
   list-style: none;
@@ -2519,6 +2520,10 @@ body {
     background: transparent;
     position: relative;
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
 }
 .cta-card:nth-child(2) {
     border: 8px solid #3d5a80;
@@ -2577,6 +2582,7 @@ body {
 
 /* Specific button styling if it's a direct child for a card (like "Support Your Students") */
 .cta-card > .cta-button {
+    margin-top: auto;
     width: fit-content; /* Make button only as wide as its content */
     align-self: flex-start; /* Align to the start of the card */
 }
