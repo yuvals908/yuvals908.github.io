@@ -28,9 +28,6 @@
     <loc>https://www.schoolmait.com/products/teachers-wellbeing-survey</loc>
   </url>
   <url>
-    <loc>https://www.schoolmait.com/resources/about-sleep</loc>
-  </url>
-  <url>
     <loc>https://www.schoolmait.com/resources/blog</loc>
   </url>
   <url>
@@ -38,5 +35,8 @@
   </url>
   <url>
     <loc>https://www.schoolmait.com/resources/the-wellbeing-of-indias-children</loc>
+  </url>
+  <url>
+    <loc>https://www.schoolmait.com/resources/about-sleep</loc>
   </url>
 </urlset>
