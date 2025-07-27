@@ -907,7 +907,7 @@ nav ul li a:hover::after {
 /* ========================================================================== */
 .cta {
     padding: 80px 40px;
-    background: #e63946;
+    background: #e63947;
     text-align: center;
     border-top: 10px solid #293241;
     margin-top: 60px;
@@ -2659,5 +2659,146 @@ body {
         border-bottom: 1px solid #e0e0e0;
         display: none;
         font-size: 1em;
+    }
+}
+
+/* ========================================================================== */
+/* Cognito Forms Styling - Match Website Design */
+/* ========================================================================== */
+.cog-cognito {
+    font-family: 'Space Grotesk', sans-serif !important;
+    color: #293241 !important;
+    background: transparent !important;
+    font-size: 1em !important;
+    max-width: 100% !important;
+}
+
+.cog-cognito .cog-form__title,
+.cog-cognito .cog-form__description {
+    color: #3d5a80 !important;
+    font-weight: 700 !important;
+    text-align: left !important;
+}
+
+.cog-cognito .cog-field,
+.cog-cognito .cog-field__label,
+.cog-cognito .cog-label {
+    font-size: 1em !important;
+    font-weight: Bold !important;
+    color: #3d5a80 !important;
+    text-align: left !important;
+}
+
+.cog-cognito input[type="text"],
+.cog-cognito input[type="email"],
+.cog-cognito input[type="tel"],
+.cog-cognito input[type="number"],
+.cog-cognito textarea,
+.cog-cognito select {
+    width: 100% !important;
+    padding: 8px 12px !important;
+    border: 1px solid #cccccc !important;
+    border-radius: 5px !important;
+    background: #fff !important;
+    color: #293241 !important;
+    font-size: 1em !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s;
+}
+
+.cog-cognito input:focus,
+.cog-cognito textarea:focus,
+.cog-cognito select:focus {
+    border-color: #1a9cff !important;
+    outline: none !important;
+}
+
+.cog-cognito .cog-button,
+.cog-cognito button[type="submit"] {
+    background: #d43d4a !important;
+    color: #fff !important;
+    border: 1.5px solid #fff !important;
+    border-radius: 5px !important;
+    padding: 12px 28px !important;
+    font-size: 1em !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background 0.2s;
+    margin-top: 10px !important;
+    box-shadow: none !important;
+}
+
+.cog-cognito .cog-button:hover,
+.cog-cognito button[type="submit"]:hover {
+    background: #c42a37 !important;
+}
+
+.cog-cognito .cog-error,
+.cog-cognito .cog-validation-summary {
+    color: #e63946 !important;
+    background: #f6babe !important;
+    border-left: 4px solid #e63946 !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    margin-bottom: 14px !important;
+    font-size: 0.98em !important;
+}
+
+.cog-cognito .cog-required {
+    color: #e63946 !important;
+}
+
+.cog-cognito .cog-radio,
+.cog-cognito .cog-checkbox {
+    accent-color: #3d5a80 !important;
+    margin-right: 8px !important;
+}
+
+.cog-cognito .cog-form__footer {
+    border-top: 1px solid #e0e0e0 !important;
+    margin-top: 24px !important;
+    padding-top: 18px !important;
+    color: #888 !important;
+    font-size: 0.95em !important;
+    background: transparent !important;
+}
+
+.cog-cognito .cog-field__helptext {
+    color: #555 !important;
+    font-size: 0.95em !important;
+    margin-bottom: 8px !important;
+}
+
+.cog-cognito .cog-progress-bar__bar {
+    background: #3d5a80 !important;
+    border-radius: 4px !important;
+}
+
+.cog-cognito .cog-progress-bar__container {
+    background: #bdd7e7 !important;
+    border-radius: 4px !important;
+}
+
+.cog-cognito .cog-form__section {
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+}
+
+/* Responsive adjustments for Cognito Forms */
+@media (max-width: 600px) {
+    .cog-cognito {
+        font-size: 0.98em !important;
+        padding: 0 !important;
+    }
+    .cog-cognito input,
+    .cog-cognito textarea,
+    .cog-cognito select {
+        font-size: 1em !important;
+        padding: 10px 8px !important;
+    }
+    .cog-cognito .cog-form__title {
+        font-size: 1.2em !important;
     }
 }
