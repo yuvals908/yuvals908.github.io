@@ -1983,6 +1983,7 @@ body {
 }
 @media(max-width:1024px) {
     .blog-article-card {
+        max-width: 800px;
         flex-direction: column;
         align-items: center;
     }
@@ -1996,11 +1997,18 @@ body {
     background: #fff;
 }
 @media(max-width:1024px) {
+    .blog-article-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     .blog-article-image {
-        width: 100%;
+        width:50%;
         height: auto;
         margin-right: 0;
         margin-bottom: 16px;
+        display: block;
+        float: none;
+        object-position: left;
     }
 }
 .blog-article-image-left {
@@ -2086,7 +2094,7 @@ body {
 /* --- Carousel styles --- */
 .testimonial-carousel {
     position: relative;
-    min-height: 320px;
+    min-height: 340px;
     width: 100%;
     overflow: visible; /* changed from hidden to visible */
     display: flex;
