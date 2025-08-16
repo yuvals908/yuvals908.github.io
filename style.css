@@ -45,10 +45,10 @@ ul {
 }
 
 ul li {
-    margin-top: 2px;
+    margin-top: 3px;
     padding-left: 30px;
     padding-right: 10px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     position: relative;
     transition: transform .2s ease;
     text-align: left;
@@ -604,20 +604,13 @@ nav ul li a:hover::after {
     margin: 0 auto;
 }
 
-.quote-section blockquote {
-    font-size: clamp(1.2rem, 2vw + 0.5rem, 1.6rem);
-    font-weight: bold;
-    margin: 0 auto 20px auto;
-    max-width: 800px;
-    line-height: 1.4;
-    border: none;
-    padding: 0;
-    font-family: 'Space Grotesk', sans-serif;
+blockquote,
+.info-card blockquote {
+    font-size: 1.35em;
 }
 
-
 .quote-section cite {
-    font-size: 0.9em;
+    font-size: 1em;
     font-style: normal;
     color: #bdc3c7;
     display: block;
@@ -1933,6 +1926,7 @@ body {
 }
 .article-title-margin {
     margin-bottom: 0.5em;
+    font-size: 2.2em;
     text-align: center;
 }
 .article-heading-red { 
@@ -2067,7 +2061,7 @@ body {
 
 /* === Additional classes for moved inline styles === */
 .quote-author-small {
-    font-size: 0.8em;
+    font-size: 0.6em;
 }
 
 .margin-bottom-5 {
