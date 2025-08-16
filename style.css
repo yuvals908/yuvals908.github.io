@@ -22,7 +22,8 @@ html, body {
     width: 100%;
     overflow-x: hidden;
     color: #293241;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.5;
     text-align: center;
 }
 
@@ -44,9 +45,10 @@ ul {
 }
 
 ul li {
+    margin-top: 2px;
     padding-left: 30px;
     padding-right: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
     position: relative;
     transition: transform .2s ease;
     text-align: left;
@@ -1570,6 +1572,18 @@ nav ul li a:hover::after {
   }
 }
 
+/* Hide header (nav) on all printed pages except the first page */
+@media print {
+    nav {
+        display: none !important;
+    }
+    @page:first {
+        body nav {
+            display: flex !important;
+        }
+    }
+}
+
 /* Accordion clickable header style */
 .accordion-header {
     cursor: pointer;
@@ -1919,21 +1933,27 @@ body {
 }
 .article-title-margin {
     margin-bottom: 0.5em;
+    text-align: center;
 }
 .article-heading-red { 
     color: #e63946;
     margin-bottom: 1.5em;
+    text-align: center;
 }
 .article-author-info {
     font-size: 1rem;
     color: #555;
     margin-bottom: 1.5em;
+    text-align: center;
 }
 .article-image {
     width: 100%;
     max-width: 600px;
     border-radius: 12px;
     margin-bottom: 2em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .references-list {
     font-size: 0.85rem;
