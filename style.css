@@ -88,7 +88,7 @@ nav {
 }
 
 .logo {
-    width: 250px;
+    width: 200px;
     border-radius: 5%;
     margin-left: 15%;
     display: block;
@@ -1202,7 +1202,7 @@ blockquote,
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
-        background-color: white;
+        background-color: #ececec;
         border-bottom: #23283a 1px solid;
     }
 
@@ -1534,7 +1534,7 @@ blockquote,
         padding: 10px 0;
     }
     nav{
-        background-color: white;
+        background-color: #ececec;
     }
 
     #cookie-banner {
