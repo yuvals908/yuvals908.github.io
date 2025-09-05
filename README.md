@@ -1,4 +1,4 @@
-# Welcome to the yuvals908 github **Website Rebuild** repository
+# Welcome to the yuvals908 github **Website Rebuild** repository 
 
 This README explains the preffered way to work with Git using VSCode and Google Drive.
 
