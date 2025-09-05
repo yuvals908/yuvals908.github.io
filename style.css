@@ -82,20 +82,19 @@ nav {
     margin-left: -50vw;
     margin-right: -50vw;
     z-index: 1000;
-   /* background-color: #293241;*/
     padding: 10px 0;
     box-sizing: border-box;
 }
 
 .logo {
-    width: 250px;
+    width: 200px;
     border-radius: 5%;
     margin-left: 15%;
     display: block;
 }
 @media (max-width: 1024px) {
     .logo {
-        width: 200px;
+        width: 150px;
         margin-left: 5%;
     }
 }
@@ -1202,7 +1201,7 @@ blockquote,
         right: 50%;
         margin-left: -50vw;
         margin-right: -50vw;
-        background-color: white;
+        background-color: #ececec;
         border-bottom: #23283a 1px solid;
     }
 
@@ -1534,7 +1533,7 @@ blockquote,
         padding: 10px 0;
     }
     nav{
-        background-color: white;
+        background-color: #ECECEC;
     }
 
     #cookie-banner {
