@@ -1175,6 +1175,262 @@ blockquote,
 }
 
 /* ========================================================================== */
+/* New Styles for Redesign */
+/* ========================================================================== */
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Trusted by Section */
+.trusted-by-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.trusted-by-section h2 {
+    margin-bottom: 30px;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.logos img {
+    height: 40px;
+}
+
+/* Challenges Section */
+.challenges-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.challenges-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.challenges-section > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.challenge-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Difference Section */
+.difference-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+}
+
+.difference-image {
+    max-width: 50%;
+}
+
+.difference-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.difference-content {
+    max-width: 50%;
+    padding-left: 40px;
+}
+
+.difference-content ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.difference-content li {
+    margin-bottom: 20px;
+}
+
+/* Approach Section */
+.approach-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.approach-section h2, .approach-section > p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.approach-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.approach-image img {
+    width: 100%;
+    height: auto;
+}
+
+.approach-content {
+    padding: 30px;
+}
+
+/* Reports Section */
+.reports-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+}
+
+.reports-content {
+    max-width: 50%;
+}
+
+.reports-image {
+    max-width: 50%;
+}
+
+.reports-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.testimonials-section h2, .testimonials-section > p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+/* Final CTA Section */
+.final-cta-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #e63946;
+    color: #fff;
+}
+
+.final-cta-section h2 {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #e63946;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #c42a37;
+}
+
+.btn-secondary {
+    background-color: #3d5a80;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #293241;
+}
+
+
+/* ========================================================================== */
 /* Media Queries */
 /* ========================================================================== */
 @media (max-width: 1024px) {
