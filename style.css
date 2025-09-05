@@ -82,7 +82,6 @@ nav {
     margin-left: -50vw;
     margin-right: -50vw;
     z-index: 1000;
-   /* background-color: #293241;*/
     padding: 10px 0;
     box-sizing: border-box;
 }
@@ -95,7 +94,7 @@ nav {
 }
 @media (max-width: 1024px) {
     .logo {
-        width: 200px;
+        width: 150px;
         margin-left: 5%;
     }
 }
